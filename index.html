@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videoproduktion &amp; Social Media Content Aschaffenburg – Jäger Shot Productions</title>
+<meta name="description" content="Jeden Monat fertiger Video-Content für deinen Betrieb. Videoproduktion &amp; Social Media aus Aschaffenburg für das Rhein-Main-Gebiet und Unterfranken. Ohne Knebelverträge, ohne Agentursprache.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Schibsted Grotesk',sans-serif;
+  font-size:17px;
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+section{padding:110px 0;border-top:1px solid var(--linie)}
+section:first-of-type{border-top:none}
+h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px}
+.lead strong{color:var(--leinwand);font-weight:500}
+
+.btn{
+  display:inline-block;
+  background:var(--rot);
+  color:#FFFFFF;
+  font-weight:700;
+  font-size:16px;
+  padding:16px 32px;
+  border-radius:4px;
+  border:none;
+  cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
+.btn-ghost{
+  display:inline-block;
+  color:var(--leinwand);
+  font-weight:500;
+  font-size:16px;
+  padding:16px 8px;
+  border-bottom:1px solid var(--linie);
+  transition:border-color .18s ease;
+}
+.btn-ghost:hover{border-color:var(--rot)}
+.trust-line{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:.06em;
+  color:var(--grau);
+  margin-top:18px;
+}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--grau);transition:color .15s}
+.nav-links a:hover{color:var(--leinwand)}
+.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn:hover{color:#FFFFFF}
+.nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:26px;cursor:pointer}
+
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  padding:140px 0 90px;
+  border-top:none;
+}
+.hero video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(.32) saturate(.72) contrast(1.02);
+  z-index:0;
+}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(11,11,13,.94) 0%,rgba(11,11,13,.8) 34%,rgba(11,11,13,.42) 66%,rgba(11,11,13,.6) 100%),
+    linear-gradient(180deg,rgba(11,11,13,.7) 0%,rgba(11,11,13,.18) 34%,rgba(11,11,13,.55) 78%,var(--schwarz) 100%);
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;left:0;right:0;background:var(--schwarz);z-index:2;pointer-events:none;
+}
+.hero::before{top:0;height:56px}
+.hero::after{bottom:0;height:120px;background:linear-gradient(180deg,rgba(11,11,13,0) 0%,var(--schwarz) 82%)}
+.hero .wrap{position:relative;z-index:3}
+.hero-claim{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--rot-hell);margin-bottom:26px;
+}
+.hero h1{
+  font-size:clamp(44px,7.4vw,92px);
+  max-width:900px;
+}
+.hero h1 .rot{color:var(--rot-hell)}
+.hero .lead{margin:26px 0 38px;max-width:560px;color:#C9C7C0}
+.hero-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+.problem-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.problem-list{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.problem-item{
+  padding:22px 0;border-bottom:1px solid var(--linie);
+  font-size:18px;color:var(--grau);
+}
+.problem-item strong{color:var(--leinwand);font-weight:500}
+.problem-punch{
+  margin-top:34px;font-size:clamp(22px,3vw,28px);
+  font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.2;
+}
+.problem-punch span{color:var(--rot-hell)}
+
+.kern-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:50px}
+.kern-card{
+  background:var(--karte);
+  border:1px solid var(--linie);
+  border-radius:8px;
+  padding:30px 28px;
+}
+.kern-card.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.kern-card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.kern-card h3 .no{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--rot-hell);
+  display:block;margin-bottom:10px;letter-spacing:.12em;
+}
+.kern-card p{color:var(--grau);font-size:15.5px}
+@media(max-width:760px){.kern-grid{grid-template-columns:1fr}.kern-card.wide{grid-template-columns:1fr;grid-column:auto}}
+
+.anker{
+  background:var(--karte);
+  border:1px solid var(--rot-dunkel);
+  border-radius:8px;
+  padding:26px 30px;
+  margin:44px 0 40px;
+  display:flex;gap:20px;align-items:flex-start;
+}
+.anker-icon{
+  font-family:'IBM Plex Mono',monospace;color:var(--rot-hell);font-size:13px;
+  letter-spacing:.12em;white-space:nowrap;padding-top:3px;
+}
+.anker p{color:var(--leinwand);font-size:16.5px;max-width:720px}
+.anker p span{color:var(--grau)}
+.pakete-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.paket{
+  background:var(--karte);
+  border:1px solid var(--linie);
+  border-radius:8px;
+  padding:34px 30px;
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.paket.featured{border-color:var(--rot)}
+.paket .badge{
+  position:absolute;top:-13px;left:30px;
+  background:var(--rot);color:#FFFFFF;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:3px;
+}
+.paket .laufzeit{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--grau);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
+}
+.paket h3{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase;letter-spacing:.02em;font-weight:400;margin-bottom:4px}
+.paket .rabatt{color:var(--rot-hell);font-weight:700;font-size:15px;margin-bottom:24px}
+.paket ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex:1}
+.paket li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative}
+.paket li::before{content:"—";position:absolute;left:0;color:var(--rot)}
+.paket li strong{color:var(--leinwand);font-weight:500}
+.paket .btn,.paket .btn-ghost{text-align:center;width:100%}
+.pakete-fussnote{margin-top:28px;color:var(--grau);font-size:15px;max-width:680px}
+@media(max-width:860px){.pakete-grid{grid-template-columns:1fr}}
+
+.ablauf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.schritt{
+  border-top:2px solid var(--rot);
+  padding-top:26px;
+}
+.schritt .snum{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--rot-hell);
+  letter-spacing:.14em;display:block;margin-bottom:14px;
+}
+.schritt h3{font-size:20px;font-weight:700;margin-bottom:12px}
+.schritt p{color:var(--grau);font-size:15.5px}
+@media(max-width:760px){.ablauf-grid{grid-template-columns:1fr}}
+
+.zitate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:50px 0 70px}
+.zitat{
+  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  padding:30px 28px;display:flex;flex-direction:column;gap:18px;
+}
+.zitat p{color:var(--leinwand);font-size:16px;font-style:italic;flex:1}
+.zitat .autor{font-size:14px;color:var(--grau)}
+.zitat .autor strong{color:var(--leinwand);font-weight:700;font-style:normal;display:block}
+.platzhalter{
+  border-style:dashed;border-color:var(--rot-dunkel);
+}
+.platzhalter .ph-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--rot-hell);
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.logo-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:center;
+}
+.logo-grid .logo-cell{
+  background:var(--karte);border:1px solid var(--linie);border-radius:6px;
+  padding:18px;display:flex;align-items:center;justify-content:center;height:86px;
+}
+.logo-grid img{
+  max-height:44px;width:auto;max-width:100%;
+  filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;
+  transition:filter .2s,opacity .2s;
+}
+.logo-grid .logo-cell:hover img{filter:grayscale(0) brightness(1);opacity:1}
+@media(max-width:860px){.zitate-grid{grid-template-columns:1fr}.logo-grid{grid-template-columns:repeat(3,1fr)}}
+
+.leistungen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.leistung{
+  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.leistung img{height:190px;width:100%;object-fit:cover;filter:saturate(.85)}
+.leistung .l-body{padding:26px 26px 30px}
+.leistung h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:19px;margin-bottom:10px}
+.leistung p{color:var(--grau);font-size:15px}
+@media(max-width:860px){.leistungen-grid{grid-template-columns:1fr}}
+
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:20px}
+.team-fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.team-fotos img{border-radius:8px;object-fit:cover;height:100%;filter:saturate(.9)}
+.team-fotos img:first-child{grid-column:1/-1;max-height:340px;width:100%}
+.team-text h2{margin-bottom:22px}
+.team-text p{color:var(--grau);margin-bottom:18px}
+.team-text p strong{color:var(--leinwand);font-weight:500}
+.team-fakt{
+  border-left:2px solid var(--rot);padding:6px 0 6px 20px;margin:28px 0;
+  font-size:17px;color:var(--leinwand);
+}
+@media(max-width:860px){.team-grid{grid-template-columns:1fr;gap:40px}}
+
+.ref-band{
+  background:var(--anthrazit);
+  text-align:center;
+}
+.ref-band h2{margin-bottom:14px}
+.ref-band .lead{margin:0 auto 36px}
+
+.faq-list{margin-top:50px;max-width:800px}
+details{border-bottom:1px solid var(--linie)}
+summary{
+  cursor:pointer;list-style:none;
+  padding:24px 40px 24px 0;position:relative;
+  font-size:18px;font-weight:700;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  color:var(--rot);font-size:24px;font-weight:400;transition:transform .2s;
+}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details .antwort{padding:0 0 26px;color:var(--grau);max-width:700px}
+details .antwort strong{color:var(--leinwand);font-weight:500}
+
+.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:50px}
+.kontakt-info p{color:var(--grau);margin-bottom:24px}
+.kontakt-info p strong{color:var(--leinwand);font-weight:500}
+.kontakt-daten{
+  font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:2.1;color:var(--grau);
+  border-top:1px solid var(--linie);padding-top:24px;margin-top:8px;
+}
+.kontakt-daten a{color:var(--leinwand)}
+.kontakt-daten a:hover{color:var(--rot)}
+form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:13.5px;font-weight:500;color:var(--grau);display:block;margin-bottom:6px}
+input,textarea{
+  width:100%;background:var(--karte);border:1px solid var(--linie);border-radius:6px;
+  padding:14px 16px;color:var(--leinwand);font-family:inherit;font-size:15.5px;
+  transition:border-color .15s;
+}
+input:focus,textarea:focus{outline:none;border-color:var(--rot)}
+textarea{min-height:110px;resize:vertical}
+.form-hinweis{font-size:13px;color:var(--grau)}
+.form-hinweis a{text-decoration:underline}
+@media(max-width:860px){.kontakt-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+
+footer{
+  border-top:1px solid var(--linie);
+  padding:50px 0 40px;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+}
+@media(max-width:760px){
+  section{padding:70px 0}
+  .hero{padding:118px 0 70px}
+  h2.display{font-size:clamp(30px,8vw,44px)}
+  .problem-grid{grid-template-columns:1fr;gap:36px}
+  .anker{flex-direction:column;gap:12px}
+  .team-grid{gap:32px}
+  .kontakt-grid{gap:40px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:34px}
+  .hero-claim{letter-spacing:.2em;font-size:12px}
+  .hero-ctas{gap:14px}
+  .hero-ctas .btn,.hero-ctas .btn-ghost{width:100%;text-align:center}
+  .btn-ghost{border-top:1px solid var(--linie);padding:14px 8px}
+  .logo-grid{grid-template-columns:repeat(2,1fr)}
+  .kern-card,.paket,.zitat{padding:26px 22px}
+  summary{font-size:16.5px;padding-right:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Jäger Shot Productions">
+      <img src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=800&height=503" alt="Jäger Shot Productions Logo">
+    </a>
+    <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#pakete">Monatspakete</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#team">Team</a>
+      <a href="https://www.jaeger-shot.de/referenzvideos">Referenzen</a>
+      <a href="#faq">Fragen</a>
+      <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ SZENE 01: HERO ============ -->
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline poster="">
+    <source src="https://framerusercontent.com/assets/cTz3DknhitJ8cqcbwZAW0fWcRCc.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <p class="hero-claim">Your Vision. Our Shot.</p>
+    <h1 class="display">Sichtbarkeit, die <span class="rot">Kunden bringt.</span> Nicht nur Klicks.</h1>
+    <p class="lead">Wir produzieren jeden Monat professionelle Videos für deinen Betrieb. Du kümmerst dich um dein Geschäft, wir uns um deinen Auftritt.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+      <a class="btn-ghost" href="https://www.jaeger-shot.de/referenzvideos">Referenzen ansehen</a>
+    </div>
+    <p class="trust-line">Aschaffenburg · Rhein-Main · Main-Spessart · Unterfranken</p>
+  </div>
+</header>
+
+<!-- ============ SZENE 02: PROBLEM ============ -->
+<section>
+  <div class="wrap">
+    <div class="problem-grid">
+      <div>
+        <p class="timecode">Szene 02 <span class="tc-num">// Kommt dir das bekannt vor?</span></p>
+        <h2 class="display">Du weißt, dass du sichtbar sein müsstest.</h2>
+        <p class="lead">Deine Konkurrenz postet schon. Deine Kunden sind längst auf Instagram und Facebook unterwegs. Und du?</p>
+      </div>
+      <div>
+        <div class="problem-list">
+          <div class="problem-item"><strong>Dir fehlt die Zeit.</strong> Du hast einen Betrieb zu führen, keine Content-Abteilung.</div>
+          <div class="problem-item"><strong>Dir fehlt die Lust.</strong> Selbst filmen, schneiden, posten? Ganz ehrlich: Das ist nicht dein Job.</div>
+          <div class="problem-item"><strong>Und vielleicht bist du gebrannt.</strong> Große Versprechen, langer Vertrag, wenig dahinter. Kennst du? Kennen wir auch.</div>
+        </div>
+        <p class="problem-punch">Genau dafür gibt es uns. <span>Und zwar anders, als du es erwartest.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 03: DAS GEGENTEIL DER TYPISCHEN AGENTUR ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 03 <span class="tc-num">// Warum wir anders arbeiten</span></p>
+    <h2 class="display">Das Gegenteil der typischen Agentur.</h2>
+    <p class="lead">Wir wissen, was Unternehmer an Agenturen nervt. Deshalb haben wir uns bewusst anders aufgestellt. Kein Marketing-Sprech, sondern fünf Zusagen, die wir halten können, weil unsere Struktur genau dafür gemacht ist.</p>
+    <div class="kern-grid">
+      <div class="kern-card">
+        <h3><span class="no">01</span>Immer dieselben Gesichter</h3>
+        <p>Beim Erstgespräch, beim Dreh und beim Schnitt: Du redest immer mit Ronny und Maria. Kein Wechsel zum unerfahrenen Mitarbeiter nach Vertragsabschluss.</p>
+      </div>
+      <div class="kern-card">
+        <h3><span class="no">02</span>Transparenz statt Blackbox</h3>
+        <p>Du weißt vor der Zusammenarbeit, in welchem Rahmen du dich preislich bewegst und was du dafür bekommst. Keine versteckten Kosten, keine Überraschungen auf der Rechnung.</p>
+      </div>
+      <div class="kern-card">
+        <h3><span class="no">03</span>Faire Pakete statt Knebelverträge</h3>
+        <p>Wer länger bucht, bekommt einen besseren Preis. Das ist eine Belohnung für Vertrauen, kein Käfig. Du entscheidest, welche Laufzeit zu dir passt.</p>
+      </div>
+      <div class="kern-card">
+        <h3><span class="no">04</span>Kein Verkaufsdruck</h3>
+        <p>Ein unverbindliches Gespräch, eine ehrliche Einschätzung. Wenn etwas für dich keinen Sinn ergibt, sagen wir dir das. Auch wenn wir daran nichts verdienen.</p>
+      </div>
+      <div class="kern-card wide">
+        <div>
+          <h3><span class="no">05</span>Planbare Entlastung</h3>
+          <p>Jeden Monat kommt zuverlässig fertiger Content bei dir an, einsatzbereit für deine Kanäle. Du musst nichts organisieren, nichts nachhalten, nichts können.</p>
+        </div>
+        <p style="font-family:'Anton',sans-serif;text-transform:uppercase;font-size:22px;line-height:1.25;color:var(--leinwand)">Wir kümmern uns um die Produktion.<br><span style="color:var(--rot-hell)">Du dich um dein Geschäft.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 04: MONATSPAKETE ============ -->
+<section id="pakete">
+  <div class="wrap">
+    <p class="timecode">Szene 04 <span class="tc-num">// Unser Kernangebot</span></p>
+    <h2 class="display">Jeden Monat fertiger Content. Ohne dass du dich kümmern musst.</h2>
+    <p class="lead">Für Unternehmen, die dauerhaft präsent sein wollen: regelmäßige Reels, professionell gedreht und geschnitten, fertig für Instagram, Facebook, TikTok und deine Website.</p>
+
+    <div class="anker">
+      <span class="anker-icon">Preis-Orientierung</span>
+      <p>Unsere Monatspakete starten im niedrigen vierstelligen Bereich pro Monat. <span>Den genauen Umfang schneiden wir im Erstgespräch auf deinen Betrieb zu, damit du für nichts zahlst, was du nicht brauchst.</span></p>
+    </div>
+
+    <div class="pakete-grid">
+      <div class="paket">
+        <p class="laufzeit">3 Monate Laufzeit</p>
+        <h3>Content Booster</h3>
+        <p class="rabatt">10 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>6 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Ideal zum <strong>risikoarmen Reinschnuppern</strong></li>
+        </ul>
+        <a class="btn-ghost" href="#kontakt">Im Gespräch besprechen</a>
+      </div>
+      <div class="paket featured">
+        <span class="badge">Meistgewählt</span>
+        <p class="laufzeit">6 Monate Laufzeit</p>
+        <h3>Premium Paket</h3>
+        <p class="rabatt">20 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>12 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Genug Zeit, damit dein Auftritt <strong>sichtbar Wirkung zeigt</strong></li>
+        </ul>
+        <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+      </div>
+      <div class="paket">
+        <p class="laufzeit">12 Monate Laufzeit</p>
+        <h3>VIP Jahrespaket</h3>
+        <p class="rabatt">30 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>24 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Der beste Preis pro Video, für alle, die es <strong>ernst meinen</strong></li>
+        </ul>
+        <a class="btn-ghost" href="#kontakt">Im Gespräch besprechen</a>
+      </div>
+    </div>
+    <p class="pakete-fussnote">Du brauchst kein Monatspaket, sondern ein einzelnes Projekt wie einen Imagefilm oder Eventfilm? Kein Problem. Alle Einzelleistungen findest du <a href="#leistungen" style="color:var(--rot-hell)">weiter unten</a>.</p>
+  </div>
+</section>
+
+<!-- ============ SZENE 05: ABLAUF ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 05 <span class="tc-num">// So läuft die Zusammenarbeit</span></p>
+    <h2 class="display">In drei Schritten zu deinem Content.</h2>
+    <p class="lead">Kein Projektchaos, keine endlosen Meetings. Der Aufwand für dich bleibt minimal, versprochen.</p>
+    <div class="ablauf-grid">
+      <div class="schritt">
+        <span class="snum">Schritt 01</span>
+        <h3>Kostenloses Erstgespräch</h3>
+        <p>Wir hören zu: Was ist dein Betrieb, wen willst du erreichen, was soll rauskommen? Du bekommst eine ehrliche Einschätzung, was für dich Sinn ergibt. Und was nicht.</p>
+      </div>
+      <div class="schritt">
+        <span class="snum">Schritt 02</span>
+        <h3>Wir drehen bei dir vor Ort</h3>
+        <p>Ronny kommt mit der Kamera zu dir. Du brauchst kein Drehbuch, keine Technik und keine Kamera-Erfahrung. Wir führen dich durch alles und sorgen dafür, dass es echt aussieht, nicht gestellt.</p>
+      </div>
+      <div class="schritt">
+        <span class="snum">Schritt 03</span>
+        <h3>Du bekommst fertigen Content</h3>
+        <p>Geschnitten, vertont, mit deinem Logo, fertig zum Posten. Jeden Monat, zuverlässig. Du lädst hoch oder wir zeigen dir, wie es am einfachsten geht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 06: BEWEIS ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 06 <span class="tc-num">// Das sagen unsere Kunden</span></p>
+    <h2 class="display">Vertrauen kann man sehen.</h2>
+    <p class="lead">Unternehmen aus der Region und darüber hinaus setzen auf uns. Hier ein paar Stimmen aus der Zusammenarbeit.</p>
+
+    <div class="zitate-grid">
+      <div class="zitat platzhalter">
+        <span class="ph-tag">Platzhalter · Kundenstimme 1</span>
+        <p>„Hier kommt ein echtes Zitat mit konkretem Ergebnis rein, z. B. mehr Anfragen, mehr Bewerbungen oder gewachsene Reichweite."</p>
+        <div class="autor"><strong>Name folgt</strong>Firma, Ort</div>
+      </div>
+      <div class="zitat platzhalter">
+        <span class="ph-tag">Platzhalter · Kundenstimme 2</span>
+        <p>„Idealerweise eine Stimme, die die unkomplizierte Zusammenarbeit und die kurzen Wege bestätigt."</p>
+        <div class="autor"><strong>Name folgt</strong>Firma, Ort</div>
+      </div>
+      <div class="zitat platzhalter">
+        <span class="ph-tag">Platzhalter · Kundenstimme 3</span>
+        <p>„Und eine Stimme von jemandem, der vorher skeptisch war oder schlechte Agentur-Erfahrungen hatte."</p>
+        <div class="autor"><strong>Name folgt</strong>Firma, Ort</div>
+      </div>
+    </div>
+
+    <div class="logo-grid">
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="Kundenlogo" loading="lazy"></div>
+      <div class="logo-cell"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="Kundenlogo" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 07: EINZELLEISTUNGEN ============ -->
+<section id="leistungen">
+  <div class="wrap">
+    <p class="timecode">Szene 07 <span class="tc-num">// Für einzelne Projekte</span></p>
+    <h2 class="display">Ein Projekt statt Paket? Machen wir auch.</h2>
+    <p class="lead">Vom Imagefilm bis zur Drohnenaufnahme: Jede Leistung gibt es auch einzeln, individuell auf dein Projekt zugeschnitten.</p>
+    <div class="leistungen-grid">
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/L5oZ8ghbbUgwulunn6EyGrxWdB8.jpg?width=800&height=800" alt="Videoproduktion" loading="lazy">
+        <div class="l-body">
+          <h3>Videoproduktion</h3>
+          <p>Image- und Werbefilme, die Vertrauen schaffen. Damit Interessenten dich schon kennen, bevor sie das erste Mal anrufen.</p>
+        </div>
+      </div>
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=800&height=800" alt="Social Media Content" loading="lazy">
+        <div class="l-body">
+          <h3>Social Media Content</h3>
+          <p>Reels und Grafiken, die auffallen und zu deiner Marke passen. Damit du im Feed deiner Kunden auftauchst, nicht nur deine Konkurrenz.</p>
+        </div>
+      </div>
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=800&height=800" alt="Drohnenaufnahmen" loading="lazy">
+        <div class="l-body">
+          <h3>Drohnenaufnahmen</h3>
+          <p>Dein Betrieb, deine Location oder deine Immobilie aus der Perspektive, die Eindruck macht. Hochauflösend, aus der Luft.</p>
+        </div>
+      </div>
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=800&height=800" alt="Videoschnitt und Postproduktion" loading="lazy">
+        <div class="l-body">
+          <h3>Schnitt &amp; Postproduktion</h3>
+          <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
+        </div>
+      </div>
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=800&height=800" alt="Eventfilm und Aftermovie" loading="lazy">
+        <div class="l-body">
+          <h3>Eventfilm &amp; Aftermovie</h3>
+          <p>Dein Event lebt weiter: als Film, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
+        </div>
+      </div>
+      <div class="leistung">
+        <img src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=800&height=800" alt="Marketing und Grafikdesign" loading="lazy">
+        <div class="l-body">
+          <h3>Marketing &amp; Design</h3>
+          <p>Flyer, Visitenkarten, Grafikdesign und Branding. Ein Auftritt aus einem Guss, online wie gedruckt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 08: TEAM ============ -->
+<section id="team">
+  <div class="wrap">
+    <div class="team-grid">
+      <div class="team-fotos">
+        <img src="https://framerusercontent.com/images/71h82DY5H3xZuwWX0wRcp2BOA.jpg?width=1200&height=1210" alt="Ronny Jäger und Maria Krämer, Jäger Shot Productions" loading="lazy">
+        <img src="https://framerusercontent.com/images/IOfSXyNpySSNQvEXJaWMC0XbE.jpg?width=800&height=874" alt="Ronny hinter der Kamera" loading="lazy">
+        <img src="https://framerusercontent.com/images/zPxJ7RgYCsIKdMMOoAKnIhuwYAE.jpg?width=800&height=1108" alt="Maria in der Regie" loading="lazy">
+      </div>
+      <div class="team-text">
+        <p class="timecode">Szene 08 <span class="tc-num">// Wer hinter der Kamera steht</span></p>
+        <h2 class="display">Kamera trifft Regie.</h2>
+        <p><strong>Ronny hinter der Kamera, Maria in der Regie.</strong> Wir sind ein eingespieltes Zwei-Personen-Team und arbeiten seit Jahren Hand in Hand. Das heißt für dich: kurze Abstimmungen, schnelle Umsetzung und keine Warteschleifen.</p>
+        <div class="team-fakt">Die Personen, die du im Erstgespräch kennenlernst, sind dieselben, die bei dir drehen und dein Material schneiden. Immer.</div>
+        <p>Für größere Produktionen holen wir gezielt Spezialisten aus unserem Netzwerk dazu. So stemmen wir spontanen Content genauso wie die große Imagefilm-Produktion, ohne dass du je mit Fremden am Tisch sitzt.</p>
+        <a class="btn" href="#kontakt" style="margin-top:10px">Lern uns kennen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 09: REFERENZVIDEOS ============ -->
+<section class="ref-band">
+  <div class="wrap">
+    <p class="timecode" style="justify-content:center">Szene 09 <span class="tc-num">// Beispiele statt Behauptungen</span></p>
+    <h2 class="display">Schau dir an, was dabei rauskommt.</h2>
+    <p class="lead">Reels, Firmenporträts und Imagefilme aus echten Projekten. Kein Show-Material, sondern Arbeiten für Kunden wie dich.</p>
+    <a class="btn" href="https://www.jaeger-shot.de/referenzvideos">Referenzvideos ansehen</a>
+  </div>
+</section>
+
+<!-- ============ SZENE 10: FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="timecode">Szene 10 <span class="tc-num">// Ehrliche Antworten</span></p>
+    <h2 class="display">Die Fragen, die du dir vermutlich stellst.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Was kostet das ungefähr?</summary>
+        <div class="antwort">Unsere Monatspakete starten <strong>im niedrigen vierstelligen Bereich pro Monat</strong>. Der genaue Preis hängt vom Umfang ab, den wir gemeinsam im Erstgespräch festlegen. Größere Einzelprojekte wie Imagefilme kalkulieren wir individuell, weil sich ein seriöses Angebot dafür nicht über ein Preisschild machen lässt. Was wir dir versprechen: Du kennst den Preis, bevor du dich entscheidest. Ohne versteckte Kosten.</div>
+      </details>
+      <details>
+        <summary>Muss ich selbst vor die Kamera?</summary>
+        <div class="antwort">Nur wenn du willst. Viele unserer besten Videos funktionieren ganz ohne, dass der Chef spricht: Einblicke in den Betrieb, das Team bei der Arbeit, fertige Projekte. Und falls du doch vor die Kamera möchtest: <strong>Wir führen dich durch alles.</strong> Kamera-Erfahrung brauchst du keine.</div>
+      </details>
+      <details>
+        <summary>Wie viel Zeit kostet mich das selbst?</summary>
+        <div class="antwort">Deutlich weniger, als du denkst. Nach dem Erstgespräch brauchst du im Wesentlichen nur die Drehtermine bei dir vor Ort einzuplanen. Konzept, Dreh, Schnitt und Feinschliff übernehmen wir. <strong>Dein Betrieb läuft normal weiter, während wir arbeiten.</strong></div>
+      </details>
+      <details>
+        <summary>Bin ich an lange Verträge gebunden?</summary>
+        <div class="antwort">Du entscheidest selbst, welche Laufzeit du buchst: 3, 6 oder 12 Monate. Längere Laufzeiten belohnen wir mit besseren Preisen, aber <strong>niemand wird in einen Vertrag gedrängt, den er nicht will</strong>. Wenn du erstmal testen willst, starte mit 3 Monaten.</div>
+      </details>
+      <details>
+        <summary>Wie schnell bekomme ich meine Videos?</summary>
+        <div class="antwort">Im Monatspaket bekommst du deinen Content zuverlässig jeden Monat, fertig geschnitten und einsatzbereit. Bei Einzelprojekten besprechen wir den Zeitplan im Erstgespräch und <strong>halten uns dann auch daran</strong>. Kurze Wege sind bei einem Zwei-Personen-Team keine Floskel.</div>
+      </details>
+      <details>
+        <summary>Wir hatten schon mal eine Agentur. Hat nichts gebracht. Warum sollte das bei euch anders sein?</summary>
+        <div class="antwort">Diese Erfahrung hören wir oft, und meistens liegt sie an drei Dingen: wechselnde Ansprechpartner, lange Verträge und leere Versprechen. Wir machen alle drei bewusst anders. Du arbeitest immer mit denselben zwei Leuten, du wählst deine Laufzeit selbst, und wir versprechen dir nichts, was wir nicht halten können. <strong>Im Erstgespräch sagen wir dir auch ehrlich, wenn Video-Content für dich gerade nicht die richtige Investition ist.</strong></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 11: KONTAKT ============ -->
+<section id="kontakt">
+  <div class="wrap">
+    <p class="timecode">Szene 11 <span class="tc-num">// And Action</span></p>
+    <h2 class="display">Erzähl uns von deinem Projekt.</h2>
+    <div class="kontakt-grid">
+      <div class="kontakt-info">
+        <p><strong>Ein kurzes, unverbindliches Gespräch.</strong> Du erzählst uns, wo du hin willst. Wir sagen dir ehrlich, was Sinn ergibt, was es ungefähr kostet und wie schnell es gehen kann.</p>
+        <p>Kein Verkaufsdruck, keine Warteschleife. Wir melden uns innerhalb von 24 Stunden persönlich bei dir. Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch.</p>
+        <div class="kontakt-daten">
+          Jäger Shot Productions<br>
+          Herrleinstr. 15 · 63739 Aschaffenburg<br><br>
+          <a href="tel:+491735166848">+49 173 5166 848</a><br>
+          <a href="mailto:info@jaeger-shot.de">info@jaeger-shot.de</a><br>
+          <a href="https://instagram.com/jaeger.shot.productions" target="_blank" rel="noopener">@jaeger.shot.productions</a>
+        </div>
+      </div>
+      <form action="#" method="post">
+        <div class="form-row">
+          <div>
+            <label for="f-name">Dein Name</label>
+            <input type="text" id="f-name" name="name" required>
+          </div>
+          <div>
+            <label for="f-firma">Firma</label>
+            <input type="text" id="f-firma" name="firma">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="f-mail">E-Mail</label>
+            <input type="email" id="f-mail" name="email" required>
+          </div>
+          <div>
+            <label for="f-tel">Telefon (optional)</label>
+            <input type="tel" id="f-tel" name="telefon">
+          </div>
+        </div>
+        <div>
+          <label for="f-msg">Worum geht's? (2 Sätze reichen)</label>
+          <textarea id="f-msg" name="nachricht"></textarea>
+        </div>
+        <p class="form-hinweis">Mit dem Absenden stimmst du unserer <a href="https://www.jaeger-shot.de/datenschutz">Datenschutzerklärung</a> zu.</p>
+        <button class="btn" type="submit">Kostenloses Erstgespräch anfragen</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=800&height=503" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="https://www.jaeger-shot.de/impressum">Impressum</a>
+      <a href="https://www.jaeger-shot.de/datenschutz">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var hv = document.querySelector('.hero video');
+    if (hv) { hv.playbackRate = 0.55; }
+  })();
+</script>
+
+</body>
+</html>
