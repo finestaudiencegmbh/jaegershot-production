@@ -362,15 +362,50 @@ footer{
 }
 @media(max-width:520px){
   .wrap{padding:0 18px}
-  .nav-logo img{height:34px}
-  .hero-claim{letter-spacing:.2em;font-size:12px}
+  section{padding:58px 0}
+  .hero{padding:104px 0 60px}
+  .nav-inner{padding:12px 18px}
+  .nav-logo img{height:32px}
+  .hero-claim{letter-spacing:.2em;font-size:12px;margin-bottom:18px}
+  .hero h1{font-size:clamp(36px,10.5vw,52px)}
+  .hero .lead{margin:20px 0 28px}
+  .lead{font-size:16px}
+  .timecode{margin-bottom:16px}
   .hero-ctas{gap:14px}
   .hero-ctas .btn,.hero-ctas .btn-ghost{width:100%;text-align:center}
   .btn-ghost{border-top:1px solid var(--linie);padding:14px 8px}
-  .logo-grid{grid-template-columns:repeat(2,1fr)}
   .kern-card,.paket,.zitat{padding:26px 22px}
+  .problem-item{font-size:16.5px}
   summary{font-size:16.5px;padding-right:34px}
+  .kontakt-daten{word-break:break-word}
+  .footer-inner{justify-content:center;text-align:center}
 }
+.logo-marquee{overflow:hidden;position:relative;margin-top:8px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 45s linear infinite}
+.logo-marquee:hover .logo-track{animation-play-state:paused}
+.logo-track .logo-cell{flex:0 0 auto;width:180px;height:86px;background:var(--karte);border:1px solid var(--linie);border-radius:6px;padding:18px;display:flex;align-items:center;justify-content:center}
+.logo-track img{max-height:44px;width:auto;max-width:100%;filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;transition:filter .2s,opacity .2s}
+.logo-track .logo-cell:hover img{filter:grayscale(0) brightness(1);opacity:1}
+@media(max-width:520px){.logo-track .logo-cell{width:150px}}
+@keyframes logoflow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes heroUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes revealIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+  .hero-claim{animation:heroUp .7s .05s both}
+  .hero h1{animation:heroUp .8s .18s both}
+  .hero .lead{animation:heroUp .8s .34s both}
+  .hero-ctas{animation:heroUp .8s .5s both}
+  .trust-line{animation:heroUp .8s .64s both}
+}
+@supports (animation-timeline: view()){
+  @media(prefers-reduced-motion:no-preference){
+    .timecode,section h2.display,section .lead,.anker,.kern-card,.paket,.schritt,.zitat,.leistung,.problem-item,.faq-list details,.pakete-fussnote,.team-fotos img,.team-fakt,.team-text p,.ref-band .btn,.kontakt-info,form{
+      animation-name:revealIn;animation-fill-mode:both;animation-timeline:view();animation-range:entry 5% cover 30%;
+    }
+  }
+}
+.kern-card,.leistung,.zitat,.paket{transition:transform .28s ease,border-color .28s ease}
+.kern-card:hover,.leistung:hover,.zitat:hover{transform:translateY(-4px);border-color:var(--rot-dunkel)}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
@@ -578,19 +613,33 @@ footer{
       </div>
     </div>
 
-    <div class="logo-grid">
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="Kundenlogo" loading="lazy"></div>
-      <div class="logo-cell"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="Kundenlogo" loading="lazy"></div>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="" loading="lazy"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -685,10 +734,6 @@ footer{
     <p class="timecode">Szene 10 <span class="tc-num">// Ehrliche Antworten</span></p>
     <h2 class="display">Die Fragen, die du dir vermutlich stellst.</h2>
     <div class="faq-list">
-      <details>
-        <summary>Was kostet das ungefähr?</summary>
-        <div class="antwort">Unsere Monatspakete starten <strong>im niedrigen vierstelligen Bereich pro Monat</strong>. Der genaue Preis hängt vom Umfang ab, den wir gemeinsam im Erstgespräch festlegen. Größere Einzelprojekte wie Imagefilme kalkulieren wir individuell, weil sich ein seriöses Angebot dafür nicht über ein Preisschild machen lässt. Was wir dir versprechen: Du kennst den Preis, bevor du dich entscheidest. Ohne versteckte Kosten.</div>
-      </details>
       <details>
         <summary>Muss ich selbst vor die Kamera?</summary>
         <div class="antwort">Nur wenn du willst. Viele unserer besten Videos funktionieren ganz ohne, dass der Chef spricht: Einblicke in den Betrieb, das Team bei der Arbeit, fertige Projekte. Und falls du doch vor die Kamera möchtest: <strong>Wir führen dich durch alles.</strong> Kamera-Erfahrung brauchst du keine.</div>
