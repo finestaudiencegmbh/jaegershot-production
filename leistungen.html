@@ -444,7 +444,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
         <p class="m-schritt-label">Schritt 1 von 3</p>
         <h3 class="m-frage">Wie heißt du?</h3>
         <div class="m-feld"><label for="m-name">Dein Name</label><input type="text" id="m-name" name="name" autocomplete="name"></div>
-        <div class="m-feld"><label for="m-firma">Firma (optional)</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
+        <div class="m-feld"><label for="m-firma">Firma</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
@@ -452,7 +452,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
         <p class="m-schritt-label">Schritt 2 von 3</p>
         <h3 class="m-frage">Wie erreichen wir dich?</h3>
         <div class="m-feld"><label for="m-mail">E-Mail</label><input type="email" id="m-mail" name="email" autocomplete="email"></div>
-        <div class="m-feld"><label for="m-tel">Telefon (optional)</label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
+        <div class="m-feld"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
@@ -495,10 +495,15 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
       var s = schritte[i];
       if(i === 0){
         if(!s.querySelector('#m-name').value.trim()){ fehler(s, 'Sag uns kurz, wie du heißt.'); return false; }
+        if(!s.querySelector('#m-firma').value.trim()){ fehler(s, 'Bitte gib auch deine Firma an.'); return false; }
       }
       if(i === 1){
         var mail = s.querySelector('#m-mail').value.trim();
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){ fehler(s, 'Bitte gib eine gültige E-Mail-Adresse an.'); return false; }
+        if(s.querySelector('#m-tel').value.trim().length < 6){ fehler(s, 'Bitte gib auch deine Telefonnummer an.'); return false; }
+      }
+      if(i === 2){
+        if(!s.querySelector('#m-msg').value.trim()){ fehler(s, 'Zwei Sätze reichen – worum geht es bei dir?'); return false; }
       }
       fehler(s, '');
       return true;
@@ -533,6 +538,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
       if(aktuell < 2){ if(pruefe(aktuell)) zeige(aktuell + 1); return; }
       if(!pruefe(0)){ zeige(0); return; }
       if(!pruefe(1)){ zeige(1); return; }
+      if(!pruefe(2)){ zeige(2); return; }
       this.style.display = 'none';
       hg.querySelector('.m-danke').classList.add('aktiv');
     });
