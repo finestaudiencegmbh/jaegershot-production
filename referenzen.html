@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referenzen – Jäger Shot Productions</title>
+<meta name="description" content="Reels, Imagefilme und Firmenporträts aus echten Projekten. Referenzen von Jäger Shot Productions aus Aschaffenburg.">
+<link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Schibsted Grotesk',sans-serif;
+  font-size:17px;
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+section{padding:90px 0;border-top:1px solid var(--linie)}
+section:first-of-type{border-top:none}
+h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px}
+.btn{
+  display:inline-block;
+  background:var(--rot);color:#FFFFFF;
+  font-weight:700;font-size:16px;
+  padding:16px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.94);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--grau);transition:color .15s}
+.nav-links a:hover{color:var(--leinwand)}
+.nav-links a.aktiv{color:var(--leinwand);border-bottom:2px solid var(--rot);padding-bottom:2px}
+.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn:hover{color:#FFFFFF}
+.nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:26px;cursor:pointer}
+
+.ref-kopf{padding:170px 0 70px;border-top:none}
+.ref-kopf h1{font-size:clamp(38px,6vw,68px);max-width:860px}
+.ref-kopf .lead{margin-top:22px}
+
+.filter-leiste{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin-top:44px;
+}
+.filter-chip{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.06em;
+  color:var(--grau);background:var(--karte);
+  border:1px solid var(--linie);border-radius:100px;
+  padding:10px 20px;cursor:pointer;
+  transition:color .15s,border-color .15s,background .15s;
+}
+.filter-chip:hover{color:var(--leinwand);border-color:var(--grau)}
+.filter-chip.aktiv{color:#FFFFFF;background:var(--rot);border-color:var(--rot)}
+
+.video-slot{
+  position:relative;overflow:hidden;border-radius:8px;
+  background:var(--karte);
+  border:1px dashed var(--rot-dunkel);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+}
+.video-slot .play{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(194,44,38,.16);border:1px solid var(--rot);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--rot-hell);font-size:20px;
+}
+.video-slot .ph-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--rot-hell);
+  letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:0 16px;
+}
+.breit .video-slot{aspect-ratio:16/9}
+.hoch .video-slot{aspect-ratio:9/16}
+.ref-karte video,.ref-karte iframe{
+  width:100%;height:100%;border:0;border-radius:8px;display:block;object-fit:cover;
+}
+
+.ref-grid-breit{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
+.ref-grid-hoch{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:50px}
+.ref-karte{display:flex;flex-direction:column;gap:14px}
+.ref-karte .meta h3{font-size:17.5px;font-weight:700;margin-bottom:4px}
+.ref-karte .meta p{font-size:14px;color:var(--grau)}
+.ref-karte .kat{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--rot-hell);display:block;margin-bottom:8px;
+}
+.ref-karte.versteckt{display:none}
+
+.cta-band{background:var(--anthrazit);text-align:center}
+.cta-band h2{margin-bottom:14px}
+.cta-band .lead{margin:0 auto 36px}
+
+footer{border-top:1px solid var(--linie);padding:50px 0 40px}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+  .ref-grid-hoch{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  section{padding:64px 0}
+  .ref-kopf{padding:130px 0 54px}
+  .ref-grid-breit{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:32px}
+  .ref-grid-hoch{grid-template-columns:1fr 1fr;gap:12px}
+  .filter-chip{padding:9px 16px;font-size:12px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
+    </a>
+    <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html#pakete">Monatspakete</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#team">Team</a>
+      <a class="aktiv" href="referenzen.html">Referenzen</a>
+      <a href="index.html#faq">Fragen</a>
+      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ KOPF ============ -->
+<section class="ref-kopf">
+  <div class="wrap">
+    <p class="timecode">Referenzen <span class="tc-num">// Beispiele statt Behauptungen</span></p>
+    <h1 class="display">Arbeiten, die für uns <span style="color:var(--rot-hell)">sprechen.</span></h1>
+    <p class="lead">Reels, Firmenporträts und Imagefilme aus echten Projekten. Kein Show-Material, sondern Arbeiten für Kunden wie dich.</p>
+
+    <div class="filter-leiste" role="group" aria-label="Referenzen filtern">
+      <button class="filter-chip aktiv" data-filter="alle">Alle</button>
+      <button class="filter-chip" data-filter="reel">Social Media Reels</button>
+      <button class="filter-chip" data-filter="imagefilm">Imagefilme</button>
+      <button class="filter-chip" data-filter="event">Events</button>
+      <button class="filter-chip" data-filter="drohne">Drohne</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGEFILME (16:9) ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 01 <span class="tc-num">// Imagefilme &amp; Firmenporträts</span></p>
+    <h2 class="display">Das große Format.</h2>
+    <p class="lead">Filme, die deinen Betrieb so zeigen, wie Kunden ihn erleben sollen.</p>
+
+    <div class="ref-grid-breit">
+      <div class="ref-karte breit" data-kat="imagefilm">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Imagefilm 1<br>MP4 oder YouTube/Vimeo-Embed</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Imagefilm</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche · Ort</p>
+        </div>
+      </div>
+      <div class="ref-karte breit" data-kat="imagefilm">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Imagefilm 2</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Imagefilm</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche · Ort</p>
+        </div>
+      </div>
+      <div class="ref-karte breit" data-kat="event">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Eventfilm / Aftermovie</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Eventfilm</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Event · Ort</p>
+        </div>
+      </div>
+      <div class="ref-karte breit" data-kat="drohne">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Drohnenaufnahmen</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Drohne</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Location · Ort</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REELS (9:16) ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 02 <span class="tc-num">// Social Media Reels</span></p>
+    <h2 class="display">Kurz. Vertikal. Wirkt.</h2>
+    <p class="lead">Content, wie er bei deinen Kunden im Feed landet – jeden Monat neu.</p>
+
+    <div class="ref-grid-hoch">
+      <div class="ref-karte hoch" data-kat="reel">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Reel 1</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Reel</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche</p>
+        </div>
+      </div>
+      <div class="ref-karte hoch" data-kat="reel">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Reel 2</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Reel</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche</p>
+        </div>
+      </div>
+      <div class="ref-karte hoch" data-kat="reel">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Reel 3</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Reel</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche</p>
+        </div>
+      </div>
+      <div class="ref-karte hoch" data-kat="reel">
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <span class="ph-tag">Platzhalter · Reel 4</span>
+        </div>
+        <div class="meta">
+          <span class="kat">Reel</span>
+          <h3>Projekttitel folgt</h3>
+          <p>Kunde · Branche</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Dein Projekt</span></p>
+    <h2 class="display">So etwas willst du auch?</h2>
+    <p class="lead">Erzähl uns im kostenlosen Erstgespräch, wo du hin willst. Wir sagen dir ehrlich, was Sinn ergibt.</p>
+    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.filter-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('.filter-chip').forEach(function(c){ c.classList.remove('aktiv'); });
+      chip.classList.add('aktiv');
+      var filter = chip.dataset.filter;
+      document.querySelectorAll('.ref-karte').forEach(function(karte){
+        karte.classList.toggle('versteckt', filter !== 'alle' && karte.dataset.kat !== filter);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
