@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über uns – Jäger Shot Productions</title>
+<meta name="description" content="Ronny hinter der Kamera, Maria in der Regie: das Zwei-Personen-Team hinter Jäger Shot Productions aus Aschaffenburg.">
+<link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Schibsted Grotesk',sans-serif;
+  font-size:17px;
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+section{padding:90px 0;border-top:1px solid var(--linie)}
+section:first-of-type{border-top:none}
+h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
+.lead strong{color:var(--leinwand);font-weight:500}
+.btn{
+  display:inline-block;
+  background:var(--rot);color:#FFFFFF;
+  font-weight:700;font-size:16px;
+  padding:16px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.94);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--grau);transition:color .15s}
+.nav-links a:hover{color:var(--leinwand)}
+.nav-links a.aktiv{color:var(--leinwand);border-bottom:2px solid var(--rot);padding-bottom:2px}
+.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn:hover{color:#FFFFFF}
+.nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:26px;cursor:pointer}
+
+.kopf{padding:170px 0 70px;border-top:none}
+.kopf h1{font-size:clamp(38px,6vw,68px);max-width:860px}
+.kopf .lead{margin-top:22px}
+
+.duo{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.duo img{border-radius:8px;width:100%;object-fit:cover;filter:saturate(.9)}
+.duo-text p{color:var(--grau);margin-bottom:18px;line-height:1.5}
+.duo-text p strong{color:var(--leinwand);font-weight:500}
+.team-fakt{
+  border-left:2px solid var(--rot);padding:6px 0 6px 20px;margin:28px 0;
+  font-size:17px;color:var(--leinwand);line-height:1.45;
+}
+
+.profil-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
+.profil{
+  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.profil img{height:340px;width:100%;object-fit:cover;object-position:top;filter:saturate(.9)}
+.profil .p-body{padding:28px 28px 32px}
+.profil .rolle{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);display:block;margin-bottom:10px;
+}
+.profil h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:24px;margin-bottom:12px}
+.profil p{color:var(--grau);font-size:15.5px;line-height:1.5;margin-bottom:12px}
+.profil p strong{color:var(--leinwand);font-weight:500}
+
+.platzhalter{
+  border:1px dashed var(--rot-dunkel);border-radius:6px;
+  padding:12px 16px;margin-top:6px;color:var(--grau);font-size:14px;line-height:1.5;
+}
+.platzhalter .ph-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--rot-hell);
+  letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;
+}
+
+.werte-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.wert{border-top:2px solid var(--rot);padding-top:24px}
+.wert .wnum{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--rot-hell);
+  letter-spacing:.14em;display:block;margin-bottom:12px;
+}
+.wert h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.wert p{color:var(--grau);font-size:15.5px;line-height:1.5}
+
+.netzwerk{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.netzwerk-text p{color:var(--grau);margin-bottom:16px;line-height:1.5}
+.netzwerk-text p strong{color:var(--leinwand);font-weight:500}
+.netzwerk img{border-radius:8px;width:100%;object-fit:cover;filter:saturate(.9)}
+
+.cta-band{background:var(--anthrazit);text-align:center}
+.cta-band h2{margin-bottom:14px}
+.cta-band .lead{margin:0 auto 36px}
+
+footer{border-top:1px solid var(--linie);padding:50px 0 40px}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+}
+@media(max-width:860px){
+  .duo,.netzwerk{grid-template-columns:1fr;gap:36px}
+  .profil-grid{grid-template-columns:1fr}
+  .werte-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  section{padding:64px 0}
+  .kopf{padding:130px 0 54px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:32px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
+    </a>
+    <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html#pakete">Monatspakete</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a class="aktiv" href="ueber-uns.html">Über uns</a>
+      <a href="referenzen.html">Referenzen</a>
+      <a href="index.html#faq">Fragen</a>
+      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ KOPF ============ -->
+<section class="kopf">
+  <div class="wrap">
+    <p class="timecode">Über uns <span class="tc-num">// Wer hinter der Kamera steht</span></p>
+    <h1 class="display">Kamera trifft <span style="color:var(--rot-hell)">Regie.</span></h1>
+    <p class="lead">Wir sind Jäger Shot Productions: ein eingespieltes Zwei-Personen-Team aus Aschaffenburg. Keine Agentur-Hierarchie, keine Warteschleifen – nur zwei Leute, die ihr Handwerk lieben.</p>
+  </div>
+</section>
+
+<!-- ============ DAS DUO ============ -->
+<section>
+  <div class="wrap">
+    <div class="duo">
+      <img decoding="async" src="https://framerusercontent.com/images/71h82DY5H3xZuwWX0wRcp2BOA.jpg?width=800&height=807" alt="Ronny Jäger und Maria Krämer, Jäger Shot Productions" loading="lazy">
+      <div class="duo-text">
+        <p class="timecode">Szene 01 <span class="tc-num">// Das Team</span></p>
+        <h2 class="display">Zwei Leute. Ein Shot.</h2>
+        <p><strong>Ronny hinter der Kamera, Maria in der Regie.</strong> Wir arbeiten seit Jahren Hand in Hand. Das heißt für dich: kurze Abstimmungen, schnelle Umsetzung und ein Ergebnis, das aus einem Guss ist.</p>
+        <div class="team-fakt">Die Personen, die du im Erstgespräch kennenlernst, sind dieselben, die bei dir drehen und dein Material schneiden. Immer.</div>
+        <p>Wir glauben: Gute Videos entstehen nicht durch die größte Technik, sondern durch echtes Interesse an deinem Betrieb. Deshalb hören wir erst zu – und drehen dann.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFILE ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 02 <span class="tc-num">// Die Gesichter</span></p>
+    <h2 class="display">Immer dieselben zwei.</h2>
+    <div class="profil-grid">
+      <div class="profil">
+        <img decoding="async" src="https://framerusercontent.com/images/IOfSXyNpySSNQvEXJaWMC0XbE.jpg?width=600&height=656" alt="Ronny hinter der Kamera" loading="lazy">
+        <div class="p-body">
+          <span class="rolle">Kamera · Drohne · Schnitt</span>
+          <h3>Ronny</h3>
+          <p>Ronny ist der Mann hinter der Kamera. Er kommt zu dir in den Betrieb, führt dich durch den Dreh und sorgt dafür, dass alles echt aussieht – nicht gestellt. Kamera-Erfahrung brauchst du keine.</p>
+          <div class="platzhalter">
+            <span class="ph-tag">Platzhalter · Bitte ergänzen</span>
+            2–3 Sätze zu Ronnys Werdegang: Wie kam er zum Filmen, wie lange macht er das schon, was treibt ihn an?
+          </div>
+        </div>
+      </div>
+      <div class="profil">
+        <img decoding="async" src="https://framerusercontent.com/images/zPxJ7RgYCsIKdMMOoAKnIhuwYAE.jpg?width=600&height=831" alt="Maria in der Regie" loading="lazy">
+        <div class="p-body">
+          <span class="rolle">Regie · Konzept · Organisation</span>
+          <h3>Maria</h3>
+          <p>Maria führt Regie: Sie entwickelt das Konzept, behält den roten Faden im Blick und sorgt dafür, dass jedes Video eine Geschichte erzählt – und pünktlich bei dir ankommt.</p>
+          <div class="platzhalter">
+            <span class="ph-tag">Platzhalter · Bitte ergänzen</span>
+            2–3 Sätze zu Marias Werdegang: Hintergrund, Erfahrung, was ihr bei Projekten wichtig ist.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WIE WIR ARBEITEN ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 03 <span class="tc-num">// Wie wir arbeiten</span></p>
+    <h2 class="display">Woran du uns messen kannst.</h2>
+    <div class="werte-grid">
+      <div class="wert">
+        <span class="wnum">01</span>
+        <h3>Kurze Wege</h3>
+        <p>Zwei Leute, eine Leitung. Du bekommst Antworten in Stunden, nicht in Wochen – und redest nie mit jemandem, der dein Projekt nicht kennt.</p>
+      </div>
+      <div class="wert">
+        <span class="wnum">02</span>
+        <h3>Ehrliche Einschätzung</h3>
+        <p>Wenn etwas für dich keinen Sinn ergibt, sagen wir dir das. Auch wenn wir daran nichts verdienen. Lieber ein ehrliches Nein als ein teures Vielleicht.</p>
+      </div>
+      <div class="wert">
+        <span class="wnum">03</span>
+        <h3>Verlässlichkeit</h3>
+        <p>Abgemachte Termine halten wir. Jeden Monat kommt dein Content fertig geschnitten und einsatzbereit bei dir an – ohne dass du hinterhertelefonieren musst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NETZWERK ============ -->
+<section>
+  <div class="wrap">
+    <div class="netzwerk">
+      <div class="netzwerk-text">
+        <p class="timecode">Szene 04 <span class="tc-num">// Wenn es größer wird</span></p>
+        <h2 class="display">Klein im Kern. Groß, wenn nötig.</h2>
+        <p>Für größere Produktionen holen wir gezielt Spezialisten aus unserem Netzwerk dazu – Ton, Licht, zweite Kamera. So stemmen wir spontanen Content genauso wie die große Imagefilm-Produktion.</p>
+        <p><strong>Der Unterschied zu einer klassischen Agentur:</strong> Dein Ansprechpartner bleibt immer derselbe. Du sitzt nie mit Fremden am Tisch.</p>
+      </div>
+      <img decoding="async" src="https://framerusercontent.com/images/71h82DY5H3xZuwWX0wRcp2BOA.jpg?width=800&height=807" alt="Jäger Shot Productions beim Dreh" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Lern uns kennen</span></p>
+    <h2 class="display">Überzeug dich selbst.</h2>
+    <p class="lead">Ein kurzes, unverbindliches Gespräch – du erzählst, wir hören zu. Danach weißt du, ob wir zusammenpassen.</p>
+    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+</body>
+</html>
