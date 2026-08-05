@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leistungen: Videoproduktion, Social Media &amp; Drohne – Jäger Shot Productions</title>
+<meta name="description" content="Videoproduktion, Social Media Content, Drohnenaufnahmen, Schnitt, Eventfilme und Design – alle Leistungen von Jäger Shot Productions aus Aschaffenburg im Überblick.">
+<link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Schibsted Grotesk',sans-serif;
+  font-size:17px;
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+section{padding:90px 0;border-top:1px solid var(--linie)}
+section:first-of-type{border-top:none}
+h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
+.lead strong{color:var(--leinwand);font-weight:500}
+.btn{
+  display:inline-block;
+  background:var(--rot);color:#FFFFFF;
+  font-weight:700;font-size:16px;
+  padding:16px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
+.btn-ghost{
+  display:inline-block;
+  color:var(--leinwand);
+  font-weight:500;font-size:16px;
+  padding:14px 8px;
+  border-bottom:1px solid var(--linie);
+  transition:border-color .18s ease;
+}
+.btn-ghost:hover{border-color:var(--rot)}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.94);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--grau);transition:color .15s}
+.nav-links a:hover{color:var(--leinwand)}
+.nav-links a.aktiv{color:var(--leinwand);border-bottom:2px solid var(--rot);padding-bottom:2px}
+.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn:hover{color:#FFFFFF}
+.nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:26px;cursor:pointer}
+
+.kopf{padding:170px 0 70px;border-top:none}
+.kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
+.kopf .lead{margin-top:22px}
+
+.leistung-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+}
+.leistung-row.getauscht .leistung-bild{order:2}
+.leistung-bild img{
+  border-radius:8px;width:100%;height:380px;object-fit:cover;filter:saturate(.85);
+}
+.leistung-text .lnum{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--rot-hell);
+  letter-spacing:.14em;display:block;margin-bottom:14px;
+}
+.leistung-text h2{margin-bottom:14px}
+.leistung-text p{color:var(--grau);margin-bottom:18px;line-height:1.5}
+.leistung-text p strong{color:var(--leinwand);font-weight:500}
+.leistung-text ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.leistung-text li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative;line-height:1.45}
+.leistung-text li::before{content:"—";position:absolute;left:0;color:var(--rot)}
+.leistung-text li strong{color:var(--leinwand);font-weight:500}
+
+.paket-hinweis{
+  background:var(--karte);
+  border:1px solid var(--rot-dunkel);
+  border-radius:8px;
+  padding:22px 26px;
+  margin-top:26px;
+  font-size:15.5px;color:var(--grau);line-height:1.5;
+}
+.paket-hinweis strong{color:var(--leinwand);font-weight:500}
+.paket-hinweis a{color:var(--rot-hell)}
+
+.cta-band{background:var(--anthrazit);text-align:center}
+.cta-band h2{margin-bottom:14px}
+.cta-band .lead{margin:0 auto 36px}
+
+footer{border-top:1px solid var(--linie);padding:50px 0 40px}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+}
+@media(max-width:860px){
+  .leistung-row{grid-template-columns:1fr;gap:28px}
+  .leistung-row.getauscht .leistung-bild{order:0}
+  .leistung-bild img{height:260px}
+}
+@media(max-width:760px){
+  section{padding:64px 0}
+  .kopf{padding:130px 0 54px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:32px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
+    </a>
+    <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html#pakete">Monatspakete</a>
+      <a class="aktiv" href="leistungen.html">Leistungen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="referenzen.html">Referenzen</a>
+      <a href="index.html#faq">Fragen</a>
+      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ KOPF ============ -->
+<section class="kopf">
+  <div class="wrap">
+    <p class="timecode">Leistungen <span class="tc-num">// Was wir für dich drehen</span></p>
+    <h1 class="display">Vom Reel bis zum <span style="color:var(--rot-hell)">Imagefilm.</span></h1>
+    <p class="lead">Jede Leistung gibt es einzeln und individuell auf dein Projekt zugeschnitten – gedreht in Aschaffenburg, dem Rhein-Main-Gebiet und Unterfranken. Du sagst uns, wo du hin willst. Wir sagen dir, was es dafür braucht.</p>
+  </div>
+</section>
+
+<!-- ============ 01 VIDEOPRODUKTION ============ -->
+<section id="videoproduktion">
+  <div class="wrap">
+    <div class="leistung-row">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/L5oZ8ghbbUgwulunn6EyGrxWdB8.jpg?width=600&height=600" alt="Videoproduktion" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 01</span>
+        <h2 class="display">Videoproduktion</h2>
+        <p>Imagefilme, Werbevideos und Firmenvideos, die Vertrauen schaffen. Damit Interessenten dich schon kennen, bevor sie das erste Mal anrufen.</p>
+        <ul>
+          <li><strong>Konzept &amp; Drehplanung</strong> – wir entwickeln die Idee mit dir im Erstgespräch</li>
+          <li><strong>Dreh bei dir vor Ort</strong> – ohne dass dein Betrieb stillstehen muss</li>
+          <li><strong>Schnitt, Farbkorrektur &amp; Ton</strong> aus einer Hand</li>
+          <li>Fertige Formate für Website, Social Media und Präsentationen</li>
+        </ul>
+        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 SOCIAL MEDIA CONTENT ============ -->
+<section id="social-media">
+  <div class="wrap">
+    <div class="leistung-row getauscht">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=600&height=600" alt="Social Media Content" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 02</span>
+        <h2 class="display">Social Media Content</h2>
+        <p>Reels, kurze Videos und Grafiken, die auffallen und zu deiner Marke passen. Damit du im Feed deiner Kunden auftauchst, nicht nur deine Konkurrenz.</p>
+        <ul>
+          <li><strong>Reels bis 45 Sekunden</strong> – gedreht und geschnitten für Instagram, Facebook &amp; TikTok</li>
+          <li>Lizenzierte Musik und dein Firmenlogo inklusive</li>
+          <li>Fertig zum Posten – du musst nichts mehr bearbeiten</li>
+        </ul>
+        <div class="paket-hinweis"><strong>Tipp:</strong> Wer dauerhaft sichtbar sein will, fährt mit unseren <a href="index.html#pakete">Monatspaketen</a> am besten – jeden Monat fertiger Content, mit Laufzeit-Vorteil bis 30&nbsp;%.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 DROHNENAUFNAHMEN ============ -->
+<section id="drohne">
+  <div class="wrap">
+    <div class="leistung-row">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=600&height=600" alt="Drohnenaufnahmen" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 03</span>
+        <h2 class="display">Drohnenaufnahmen</h2>
+        <p>Drohnenaufnahmen für Immobilien, Baustellen und Betriebe in Aschaffenburg und Umgebung. Hochauflösend, aus der Perspektive, die Eindruck macht.</p>
+        <ul>
+          <li><strong>Immobilien &amp; Grundstücke</strong> – für Exposés, die aus der Masse stechen</li>
+          <li><strong>Baustellen-Dokumentation</strong> – Baufortschritt eindrucksvoll festgehalten</li>
+          <li>Als eigenständiger Clip oder Teil deines Imagefilms</li>
+        </ul>
+        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 SCHNITT & POSTPRODUKTION ============ -->
+<section id="postproduktion">
+  <div class="wrap">
+    <div class="leistung-row getauscht">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 04</span>
+        <h2 class="display">Schnitt &amp; Postproduktion</h2>
+        <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
+        <ul>
+          <li><strong>Schnitt &amp; Dramaturgie</strong> – aus Rohmaterial wird eine Geschichte</li>
+          <li><strong>Farbkorrektur &amp; Tonmischung</strong> für den professionellen Look</li>
+          <li>Export in allen Formaten, die du brauchst – von Social Media bis Großleinwand</li>
+        </ul>
+        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 EVENTFILM ============ -->
+<section id="eventfilm">
+  <div class="wrap">
+    <div class="leistung-row">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=600&height=600" alt="Eventfilm und Aftermovie" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 05</span>
+        <h2 class="display">Eventfilm &amp; Aftermovie</h2>
+        <p>Dein Event lebt weiter: als Eventfilm oder Aftermovie, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
+        <ul>
+          <li><strong>Firmenfeiern, Festivals &amp; Veranstaltungen</strong> – wir halten die Stimmung fest</li>
+          <li>Unauffällig gedreht, damit dein Event ungestört läuft</li>
+          <li>Als langer Rückblick oder kurzer Social-Media-Teaser</li>
+        </ul>
+        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 MARKETING & DESIGN ============ -->
+<section id="design">
+  <div class="wrap">
+    <div class="leistung-row getauscht">
+      <div class="leistung-bild">
+        <img decoding="async" src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=600&height=600" alt="Marketing und Grafikdesign" loading="lazy">
+      </div>
+      <div class="leistung-text">
+        <span class="lnum">Leistung 06</span>
+        <h2 class="display">Marketing &amp; Design</h2>
+        <p>Flyer, Visitenkarten, Grafikdesign und Branding. Ein Auftritt aus einem Guss, online wie gedruckt.</p>
+        <ul>
+          <li><strong>Print &amp; Digital</strong> – Flyer, Visitenkarten, Social-Media-Grafiken</li>
+          <li>Passend zu deinen Videos – ein Look über alle Kanäle</li>
+          <li>Vom einzelnen Flyer bis zum kompletten Branding</li>
+        </ul>
+        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Dein Projekt</span></p>
+    <h2 class="display">Nicht sicher, was du brauchst?</h2>
+    <p class="lead">Genau dafür ist das Erstgespräch da. Du erzählst, wir hören zu – und sagen dir ehrlich, welche Leistung für dein Ziel Sinn ergibt. Und welche nicht.</p>
+    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+</body>
+</html>
