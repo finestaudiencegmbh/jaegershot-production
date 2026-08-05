@@ -217,23 +217,25 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .m-danke h3{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--leinwand)}
 .m-danke p{color:var(--grau);line-height:1.55;max-width:380px;margin:0 auto}
 @media(max-width:520px){.modal{padding:40px 22px 28px}.m-frage{font-size:19px}}
-body{position:relative;overflow-x:hidden}
-.glow-a,.glow-b,.glow-c{position:absolute;border-radius:50%;pointer-events:none;z-index:-1}
-.glow-a{width:660px;height:660px;top:480px;right:-200px;background:radial-gradient(circle,rgba(194,44,38,.15) 0%,rgba(194,44,38,0) 70%)}
-.glow-b{width:620px;height:620px;top:44%;left:-240px;background:radial-gradient(circle,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
-.glow-c{width:580px;height:580px;bottom:520px;right:-220px;background:radial-gradient(circle,rgba(194,44,38,.12) 0%,rgba(194,44,38,0) 70%)}
+body{overflow-x:hidden}
+section{position:relative}
+section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+  width:660px;height:660px;
+}
+section:nth-of-type(2)::before{top:-120px;right:-220px;background:radial-gradient(circle,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
+section:nth-of-type(4)::before{top:-80px;left:-260px;background:radial-gradient(circle,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
+section:nth-of-type(7)::before{top:-100px;right:-240px;background:radial-gradient(circle,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
 @media(max-width:760px){
-  .glow-a{width:440px;height:440px;top:380px;right:-160px}
-  .glow-b{width:420px;height:420px;left:-180px}
-  .glow-c{width:400px;height:400px;bottom:420px;right:-170px}
+  section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{width:420px;height:420px}
+  section:nth-of-type(2)::before{right:-170px}
+  section:nth-of-type(4)::before{left:-190px}
+  section:nth-of-type(7)::before{right:-180px}
 }
 </style>
 </head>
 <body>
 
-<div class="glow-a" aria-hidden="true"></div>
-<div class="glow-b" aria-hidden="true"></div>
-<div class="glow-c" aria-hidden="true"></div>
 
 <div class="intro" id="intro" aria-hidden="true">
   <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=400&height=252" alt="">
