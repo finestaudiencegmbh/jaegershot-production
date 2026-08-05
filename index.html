@@ -89,8 +89,7 @@ h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
 
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(11,11,13,.82);
-  backdrop-filter:blur(12px);
+  background:rgba(11,11,13,.94);
   border-bottom:1px solid var(--linie);
 }
 .nav-inner{
@@ -117,12 +116,12 @@ nav{
 .hero video{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;
-  filter:brightness(.32) saturate(.72) contrast(1.02);
   z-index:0;
 }
 .hero-scrim{
   position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
+    linear-gradient(rgba(11,11,13,.65),rgba(11,11,13,.65)),
     linear-gradient(90deg,rgba(11,11,13,.94) 0%,rgba(11,11,13,.8) 34%,rgba(11,11,13,.42) 66%,rgba(11,11,13,.6) 100%),
     linear-gradient(180deg,rgba(11,11,13,.7) 0%,rgba(11,11,13,.18) 34%,rgba(11,11,13,.55) 78%,var(--schwarz) 100%);
 }
@@ -383,7 +382,7 @@ footer{
   .footer-inner{justify-content:center;text-align:center}
 }
 .logo-marquee{overflow:hidden;position:relative;margin-top:8px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
-.logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 45s linear infinite}
+.logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 45s linear infinite;will-change:transform}
 .logo-marquee:hover .logo-track{animation-play-state:paused}
 .logo-track .logo-cell{flex:0 0 auto;width:180px;height:86px;background:var(--karte);border:1px solid var(--linie);border-radius:6px;padding:18px;display:flex;align-items:center;justify-content:center}
 .logo-track img{max-height:44px;width:auto;max-width:100%;filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;transition:filter .2s,opacity .2s}
@@ -400,7 +399,7 @@ footer{
   .trust-line{animation:heroUp .8s .64s both}
 }
 @supports (animation-timeline: view()){
-  @media(prefers-reduced-motion:no-preference){
+  @media(prefers-reduced-motion:no-preference) and (min-width:761px){
     .timecode,section h2.display,section .lead,.anker,.kern-card,.paket,.schritt,.zitat,.leistung,.problem-item,.faq-list details,.pakete-fussnote,.team-fotos img,.team-fakt,.team-text p,.ref-band .btn,.kontakt-info,form{
       animation-name:revealIn;animation-fill-mode:both;animation-timeline:view();animation-range:entry 5% cover 30%;
     }
@@ -419,7 +418,7 @@ footer{
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#top" aria-label="Jäger Shot Productions">
-      <img src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=800&height=503" alt="Jäger Shot Productions Logo">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
     </a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
@@ -617,30 +616,30 @@ footer{
 
     <div class="logo-marquee">
       <div class="logo-track">
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=2270&height=850" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=1200&height=1200" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=2049&height=894" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=648&height=475" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=2653&height=828" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=1568&height=859" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=1103&height=283" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=739&height=222" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=1323&height=472" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=2500&height=362" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=960&height=600" alt="" loading="lazy"></div>
-        <div class="logo-cell" aria-hidden="true"><img src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=1004&height=531" alt="" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=400&height=150" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=300&height=300" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=400&height=175" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=400&height=293" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=400&height=125" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=400&height=219" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=400&height=103" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=400&height=120" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=400&height=143" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=400&height=58" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=400&height=250" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=400&height=212" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=400&height=150" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=300&height=300" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=400&height=175" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=400&height=293" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=400&height=125" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=400&height=219" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=400&height=103" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=400&height=120" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=400&height=143" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=400&height=58" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=400&height=250" alt="" loading="lazy"></div>
+        <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=400&height=212" alt="" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -654,42 +653,42 @@ footer{
     <p class="lead">Vom Imagefilm bis zur Drohnenaufnahme: Jede Leistung gibt es auch einzeln, individuell auf dein Projekt zugeschnitten.</p>
     <div class="leistungen-grid">
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/L5oZ8ghbbUgwulunn6EyGrxWdB8.jpg?width=800&height=800" alt="Videoproduktion" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/L5oZ8ghbbUgwulunn6EyGrxWdB8.jpg?width=600&height=600" alt="Videoproduktion" loading="lazy">
         <div class="l-body">
           <h3>Videoproduktion</h3>
           <p>Image- und Werbefilme, die Vertrauen schaffen. Damit Interessenten dich schon kennen, bevor sie das erste Mal anrufen.</p>
         </div>
       </div>
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=800&height=800" alt="Social Media Content" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=600&height=600" alt="Social Media Content" loading="lazy">
         <div class="l-body">
           <h3>Social Media Content</h3>
           <p>Reels und Grafiken, die auffallen und zu deiner Marke passen. Damit du im Feed deiner Kunden auftauchst, nicht nur deine Konkurrenz.</p>
         </div>
       </div>
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=800&height=800" alt="Drohnenaufnahmen" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=600&height=600" alt="Drohnenaufnahmen" loading="lazy">
         <div class="l-body">
           <h3>Drohnenaufnahmen</h3>
           <p>Dein Betrieb, deine Location oder deine Immobilie aus der Perspektive, die Eindruck macht. Hochauflösend, aus der Luft.</p>
         </div>
       </div>
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=800&height=800" alt="Videoschnitt und Postproduktion" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
         <div class="l-body">
           <h3>Schnitt &amp; Postproduktion</h3>
           <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
         </div>
       </div>
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=800&height=800" alt="Eventfilm und Aftermovie" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=600&height=600" alt="Eventfilm und Aftermovie" loading="lazy">
         <div class="l-body">
           <h3>Eventfilm &amp; Aftermovie</h3>
           <p>Dein Event lebt weiter: als Film, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
         </div>
       </div>
       <div class="leistung">
-        <img src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=800&height=800" alt="Marketing und Grafikdesign" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=600&height=600" alt="Marketing und Grafikdesign" loading="lazy">
         <div class="l-body">
           <h3>Marketing &amp; Design</h3>
           <p>Flyer, Visitenkarten, Grafikdesign und Branding. Ein Auftritt aus einem Guss, online wie gedruckt.</p>
@@ -704,9 +703,9 @@ footer{
   <div class="wrap">
     <div class="team-grid">
       <div class="team-fotos">
-        <img src="https://framerusercontent.com/images/71h82DY5H3xZuwWX0wRcp2BOA.jpg?width=1200&height=1210" alt="Ronny Jäger und Maria Krämer, Jäger Shot Productions" loading="lazy">
-        <img src="https://framerusercontent.com/images/IOfSXyNpySSNQvEXJaWMC0XbE.jpg?width=800&height=874" alt="Ronny hinter der Kamera" loading="lazy">
-        <img src="https://framerusercontent.com/images/zPxJ7RgYCsIKdMMOoAKnIhuwYAE.jpg?width=800&height=1108" alt="Maria in der Regie" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/71h82DY5H3xZuwWX0wRcp2BOA.jpg?width=800&height=807" alt="Ronny Jäger und Maria Krämer, Jäger Shot Productions" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/IOfSXyNpySSNQvEXJaWMC0XbE.jpg?width=600&height=656" alt="Ronny hinter der Kamera" loading="lazy">
+        <img decoding="async" src="https://framerusercontent.com/images/zPxJ7RgYCsIKdMMOoAKnIhuwYAE.jpg?width=600&height=831" alt="Maria in der Regie" loading="lazy">
       </div>
       <div class="team-text">
         <p class="timecode">Szene 08 <span class="tc-num">// Wer hinter der Kamera steht</span></p>
@@ -811,7 +810,7 @@ footer{
 
 <footer>
   <div class="wrap footer-inner">
-    <img src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=800&height=503" alt="Jäger Shot Productions">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
     <div class="footer-links">
       <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
       <a href="impressum.html">Impressum</a>
