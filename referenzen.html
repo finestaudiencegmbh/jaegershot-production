@@ -43,6 +43,9 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
+a.timecode{transition:color .15s}
+a.timecode:hover{color:var(--leinwand)}
+a.timecode:hover::before{background:var(--leinwand)}
 section{padding:90px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
@@ -185,7 +188,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ KOPF ============ -->
 <section class="ref-kopf">
   <div class="wrap">
-    <p class="timecode">Referenzen <span class="tc-num">// Beispiele statt Behauptungen</span></p>
+    <a class="timecode" href="index.html" title="Zurück zur Startseite">Referenzen <span class="tc-num">// Beispiele statt Behauptungen</span></a>
     <h1 class="display">Arbeiten, die für uns <span style="color:var(--rot-hell)">sprechen.</span></h1>
     <p class="lead">Reels, Firmenvideos und Imagefilme aus echten Projekten. Kein Show-Material, sondern Arbeiten für Kunden wie dich.</p>
 

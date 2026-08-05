@@ -43,6 +43,9 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
+a.timecode{transition:color .15s}
+a.timecode:hover{color:var(--leinwand)}
+a.timecode:hover::before{background:var(--leinwand)}
 section{padding:90px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
@@ -179,7 +182,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ KOPF ============ -->
 <section class="kopf">
   <div class="wrap">
-    <p class="timecode">Leistungen <span class="tc-num">// Was wir für dich drehen</span></p>
+    <a class="timecode" href="index.html" title="Zurück zur Startseite">Leistungen <span class="tc-num">// Was wir für dich drehen</span></a>
     <h1 class="display">Vom Reel bis zum <span style="color:var(--rot-hell)">Imagefilm.</span></h1>
     <p class="lead">Jede Leistung gibt es einzeln und individuell auf dein Projekt zugeschnitten – gedreht in Aschaffenburg, dem Rhein-Main-Gebiet und Unterfranken. Du sagst uns, wo du hin willst. Wir sagen dir, was es dafür braucht.</p>
   </div>

@@ -43,6 +43,9 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
+a.timecode{transition:color .15s}
+a.timecode:hover{color:var(--leinwand)}
+a.timecode:hover::before{background:var(--leinwand)}
 section{padding:90px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
@@ -202,7 +205,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ HERO ============ -->
 <section class="kopf">
   <div class="wrap">
-    <p class="timecode">Leistung <span class="tc-num">// Social Media Content</span></p>
+    <a class="timecode" href="leistungen.html" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Social Media Content</span></a>
     <h1 class="display">Sichtbar im Feed. <span style="color:var(--rot-hell)">Ohne dass du dich kümmerst.</span></h1>
     <p class="lead">Deine Kunden scrollen jeden Tag durch Instagram, Facebook und TikTok. Die Frage ist nur, ob sie dabei dich sehen oder deine Konkurrenz. Wir produzieren jeden Monat fertigen Content für deinen Betrieb, damit die Antwort klar ist.</p>
     <div class="kopf-ctas">

@@ -43,6 +43,9 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
+a.timecode{transition:color .15s}
+a.timecode:hover{color:var(--leinwand)}
+a.timecode:hover::before{background:var(--leinwand)}
 section{padding:90px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
@@ -187,7 +190,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ KOPF ============ -->
 <section class="kopf">
   <div class="wrap">
-    <p class="timecode">Über uns <span class="tc-num">// Wer hinter der Kamera steht</span></p>
+    <a class="timecode" href="index.html" title="Zurück zur Startseite">Über uns <span class="tc-num">// Wer hinter der Kamera steht</span></a>
     <h1 class="display">Kamera trifft <span style="color:var(--rot-hell)">Regie.</span></h1>
     <p class="lead">Wir sind Jäger Shot Productions: ein eingespieltes Zwei-Personen-Team aus Aschaffenburg. Keine Agentur-Hierarchie, keine Warteschleifen – nur zwei Leute, die ihr Handwerk lieben.</p>
   </div>

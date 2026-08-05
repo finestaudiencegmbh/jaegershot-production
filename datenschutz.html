@@ -42,6 +42,9 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
+a.timecode{transition:color .15s}
+a.timecode:hover{color:var(--leinwand)}
+a.timecode:hover::before{background:var(--leinwand)}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   background:rgba(11,11,13,.82);
@@ -112,7 +115,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 
 <main>
   <div class="wrap">
-    <p class="timecode">Rechtliches <span class="tc-num">// Datenschutz</span></p>
+    <a class="timecode" href="index.html" title="Zurück zur Startseite">Rechtliches <span class="tc-num">// Datenschutz</span></a>
     <h1 class="display">Datenschutzerklärung</h1>
 
     <h2>1. Datenschutz auf einen Blick</h2>
