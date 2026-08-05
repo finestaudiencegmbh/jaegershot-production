@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventfilm &amp; Aftermovie erstellen lassen – Aschaffenburg &amp; Rhein-Main</title>
+<meta name="description" content="Eventfilme und Aftermovies für Firmenfeiern, Jubiläen und Veranstaltungen in Aschaffenburg und dem Rhein-Main-Gebiet. Dein Event, festgehalten in Kinoqualität.">
+<link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Schibsted Grotesk',sans-serif;
+  font-size:17px;
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+section{padding:90px 0;border-top:1px solid var(--linie)}
+section:first-of-type{border-top:none}
+h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
+.lead strong{color:var(--leinwand);font-weight:500}
+.btn{
+  display:inline-block;
+  background:var(--rot);color:#FFFFFF;
+  font-weight:700;font-size:16px;
+  padding:16px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
+.btn-ghost{
+  display:inline-block;
+  color:var(--leinwand);
+  font-weight:500;font-size:16px;
+  padding:14px 8px;
+  border-bottom:1px solid var(--linie);
+  transition:border-color .18s ease;
+}
+.btn-ghost:hover{border-color:var(--rot)}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.94);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--grau);transition:color .15s}
+.nav-links a:hover{color:var(--leinwand)}
+.nav-links a.aktiv{color:var(--leinwand);border-bottom:2px solid var(--rot);padding-bottom:2px}
+.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn:hover{color:#FFFFFF}
+.nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:26px;cursor:pointer}
+
+.kopf{padding:170px 0 70px;border-top:none}
+.kopf h1{font-size:clamp(38px,6vw,68px);max-width:960px}
+.kopf .lead{margin-top:22px}
+.kopf-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.kopf-bild{border-radius:8px;width:100%;height:340px;object-fit:cover;filter:saturate(.85);margin-top:54px}
+
+.kern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.kern-card{
+  background:var(--karte);
+  border:1px solid var(--linie);
+  border-radius:8px;
+  padding:30px 28px;
+}
+.kern-card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.kern-card p{color:var(--grau);font-size:15.5px;line-height:1.5}
+
+.faq-list{margin-top:50px;max-width:800px}
+details{border-bottom:1px solid var(--linie)}
+summary{
+  cursor:pointer;list-style:none;
+  padding:24px 40px 24px 0;position:relative;
+  font-size:18px;font-weight:700;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  color:var(--rot);font-size:24px;font-weight:400;transition:transform .2s;
+}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details .antwort{padding:0 0 26px;color:var(--grau);max-width:700px;line-height:1.5}
+details .antwort strong{color:var(--leinwand);font-weight:500}
+
+.cta-band{background:var(--anthrazit);text-align:center}
+.cta-band h2{margin-bottom:14px}
+.cta-band .lead{margin:0 auto 36px}
+.cta-verweis{font-size:15.5px;color:var(--grau);max-width:640px;margin:32px auto 0;line-height:1.5}
+.cta-verweis a{color:var(--rot-hell)}
+
+footer{border-top:1px solid var(--linie);padding:50px 0 40px}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+}
+@media(max-width:860px){
+  .kern-grid{grid-template-columns:1fr}
+  .kopf-bild{height:240px}
+}
+@media(max-width:760px){
+  section{padding:64px 0}
+  .kopf{padding:130px 0 54px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:32px}
+  .kopf-ctas{gap:14px}
+  .kopf-ctas .btn,.kopf-ctas .btn-ghost{width:100%;text-align:center}
+  summary{font-size:16.5px;padding-right:34px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
+    </a>
+    <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html#pakete">Monatspakete</a>
+      <a class="aktiv" href="leistungen.html">Leistungen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="referenzen.html">Referenzen</a>
+      <a href="index.html#faq">Fragen</a>
+      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="kopf">
+  <div class="wrap">
+    <p class="timecode">Leistung <span class="tc-num">// Eventfilm &amp; Aftermovie</span></p>
+    <h1 class="display">Dein Event ist vorbei. Dein Film <span style="color:var(--rot-hell)">fängt gerade an.</span></h1>
+    <p class="lead">Monate Vorbereitung, ein großartiger Abend, und am nächsten Morgen ist alles vorbei? Nicht mit einem Eventfilm. Wir halten die Momente fest, die dein Event ausgemacht haben, und machen daraus den Film, der beim nächsten Mal für volle Plätze sorgt.</p>
+    <div class="kopf-ctas">
+      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+      <a class="btn-ghost" href="referenzen.html">Referenzen ansehen</a>
+    </div>
+    <img class="kopf-bild" decoding="async" src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=800&height=800" alt="Eventfilm und Aftermovie" loading="lazy">
+  </div>
+</section>
+
+<!-- ============ SZENE 01 ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 01 <span class="tc-num">// Welche Events wir filmen</span></p>
+    <h2 class="display">Vom Firmenjubiläum bis zum Stadtfest.</h2>
+    <div class="kern-grid">
+      <div class="kern-card">
+        <h3>Firmenfeiern &amp; Jubiläen</h3>
+        <p>Sommerfest, Weihnachtsfeier, rundes Jubiläum: Ein Aftermovie zeigt deinem Team, dass der Abend etwas wert war, und deinen Bewerbern, wie es sich anfühlt, bei euch zu arbeiten.</p>
+      </div>
+      <div class="kern-card">
+        <h3>Messen &amp; Firmenevents</h3>
+        <p>Produktvorstellung, Tag der offenen Tür, Messeauftritt: Der Film verlängert dein Event weit über den Tag hinaus und arbeitet danach in Vertrieb und Marketing weiter.</p>
+      </div>
+      <div class="kern-card">
+        <h3>Veranstaltungen &amp; Feste</h3>
+        <p>Konzerte, Vereinsfeste, Sportevents, Stadtfeste: Wir fangen die Stimmung ein, die Besucher erlebt haben, und liefern den Grund, warum nächstes Jahr noch mehr kommen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 02 ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 02 <span class="tc-num">// So arbeiten wir am Eventtag</span></p>
+    <h2 class="display">Wir sind da, ohne im Weg zu stehen.</h2>
+    <p class="lead">Ein gutes Eventteam erkennt man daran, dass man es kaum bemerkt. <strong>Wir bewegen uns unauffällig durch dein Event</strong>, fangen die echten Momente ein und stellen niemanden bloß. Auf Wunsch ergänzen wir Drohnenaufnahmen, die dein Event von oben zeigen.</p>
+    <p class="lead" style="margin-top:18px">Nach dem Event schneiden wir aus dem Material deinen Film: dicht, emotional, mit lizenzierter Musik und deinem Logo. Dazu liefern wir auf Wunsch kurze Versionen für Social Media, damit die Stimmung direkt in deine Kanäle wandert.</p>
+  </div>
+</section>
+
+<!-- ============ SZENE 03: FAQ ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Szene 03 <span class="tc-num">// Häufige Fragen</span></p>
+    <h2 class="display">Fragen zum Eventfilm.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Wie lange sollte ein Aftermovie sein?</summary>
+        <div class="antwort">Für die meisten Events gilt: <strong>ein bis drei Minuten, die Lust auf mehr machen.</strong> Lieber ein dichter Film, den jeder bis zum Ende schaut, als zwanzig Minuten, die keiner durchhält. Für Social Media schneiden wir zusätzlich kürzere Versionen.</div>
+      </details>
+      <details>
+        <summary>Wann bekommen wir den fertigen Film?</summary>
+        <div class="antwort">Den Zeitplan legen wir vor dem Event gemeinsam fest und <strong>halten uns dann auch daran</strong>. Wenn du den Film zu einem bestimmten Termin brauchst, etwa für den Ticketverkauf der nächsten Ausgabe, planen wir rückwärts von diesem Datum.</div>
+      </details>
+      <details>
+        <summary>Was ist mit den Persönlichkeitsrechten der Gäste?</summary>
+        <div class="antwort">Ein wichtiges Thema, das viele erst nach dem Event bedenken. <strong>Wir beraten dich vorab, wie du deine Gäste sauber informierst</strong>, und filmen so, dass niemand ungewollt im Mittelpunkt steht. So bekommst du einen Film, den du bedenkenlos veröffentlichen kannst.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Der nächste Termin steht</span></p>
+    <h2 class="display">Lass uns über dein Event reden.</h2>
+    <p class="lead">Ein kurzes, unverbindliches Gespräch. Du erzählst, was ansteht. Wir sagen dir ehrlich, was ein Eventfilm kostet, wie wir den Tag planen und bis wann dein Film fertig ist. Je früher wir sprechen, desto entspannter wird der Eventtag.</p>
+    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    <p class="cta-verweis">Du willst dein Event zusätzlich von oben zeigen? Dann kombiniere deinen Eventfilm mit <a href="drohnenaufnahmen.html">Drohnenaufnahmen</a>. Alle Leistungen findest du in der <a href="leistungen.html">Übersicht</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+</body>
+</html>
