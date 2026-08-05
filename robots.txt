@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# TESTUMGEBUNG – Diese Datei wird beim Umzug auf jaeger-shot.de
+# durch die finale robots.txt (Allow + Sitemap) ersetzt.
