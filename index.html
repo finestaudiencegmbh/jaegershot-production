@@ -270,7 +270,16 @@ nav{
 .leistung .l-body{padding:26px 26px 30px}
 .leistung h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:25px;margin-bottom:12px}
 .leistung p{color:var(--grau);font-size:15px}
-@media(max-width:860px){.leistungen-grid{grid-template-columns:1fr}}
+@media(max-width:860px){
+  .leistungen-grid{display:block}
+  .leistungen-grid .leistung{position:sticky;margin-bottom:24px;box-shadow:0 -16px 40px rgba(0,0,0,.55)}
+  .leistungen-grid .leistung:nth-child(1){top:84px}
+  .leistungen-grid .leistung:nth-child(2){top:92px}
+  .leistungen-grid .leistung:nth-child(3){top:100px}
+  .leistungen-grid .leistung:nth-child(4){top:108px}
+  .leistungen-grid .leistung:nth-child(5){top:116px}
+  .leistungen-grid .leistung:nth-child(6){top:124px}
+}
 
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:20px}
 .team-fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
