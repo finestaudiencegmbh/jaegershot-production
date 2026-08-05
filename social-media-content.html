@@ -198,9 +198,35 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .anker p,.paket-hinweis,.pakete-fussnote,.cta-verweis{line-height:1.6}
   .team-text p,.duo-text p,.netzwerk-text p,.kontakt-info p{line-height:1.6}
 }
+.intro{position:fixed;inset:0;z-index:200;background:var(--schwarz);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .6s ease 2.4s forwards}
+.intro img{height:96px;width:auto;animation:introLogo 1s cubic-bezier(.22,.61,.36,1) both}
+.intro-linie{width:0;height:2px;background:var(--rot);animation:introLinie 1.2s cubic-bezier(.22,.61,.36,1) .55s forwards}
+.intro-claim{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--rot-hell);animation:introLogo .8s ease 1.15s both}
+@keyframes introLogo{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes introLinie{to{width:170px}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+.intro.aus{display:none}
+@media(prefers-reduced-motion:reduce){.intro{display:none}}
 </style>
 </head>
 <body>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=400&height=252" alt="">
+  <div class="intro-linie"></div>
+  <p class="intro-claim">Your Vision. Our Shot.</p>
+</div>
+<script>
+  (function(){
+    var intro = document.getElementById('intro');
+    try{
+      if(sessionStorage.getItem('jsIntroGesehen')){ intro.classList.add('aus'); return; }
+      sessionStorage.setItem('jsIntroGesehen','1');
+    }catch(e){}
+    setTimeout(function(){ intro.classList.add('aus'); }, 3200);
+  })();
+</script>
+
 
 <nav>
   <div class="nav-inner">
