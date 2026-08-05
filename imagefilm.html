@@ -87,6 +87,7 @@ nav{
 .nav-links .btn{padding:10px 20px;font-size:14px}
 .nav-links .btn:hover{color:#FFFFFF}
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
+.nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
 
 .kopf{padding:170px 0 70px;border-top:none}
 .kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
@@ -148,10 +149,16 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 @media(max-width:900px){
   .nav-links{
     display:none;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;background:var(--schwarz);
-    border-bottom:1px solid var(--linie);padding:24px;gap:20px;
+    flex-direction:column;align-items:stretch;background:var(--schwarz);
+    border-bottom:1px solid var(--linie);padding:6px 24px 18px;gap:0;
+    box-shadow:0 30px 50px rgba(0,0,0,.55);
   }
   .nav-links.open{display:flex}
+  .nav-links a{color:var(--leinwand);font-size:18px;font-weight:600;padding:17px 2px;border-bottom:1px solid var(--linie)}
+  .nav-links a:last-of-type{border-bottom:none}
+  .nav-links a.aktiv{color:var(--rot-hell);border-bottom:1px solid var(--linie);padding-bottom:17px}
+  .nav-links .btn{display:none}
+  .nav-cta-mobil{display:inline-block;margin-left:auto}
   .nav-burger{display:block}
 }
 @media(max-width:860px){
@@ -264,6 +271,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
       <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
     </a>
+    <a class="btn nav-cta-mobil" href="index.html#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="index.html#pakete">Monatspakete</a>
