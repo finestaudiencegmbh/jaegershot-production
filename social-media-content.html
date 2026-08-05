@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 a.timecode{transition:color .15s}
 a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
-section{padding:90px 0;border-top:1px solid var(--linie)}
+section{padding:130px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
@@ -170,7 +170,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .kopf-bild{height:240px}
 }
 @media(max-width:760px){
-  section{padding:64px 0}
+  section{padding:90px 0}
   .kopf{padding:130px 0 54px}
 }
 @media(max-width:520px){
@@ -182,6 +182,9 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -220,7 +223,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 01 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 01 <span class="tc-num">// Das Problem mit Social Media</span></p>
+    <p class="timecode">Das Problem mit Social Media</p>
     <h2 class="display">Du weißt, dass du posten müsstest. Aber wann?</h2>
     <p class="lead">Zwischen Aufträgen, Team und Tagesgeschäft bleibt Social Media immer liegen. Selbst filmen, schneiden, Musik auswählen, hochladen: <strong>Das ist ein eigener Job, nicht dein Job.</strong> Genau den übernehmen wir.</p>
     <p class="lead" style="margin-top:18px">Du bekommst jeden Monat professionell gedrehte und geschnittene Reels und kurze Videos, fertig zum Posten. Gedreht bei dir vor Ort, geschnitten mit lizenzierter Musik, versehen mit deinem Logo. Du lädst nur noch hoch. Oder wir zeigen dir, wie es am einfachsten geht.</p>
@@ -230,7 +233,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 02: PAKETE ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 02 <span class="tc-num">// Deine Monatspakete</span></p>
+    <p class="timecode">Deine Monatspakete</p>
     <h2 class="display">Drei Laufzeiten. Du entscheidest.</h2>
     <div class="pakete-grid">
       <div class="paket">
@@ -281,7 +284,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 03 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 03 <span class="tc-num">// Für wen das gemacht ist</span></p>
+    <p class="timecode">Für wen das gemacht ist</p>
     <h2 class="display">Content für Betriebe, nicht für Influencer.</h2>
     <p class="lead">Wir drehen für Handwerksbetriebe, Gastronomie, Autohäuser, Immobilienmakler und Dienstleister in Aschaffenburg, dem Rhein-Main-Gebiet und Unterfranken. <strong>Du brauchst keine Follower-Strategie und keinen Tanz vor der Kamera.</strong> Was funktioniert: echte Einblicke in deinen Betrieb, dein Team bei der Arbeit, fertige Projekte, zufriedene Kunden.</p>
     <p class="lead" style="margin-top:18px">Genau das produzieren wir. Regelmäßig, verlässlich und so, dass es zu deiner Marke passt statt zu einem Trend, der nächste Woche vorbei ist.</p>
@@ -291,7 +294,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 04: FAQ ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 04 <span class="tc-num">// Häufige Fragen</span></p>
+    <p class="timecode">Häufige Fragen</p>
     <h2 class="display">Fragen zum Social Media Content.</h2>
     <div class="faq-list">
       <details>
@@ -336,6 +339,25 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    ziele.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(eintraege){
+      var i = 0;
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.classList.add('sichtbar');
+        io.unobserve(e.target);
+        i++;
+      });
+    }, {rootMargin:'0px 0px -60px 0px'});
+    ziele.forEach(function(el){ io.observe(el); });
+  })();
+</script>
 
 </body>
 </html>

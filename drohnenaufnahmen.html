@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 a.timecode{transition:color .15s}
 a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
-section{padding:90px 0;border-top:1px solid var(--linie)}
+section{padding:130px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
@@ -150,7 +150,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .kopf-bild{height:240px}
 }
 @media(max-width:760px){
-  section{padding:64px 0}
+  section{padding:90px 0}
   .kopf{padding:130px 0 54px}
 }
 @media(max-width:520px){
@@ -161,6 +161,9 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -199,7 +202,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 01 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 01 <span class="tc-num">// Wofür sich Luftaufnahmen lohnen</span></p>
+    <p class="timecode">Wofür sich Luftaufnahmen lohnen</p>
     <h2 class="display">Einsatzbereiche, die wir regelmäßig fliegen.</h2>
     <div class="kern-grid">
       <div class="kern-card">
@@ -221,7 +224,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 02 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 02 <span class="tc-num">// Sauber und legal</span></p>
+    <p class="timecode">Sauber und legal</p>
     <h2 class="display">Zertifiziert, versichert, angemeldet.</h2>
     <p class="lead">Drohnenflüge über Betriebsgeländen, Baustellen und Wohngebieten sind kein rechtsfreier Raum. <strong>Wir fliegen mit EU-Kompetenznachweis, sind versichert und kümmern uns um nötige Genehmigungen</strong>, bevor die Drohne abhebt. Du musst dich um nichts kümmern und gehst kein Risiko ein.</p>
     <p class="lead" style="margin-top:18px">Das unterscheidet eine professionelle Produktion von der Drohne aus dem Elektromarkt: Bei uns bekommst du nicht nur schöne Bilder, sondern auch die Sicherheit, dass alles sauber abläuft.</p>
@@ -231,7 +234,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 03 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 03 <span class="tc-num">// Einzeln oder kombiniert</span></p>
+    <p class="timecode">Einzeln oder kombiniert</p>
     <h2 class="display">Als eigenes Projekt oder Teil deines Films.</h2>
     <p class="lead">Drohnenaufnahmen buchst du bei uns einzeln, etwa für ein Immobilien-Exposé oder eine Baudokumentation. Oder als Baustein in einem größeren Projekt: <strong>Die stärksten Imagefilme und Eventfilme kombinieren Bodenaufnahmen mit Luftbildern.</strong> Was für dein Projekt Sinn ergibt, klären wir im Erstgespräch. Ehrlich, wie immer.</p>
   </div>
@@ -240,7 +243,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 04: FAQ ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 04 <span class="tc-num">// Häufige Fragen</span></p>
+    <p class="timecode">Häufige Fragen</p>
     <h2 class="display">Fragen zu Drohnenaufnahmen.</h2>
     <div class="faq-list">
       <details>
@@ -281,6 +284,25 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    ziele.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(eintraege){
+      var i = 0;
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.classList.add('sichtbar');
+        io.unobserve(e.target);
+        i++;
+      });
+    }, {rootMargin:'0px 0px -60px 0px'});
+    ziele.forEach(function(el){ io.observe(el); });
+  })();
+</script>
 
 </body>
 </html>

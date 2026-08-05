@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 a.timecode{transition:color .15s}
 a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
-section{padding:90px 0;border-top:1px solid var(--linie)}
+section{padding:130px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.45}
@@ -161,7 +161,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .kopf-bild{height:240px}
 }
 @media(max-width:760px){
-  section{padding:64px 0}
+  section{padding:90px 0}
   .kopf{padding:130px 0 54px}
 }
 @media(max-width:520px){
@@ -172,6 +172,9 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -210,7 +213,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 01 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 01 <span class="tc-num">// Wofür du ihn brauchst</span></p>
+    <p class="timecode">Wofür du ihn brauchst</p>
     <h2 class="display">Was ein Imagefilm für dich erledigt.</h2>
     <p class="lead">Ein Imagefilm ist kein Werbespot und kein Hochglanz-Selbstlob. Er ist das Video, das auf deiner Website, bei Google und in deinen Angeboten die Frage beantwortet, die sich jeder Interessent stellt: <strong>Kann ich denen vertrauen?</strong></p>
     <div class="kern-grid">
@@ -233,7 +236,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 02 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 02 <span class="tc-num">// So entsteht dein Film</span></p>
+    <p class="timecode">So entsteht dein Film</p>
     <h2 class="display">Vom ersten Gespräch bis zum fertigen Video.</h2>
     <div class="ablauf-grid">
       <div class="schritt">
@@ -258,7 +261,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 03 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 03 <span class="tc-num">// Ehrlich kalkuliert</span></p>
+    <p class="timecode">Ehrlich kalkuliert</p>
     <h2 class="display">Was kostet ein Imagefilm?</h2>
     <p class="lead">Die ehrliche Antwort: <strong>Das hängt davon ab, was du brauchst.</strong> Ein kompaktes Firmenporträt mit einem Drehtag kostet etwas anderes als eine große Produktion mit mehreren Drehorten, Drohnenaufnahmen und Interviews.</p>
     <p class="lead" style="margin-top:18px">Was wir dir zusagen können: Du erfährst den Preis <strong>vor</strong> der Zusammenarbeit, nicht auf der Schlussrechnung. Im kostenlosen Erstgespräch bekommst du eine ehrliche Einschätzung, was dein Projekt kostet und ob sich ein Imagefilm für dich gerade überhaupt lohnt. Wenn nicht, sagen wir dir das auch.</p>
@@ -269,7 +272,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ SZENE 04: FAQ ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 04 <span class="tc-num">// Häufige Fragen</span></p>
+    <p class="timecode">Häufige Fragen</p>
     <h2 class="display">Fragen zum Imagefilm.</h2>
     <div class="faq-list">
       <details>
@@ -314,6 +317,25 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    ziele.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(eintraege){
+      var i = 0;
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.classList.add('sichtbar');
+        io.unobserve(e.target);
+        i++;
+      });
+    }, {rootMargin:'0px 0px -60px 0px'});
+    ziele.forEach(function(el){ io.observe(el); });
+  })();
+</script>
 
 </body>
 </html>

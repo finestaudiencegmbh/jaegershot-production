@@ -50,7 +50,7 @@ a{color:inherit;text-decoration:none}
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
-section{padding:110px 0;border-top:1px solid var(--linie)}
+section{padding:150px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px}
@@ -354,7 +354,7 @@ footer{
   .nav-burger{display:block}
 }
 @media(max-width:760px){
-  section{padding:70px 0}
+  section{padding:96px 0}
   .hero{padding:118px 0 70px}
   h2.display{font-size:clamp(30px,8vw,44px)}
   .problem-grid{grid-template-columns:1fr;gap:36px}
@@ -364,7 +364,7 @@ footer{
 }
 @media(max-width:520px){
   .wrap{padding:0 18px}
-  section{padding:58px 0}
+  section{padding:80px 0}
   .hero{padding:104px 0 60px}
   .nav-inner{padding:12px 18px}
   .nav-logo img{height:32px}
@@ -399,19 +399,15 @@ footer{
   .hero-ctas{animation:heroUp .8s .5s both}
   .trust-line{animation:heroUp .8s .64s both}
 }
-@supports (animation-timeline: view()){
-  @media(prefers-reduced-motion:no-preference) and (min-width:761px){
-    .timecode,section h2.display,section .lead,.anker,.kern-card,.paket,.schritt,.zitat,.leistung,.problem-item,.faq-list details,.pakete-fussnote,.team-fotos img,.team-fakt,.team-text p,.ref-band .btn,.kontakt-info,form{
-      animation-name:revealIn;animation-fill-mode:both;animation-timeline:view();animation-range:entry 5% cover 30%;
-    }
-  }
-}
 .kern-card,.leistung,.zitat,.paket{transition:transform .28s ease,border-color .28s ease}
 .kern-card:hover,.leistung:hover,.zitat:hover{transform:translateY(-4px);border-color:var(--rot-dunkel)}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -456,7 +452,7 @@ footer{
   <div class="wrap">
     <div class="problem-grid">
       <div>
-        <p class="timecode">Szene 02 <span class="tc-num">// Kommt dir das bekannt vor?</span></p>
+        <p class="timecode">Kommt dir das bekannt vor?</p>
         <h2 class="display">Du weißt, dass du sichtbar sein müsstest.</h2>
         <p class="lead">Deine Konkurrenz postet schon. Deine Kunden sind längst auf Instagram und Facebook unterwegs. Und du?</p>
       </div>
@@ -475,7 +471,7 @@ footer{
 <!-- ============ SZENE 03: DAS GEGENTEIL DER TYPISCHEN AGENTUR ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 03 <span class="tc-num">// Warum wir anders arbeiten</span></p>
+    <p class="timecode">Warum wir anders arbeiten</p>
     <h2 class="display">Das Gegenteil der typischen Agentur.</h2>
     <p class="lead">Wir wissen, was Unternehmer an Agenturen nervt. Deshalb haben wir uns bewusst anders aufgestellt. Kein Marketing-Sprech, sondern fünf Zusagen, die wir halten können, weil unsere Struktur genau dafür gemacht ist.</p>
     <div class="kern-grid">
@@ -509,7 +505,7 @@ footer{
 <!-- ============ SZENE 04: MONATSPAKETE ============ -->
 <section id="pakete">
   <div class="wrap">
-    <p class="timecode">Szene 04 <span class="tc-num">// Unser Kernangebot</span></p>
+    <p class="timecode">Unser Kernangebot</p>
     <h2 class="display">Social Media Content aus Aschaffenburg. Jeden Monat fertig für dich.</h2>
     <p class="lead">Für Handwerksbetriebe, Gastronomie, Autohäuser und Dienstleister, die dauerhaft präsent sein wollen: regelmäßige Reels und kurze Videos, professionell gedreht und geschnitten, fertig für Instagram, Facebook, TikTok und deine Website.</p>
 
@@ -567,7 +563,7 @@ footer{
 <!-- ============ SZENE 05: ABLAUF ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 05 <span class="tc-num">// So läuft die Zusammenarbeit</span></p>
+    <p class="timecode">So läuft die Zusammenarbeit</p>
     <h2 class="display">In drei Schritten zu deinem Content.</h2>
     <p class="lead">Kein Projektchaos, keine endlosen Meetings. Der Aufwand für dich bleibt minimal, versprochen.</p>
     <div class="ablauf-grid">
@@ -593,7 +589,7 @@ footer{
 <!-- ============ SZENE 06: BEWEIS ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 06 <span class="tc-num">// Das sagen unsere Kunden</span></p>
+    <p class="timecode">Das sagen unsere Kunden</p>
     <h2 class="display">Vertrauen kann man sehen.</h2>
     <p class="lead">Unternehmen aus der Region und darüber hinaus setzen auf uns. Hier ein paar Stimmen aus der Zusammenarbeit.</p>
 
@@ -649,7 +645,7 @@ footer{
 <!-- ============ SZENE 07: EINZELLEISTUNGEN ============ -->
 <section id="leistungen">
   <div class="wrap">
-    <p class="timecode">Szene 07 <span class="tc-num">// Für einzelne Projekte</span></p>
+    <p class="timecode">Für einzelne Projekte</p>
     <h2 class="display">Einzelne Videoproduktion statt Paket? Machen wir auch.</h2>
     <p class="lead">Vom Imagefilm bis zur Drohnenaufnahme: Jede Leistung gibt es auch einzeln, individuell auf dein Projekt zugeschnitten.</p>
     <div class="leistungen-grid">
@@ -713,7 +709,7 @@ footer{
         <img decoding="async" src="https://framerusercontent.com/images/zPxJ7RgYCsIKdMMOoAKnIhuwYAE.jpg?width=600&height=831" alt="Maria in der Regie" loading="lazy">
       </div>
       <div class="team-text">
-        <p class="timecode">Szene 08 <span class="tc-num">// Wer hinter der Kamera steht</span></p>
+        <p class="timecode">Wer hinter der Kamera steht</p>
         <h2 class="display">Kamera trifft Regie.</h2>
         <p><strong>Ronny hinter der Kamera, Maria in der Regie.</strong> Wir sind ein eingespieltes Zwei-Personen-Team und arbeiten seit Jahren Hand in Hand. Das heißt für dich: kurze Abstimmungen, schnelle Umsetzung und keine Warteschleifen.</p>
         <div class="team-fakt">Die Personen, die du im Erstgespräch kennenlernst, sind dieselben, die bei dir drehen und dein Material schneiden. Immer.</div>
@@ -727,7 +723,7 @@ footer{
 <!-- ============ SZENE 09: REFERENZVIDEOS ============ -->
 <section class="ref-band">
   <div class="wrap">
-    <p class="timecode" style="justify-content:center">Szene 09 <span class="tc-num">// Beispiele statt Behauptungen</span></p>
+    <p class="timecode" style="justify-content:center">Beispiele statt Behauptungen</p>
     <h2 class="display">Schau dir an, was dabei rauskommt.</h2>
     <p class="lead">Reels, Firmenvideos und Imagefilme aus echten Projekten. Kein Show-Material, sondern Arbeiten für Kunden wie dich.</p>
     <a class="btn" href="referenzen.html">Referenzvideos ansehen</a>
@@ -737,7 +733,7 @@ footer{
 <!-- ============ SZENE 10: FAQ ============ -->
 <section id="faq">
   <div class="wrap">
-    <p class="timecode">Szene 10 <span class="tc-num">// Ehrliche Antworten</span></p>
+    <p class="timecode">Ehrliche Antworten</p>
     <h2 class="display">Die Fragen, die du dir vermutlich stellst.</h2>
     <div class="faq-list">
       <details>
@@ -771,7 +767,7 @@ footer{
 <!-- ============ SZENE 11: KONTAKT ============ -->
 <section id="kontakt">
   <div class="wrap">
-    <p class="timecode">Szene 11 <span class="tc-num">// And Action</span></p>
+    <p class="timecode">And Action</p>
     <h2 class="display">Erzähl uns von deinem Projekt.</h2>
     <div class="kontakt-grid">
       <div class="kontakt-info">
@@ -833,6 +829,25 @@ footer{
   (function(){
     var hv = document.querySelector('.hero video');
     if (hv) { hv.playbackRate = 0.55; }
+  })();
+</script>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    ziele.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(eintraege){
+      var i = 0;
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.classList.add('sichtbar');
+        io.unobserve(e.target);
+        i++;
+      });
+    }, {rootMargin:'0px 0px -60px 0px'});
+    ziele.forEach(function(el){ io.observe(el); });
   })();
 </script>
 

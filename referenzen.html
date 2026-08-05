@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 a.timecode{transition:color .15s}
 a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
-section{padding:90px 0;border-top:1px solid var(--linie)}
+section{padding:130px 0;border-top:1px solid var(--linie)}
 section:first-of-type{border-top:none}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px}
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .ref-grid-hoch{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:760px){
-  section{padding:64px 0}
+  section{padding:90px 0}
   .ref-kopf{padding:130px 0 54px}
   .ref-grid-breit{grid-template-columns:1fr}
 }
@@ -165,6 +165,9 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .filter-chip{padding:9px 16px;font-size:12px}
   .footer-inner{justify-content:center;text-align:center}
 }
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -206,7 +209,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ IMAGEFILME (16:9) ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 01 <span class="tc-num">// Imagefilme &amp; Firmenporträts</span></p>
+    <p class="timecode">Imagefilme &amp; Firmenporträts</p>
     <h2 class="display">Das große Format.</h2>
     <p class="lead">Filme, die deinen Betrieb so zeigen, wie Kunden ihn erleben sollen.</p>
 
@@ -262,7 +265,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 <!-- ============ REELS (9:16) ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Szene 02 <span class="tc-num">// Social Media Reels</span></p>
+    <p class="timecode">Social Media Reels</p>
     <h2 class="display">Kurz. Vertikal. Wirkt.</h2>
     <p class="lead">Content, wie er bei deinen Kunden im Feed landet – jeden Monat neu.</p>
 
@@ -348,6 +351,25 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
       });
     });
   });
+</script>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    ziele.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(eintraege){
+      var i = 0;
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.classList.add('sichtbar');
+        io.unobserve(e.target);
+        i++;
+      });
+    }, {rootMargin:'0px 0px -60px 0px'});
+    ziele.forEach(function(el){ io.observe(el); });
+  })();
 </script>
 
 </body>
