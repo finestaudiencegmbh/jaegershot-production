@@ -197,6 +197,33 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 @keyframes introOut{to{opacity:0;visibility:hidden}}
 .intro.aus{display:none}
 @media(prefers-reduced-motion:reduce){.intro{display:none}}
+.modal-hg{position:fixed;inset:0;z-index:300;background:rgba(11,11,13,.82);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-hg.offen{display:flex}
+.modal{background:var(--anthrazit);border:1px solid var(--linie);border-radius:10px;max-width:540px;width:100%;padding:44px 36px 36px;position:relative;max-height:92vh;overflow-y:auto}
+.modal-zu{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--grau);font-size:28px;line-height:1;cursor:pointer;padding:6px 10px}
+.modal-zu:hover{color:var(--leinwand)}
+.m-schritt-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:12px}
+.m-frage{font-size:22px;font-weight:700;text-align:center;margin-bottom:28px;color:var(--leinwand)}
+.m-schritt{display:none}
+.m-schritt.aktiv{display:block}
+.m-feld{margin-bottom:14px}
+.modal label{font-size:13.5px;font-weight:500;color:var(--grau);display:block;margin-bottom:6px}
+.modal input,.modal textarea{width:100%;background:var(--karte);border:1px solid var(--linie);border-radius:6px;padding:14px 16px;color:var(--leinwand);font-family:inherit;font-size:15.5px;transition:border-color .15s}
+.modal input:focus,.modal textarea:focus{outline:none;border-color:var(--rot)}
+.modal textarea{min-height:110px;resize:vertical}
+.m-fehler{color:var(--rot-hell);font-size:13.5px;margin-top:12px;display:none}
+.m-nav{display:flex;gap:14px;justify-content:flex-end;align-items:center;margin-top:26px}
+.m-zurueck{background:none;border:none;color:var(--grau);font-size:15px;font-weight:500;cursor:pointer;padding:14px 8px;margin-right:auto}
+.m-zurueck:hover{color:var(--leinwand)}
+.m-hinweis{font-size:13px;color:var(--grau);margin-top:14px;line-height:1.5}
+.m-hinweis a{text-decoration:underline}
+.m-trust{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--grau);text-align:center;margin-top:22px}
+.m-danke{display:none;text-align:center;padding:20px 0}
+.m-danke.aktiv{display:block}
+.m-danke .m-check{width:64px;height:64px;border-radius:50%;background:rgba(194,44,38,.16);border:1px solid var(--rot);color:var(--rot-hell);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.m-danke h3{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--leinwand)}
+.m-danke p{color:var(--grau);line-height:1.55;max-width:380px;margin:0 auto}
+@media(max-width:520px){.modal{padding:40px 22px 28px}.m-frage{font-size:19px}}
 </style>
 </head>
 <body>
@@ -373,6 +400,108 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
       });
     }, {rootMargin:'0px 0px -60px 0px'});
     ziele.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+<div class="modal-hg" id="kontaktModal" role="dialog" aria-modal="true" aria-label="Kostenloses Erstgespräch anfragen">
+  <div class="modal">
+    <button class="modal-zu" type="button" aria-label="Schließen">×</button>
+    <form id="mForm" action="#" method="post" novalidate>
+      <div class="m-schritt aktiv" data-schritt="1">
+        <p class="m-schritt-label">Schritt 1 von 3</p>
+        <h3 class="m-frage">Wie heißt du?</h3>
+        <div class="m-feld"><label for="m-name">Dein Name</label><input type="text" id="m-name" name="name" autocomplete="name"></div>
+        <div class="m-feld"><label for="m-firma">Firma (optional)</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
+        <p class="m-fehler"></p>
+        <div class="m-nav"><button class="btn m-weiter" type="button">Weiter</button></div>
+      </div>
+      <div class="m-schritt" data-schritt="2">
+        <p class="m-schritt-label">Schritt 2 von 3</p>
+        <h3 class="m-frage">Wie erreichen wir dich?</h3>
+        <div class="m-feld"><label for="m-mail">E-Mail</label><input type="email" id="m-mail" name="email" autocomplete="email"></div>
+        <div class="m-feld"><label for="m-tel">Telefon (optional)</label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
+        <p class="m-fehler"></p>
+        <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn m-weiter" type="button">Weiter</button></div>
+      </div>
+      <div class="m-schritt" data-schritt="3">
+        <p class="m-schritt-label">Schritt 3 von 3</p>
+        <h3 class="m-frage">Worum geht's?</h3>
+        <div class="m-feld"><label for="m-msg">Erzähl kurz von deinem Projekt (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
+        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <p class="m-fehler"></p>
+        <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
+      </div>
+    </form>
+    <div class="m-danke">
+      <div class="m-check">✓</div>
+      <h3>Danke für deine Anfrage!</h3>
+      <p>Wir melden uns innerhalb von 24 Stunden persönlich bei dir. Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch.</p>
+    </div>
+    <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
+  </div>
+</div>
+<script>
+  (function(){
+    var hg = document.getElementById('kontaktModal');
+    if(!hg) return;
+    var schritte = hg.querySelectorAll('.m-schritt');
+    var aktuell = 0;
+
+    function zeige(i){
+      schritte.forEach(function(s, idx){ s.classList.toggle('aktiv', idx === i); });
+      aktuell = i;
+      var feld = schritte[i].querySelector('input,textarea');
+      if(feld) setTimeout(function(){ feld.focus(); }, 60);
+    }
+    function fehler(schritt, text){
+      var f = schritt.querySelector('.m-fehler');
+      f.textContent = text || '';
+      f.style.display = text ? 'block' : 'none';
+    }
+    function pruefe(i){
+      var s = schritte[i];
+      if(i === 0){
+        if(!s.querySelector('#m-name').value.trim()){ fehler(s, 'Sag uns kurz, wie du heißt.'); return false; }
+      }
+      if(i === 1){
+        var mail = s.querySelector('#m-mail').value.trim();
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){ fehler(s, 'Bitte gib eine gültige E-Mail-Adresse an.'); return false; }
+      }
+      fehler(s, '');
+      return true;
+    }
+
+    function oeffnen(){
+      hg.classList.add('offen');
+      document.body.style.overflow = 'hidden';
+      zeige(aktuell);
+    }
+    function schliessen(){
+      hg.classList.remove('offen');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a');
+      if(a && /#kontakt$/.test(a.getAttribute('href') || '')){ e.preventDefault(); oeffnen(); }
+    });
+    hg.querySelector('.modal-zu').addEventListener('click', schliessen);
+    hg.addEventListener('click', function(e){ if(e.target === hg) schliessen(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && hg.classList.contains('offen')) schliessen(); });
+
+    hg.querySelectorAll('.m-weiter').forEach(function(b){
+      b.addEventListener('click', function(){ if(pruefe(aktuell)) zeige(aktuell + 1); });
+    });
+    hg.querySelectorAll('.m-zurueck').forEach(function(b){
+      b.addEventListener('click', function(){ zeige(aktuell - 1); });
+    });
+    document.getElementById('mForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!pruefe(0)){ zeige(0); return; }
+      if(!pruefe(1)){ zeige(1); return; }
+      this.style.display = 'none';
+      hg.querySelector('.m-danke').classList.add('aktiv');
+    });
   })();
 </script>
 
