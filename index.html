@@ -939,8 +939,8 @@ footer{
       </div>
       <div class="m-schritt" data-schritt="3">
         <p class="m-schritt-label">Schritt 3 von 3</p>
-        <h3 class="m-frage">Worum geht's?</h3>
-        <div class="m-feld"><label for="m-msg">Erzähl kurz von deinem Projekt (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
+        <h3 class="m-frage">Erzähl uns von deinem Projekt.</h3>
+        <div class="m-feld"><label for="m-msg">Worum geht's? (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
         <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
@@ -1011,6 +1011,7 @@ footer{
     });
     document.getElementById('mForm').addEventListener('submit', function(e){
       e.preventDefault();
+      if(aktuell < 2){ if(pruefe(aktuell)) zeige(aktuell + 1); return; }
       if(!pruefe(0)){ zeige(0); return; }
       if(!pruefe(1)){ zeige(1); return; }
       this.style.display = 'none';
