@@ -382,14 +382,16 @@ footer{
   .kontakt-daten{word-break:break-word}
   .footer-inner{justify-content:center;text-align:center}
 }
-.hero .logo-marquee{margin-top:14px}
-.logo-marquee{overflow:hidden;position:relative;margin-top:8px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
-.logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 45s linear infinite;will-change:transform}
+.hero .logo-marquee{margin-top:18px}
+.logo-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
+.logo-ebene{transform:perspective(1200px) rotateX(16deg) rotateZ(-2deg);width:114%;margin-left:-7%;display:flex;flex-direction:column;gap:14px;padding:14px 0 30px}
+.logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 85s linear infinite;will-change:transform}
+.logo-track.rueck{animation-direction:reverse}
 .logo-marquee:hover .logo-track{animation-play-state:paused}
-.logo-track .logo-cell{flex:0 0 auto;width:180px;height:86px;background:var(--karte);border:1px solid var(--linie);border-radius:6px;padding:18px;display:flex;align-items:center;justify-content:center}
-.logo-track img{max-height:44px;width:auto;max-width:100%;filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;transition:filter .2s,opacity .2s}
+.logo-track .logo-cell{flex:0 0 auto;width:170px;height:80px;background:var(--karte);border:1px solid var(--linie);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:center}
+.logo-track img{max-height:42px;width:auto;max-width:100%;filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;transition:filter .2s,opacity .2s}
 .logo-track .logo-cell:hover img{filter:grayscale(0) brightness(1);opacity:1}
-@media(max-width:520px){.logo-track .logo-cell{width:150px}}
+@media(max-width:520px){.logo-track .logo-cell{width:136px;height:66px;padding:12px}.logo-track img{max-height:34px}.logo-ebene{gap:10px}.logo-track{gap:10px;animation-duration:60s}}
 @keyframes logoflow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes heroUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes revealIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
@@ -528,6 +530,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="trust-line">Aschaffenburg · Rhein-Main · Main-Spessart · Unterfranken</p>
     <p class="trust-line" style="margin-top:30px">Unternehmen, die uns vertrauen:</p>
     <div class="logo-marquee">
+      <div class="logo-ebene">
       <div class="logo-track">
         <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=400&height=150" alt="Kundenlogo" loading="lazy"></div>
         <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=300&height=300" alt="Kundenlogo" loading="lazy"></div>
@@ -535,24 +538,27 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=400&height=293" alt="Kundenlogo" loading="lazy"></div>
         <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=400&height=125" alt="Kundenlogo" loading="lazy"></div>
         <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=400&height=219" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=400&height=103" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=400&height=120" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=400&height=143" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=400&height=58" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=400&height=250" alt="Kundenlogo" loading="lazy"></div>
-        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=400&height=212" alt="Kundenlogo" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/9Q0VD9i3xomzVjHQ4g8cAKWxWDY.png?width=400&height=150" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/omQuoD9fqVb6YUFd5CEHsdFk0.png?width=300&height=300" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/q2EApwbVvufQPthyQsMzgAs8g.png?width=400&height=175" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/YjvqHKq2M0ULJnLyYVC5nN50Lk.png?width=400&height=293" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/3shCmDunOVZnmmYMWcaQgWqs4.png?width=400&height=125" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/YgToBG0dBbffIMJG45NJRJlX8.png?width=400&height=219" alt="" loading="lazy"></div>
+      </div>
+      <div class="logo-track rueck">
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=400&height=103" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=400&height=120" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=400&height=143" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=400&height=58" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=400&height=250" alt="Kundenlogo" loading="lazy"></div>
+        <div class="logo-cell"><img decoding="async" src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=400&height=212" alt="Kundenlogo" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/MlX3QT18l9lwcxvIT035Gu2cOPg.png?width=400&height=103" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/43NzVPfvZa0Oj73LOKMFo9uJbGs.png?width=400&height=120" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/oDmFuE6IKCChwX3woz5V532JfuE.png?width=400&height=143" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/QGcFqON9BFXFf90ELRo7micLFmw.png?width=400&height=58" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/gFD58ZcYcin4T6oz7LX5cOi2Zyk.png?width=400&height=250" alt="" loading="lazy"></div>
         <div class="logo-cell" aria-hidden="true"><img decoding="async" src="https://framerusercontent.com/images/4kSdzqAE8Z9czUIc90Ow3MuDF4.png?width=400&height=212" alt="" loading="lazy"></div>
+      </div>
       </div>
     </div>
   </div>
