@@ -169,6 +169,7 @@ nav{
   mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
 }
 .reel-slider::-webkit-scrollbar{display:none}
+.reel-track{display:flex;gap:18px;width:max-content;will-change:transform}
 .reel-card{
   flex:0 0 auto;width:280px;aspect-ratio:9/16;
   scroll-snap-align:start;border-radius:10px;overflow:hidden;
@@ -647,6 +648,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <h2 class="display">Ein Blick in unsere Arbeit.</h2>
     <p class="lead">Wisch dich durch ein paar aktuelle Ausschnitte – gedreht für Betriebe wie deinen.</p>
     <div class="reel-slider">
+      <div class="reel-track">
       <div class="reel-card reel-video" data-wistia="9otzx62ob7">
         <iframe src="https://fast.wistia.net/embed/iframe/9otzx62ob7?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 1"></iframe>
       </div>
@@ -664,6 +666,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       </div>
       <div class="reel-card reel-video" data-wistia="vvvztviceo">
         <iframe src="https://fast.wistia.net/embed/iframe/vvvztviceo?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 6"></iframe>
+      </div>
       </div>
     </div>
   </div>
@@ -1137,20 +1140,31 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   (function(){
     var slider = document.querySelector('.reel-slider');
     if(!slider) return;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ slider.classList.add('manuell'); return; }
-    var richtung = 1, gestoppt = false, laufend = false, rafId, pos = 0;
-    function schritt(){
+    var track = slider.querySelector('.reel-track');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var GESCHW = 22; // px pro Sekunde
+    var pos = 0, richtung = 1, gestoppt = false, laufend = false, rafId, zuletzt = null;
+    function schritt(t){
       if(gestoppt || !laufend) return;
-      var max = slider.scrollWidth - slider.clientWidth;
-      pos += 0.35 * richtung;
-      if(pos <= 0){ pos = 0; richtung = 1; }
-      if(pos >= max){ pos = max; richtung = -1; }
-      slider.scrollLeft = pos;
+      if(zuletzt !== null){
+        var dt = Math.min((t - zuletzt) / 1000, .05);
+        var max = track.scrollWidth - slider.clientWidth;
+        pos += GESCHW * dt * richtung;
+        if(pos <= 0){ pos = 0; richtung = 1; }
+        if(pos >= max){ pos = max; richtung = -1; }
+        track.style.transform = 'translateX(' + (-pos) + 'px)';
+      }
+      zuletzt = t;
       rafId = requestAnimationFrame(schritt);
     }
-    function anhalten(){ laufend = false; cancelAnimationFrame(rafId); }
-    function weiter(){ if(gestoppt || laufend) return; laufend = true; pos = slider.scrollLeft; rafId = requestAnimationFrame(schritt); }
-    function stoppFuerImmer(){ gestoppt = true; anhalten(); slider.classList.add('manuell'); }
+    function anhalten(){ laufend = false; zuletzt = null; cancelAnimationFrame(rafId); }
+    function weiter(){ if(gestoppt || laufend) return; laufend = true; rafId = requestAnimationFrame(schritt); }
+    function stoppFuerImmer(){
+      if(gestoppt) return;
+      gestoppt = true; anhalten();
+      track.style.transform = 'none';
+      slider.scrollLeft = Math.round(pos);
+    }
     ['pointerdown','wheel','touchstart'].forEach(function(ev){ slider.addEventListener(ev, stoppFuerImmer, {passive:true}); });
     slider.addEventListener('mouseenter', anhalten);
     slider.addEventListener('mouseleave', weiter);
@@ -1184,11 +1198,17 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       if(frame){ frame.remove(); frame = null; }
       document.body.style.overflow = '';
     }
+    var reelSlider = document.querySelector('.reel-slider');
     document.querySelectorAll('.reel-card[data-wistia]').forEach(function(karte){
       var tap = document.createElement('div');
       tap.className = 'reel-tap';
       karte.appendChild(tap);
-      tap.addEventListener('click', function(){ oeffnen(karte.dataset.wistia); });
+      var startScroll = 0;
+      tap.addEventListener('pointerdown', function(){ startScroll = reelSlider ? reelSlider.scrollLeft : 0; }, {passive:true});
+      tap.addEventListener('click', function(){
+        if(reelSlider && Math.abs(reelSlider.scrollLeft - startScroll) > 8) return; // war ein Wisch, kein Tipp
+        oeffnen(karte.dataset.wistia);
+      });
     });
     lb.querySelector('.reel-lb-zu').addEventListener('click', schliessen);
     lb.addEventListener('click', function(e){ if(e.target === lb) schliessen(); });
