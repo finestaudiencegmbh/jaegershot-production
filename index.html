@@ -72,13 +72,15 @@ h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
 .btn-ghost{
   display:inline-block;
   color:var(--leinwand);
-  font-weight:500;
+  font-weight:400;
   font-size:16px;
-  padding:16px 8px;
-  border-bottom:1px solid var(--linie);
-  transition:border-color .18s ease;
+  padding:15px 30px;
+  border:1px solid var(--rot-dunkel);
+  border-radius:4px;
+  text-align:center;
+  transition:border-color .18s ease,background .18s ease;
 }
-.btn-ghost:hover{border-color:var(--rot)}
+.btn-ghost:hover{border-color:var(--rot);background:rgba(194,44,38,.08)}
 .trust-line{
   font-family:'Schibsted Grotesk',sans-serif;font-weight:500;
   font-size:12.5px;
@@ -390,7 +392,6 @@ footer{
   .timecode{margin-bottom:16px}
   .hero-ctas{gap:14px}
   .hero-ctas .btn,.hero-ctas .btn-ghost{width:100%;text-align:center}
-  .btn-ghost{border-top:1px solid var(--linie);padding:14px 8px}
   .kern-card,.paket,.zitat{padding:26px 22px}
   .problem-item{font-size:16.5px}
   summary{font-size:16.5px;padding-right:34px}
