@@ -174,6 +174,8 @@ nav{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
 }
 .reel-card video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-card iframe{width:100%;height:100%;border:0;display:block}
+.reel-card.reel-video{border:1px solid var(--linie)}
 .reel-card .ph-play{
   width:56px;height:56px;border-radius:50%;
   background:rgba(194,44,38,.16);border:1px solid var(--rot);
@@ -634,7 +636,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <h2 class="display">Ein Blick in unsere Arbeit.</h2>
     <p class="lead">Wisch dich durch ein paar aktuelle Ausschnitte – gedreht für Betriebe wie deinen.</p>
     <div class="reel-slider">
-      <div class="reel-card"><span class="ph-play">▶</span><span class="ph-text">Platzhalter · Reel 1<br>MP4 · 9:16</span></div>
+      <div class="reel-card reel-video">
+        <iframe src="https://fast.wistia.net/embed/iframe/kqnvnwood8kqvbp?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 1"></iframe>
+      </div>
       <div class="reel-card"><span class="ph-play">▶</span><span class="ph-text">Platzhalter · Reel 2</span></div>
       <div class="reel-card"><span class="ph-play">▶</span><span class="ph-text">Platzhalter · Reel 3</span></div>
       <div class="reel-card"><span class="ph-play">▶</span><span class="ph-text">Platzhalter · Reel 4</span></div>
