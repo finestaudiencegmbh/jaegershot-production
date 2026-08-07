@@ -403,12 +403,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       var i = 0;
       eintraege.forEach(function(e){
         if(!e.isIntersecting) return;
-        e.target.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        e.target.style.transitionDelay = Math.min(i*60, 240) + 'ms';
         e.target.classList.add('sichtbar');
         io.unobserve(e.target);
         i++;
       });
-    }, {rootMargin:'0px 0px -60px 0px'});
+    }, {rootMargin:'0px 0px -20px 0px'});
     ziele.forEach(function(el){ io.observe(el); });
   })();
 </script>
