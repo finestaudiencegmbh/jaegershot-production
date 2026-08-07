@@ -200,7 +200,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .modal{background:var(--anthrazit);border:1px solid var(--linie);border-radius:10px;max-width:540px;width:100%;padding:44px 36px 36px;position:relative;max-height:92vh;overflow-y:auto}
 .modal-zu{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--grau);font-size:28px;line-height:1;cursor:pointer;padding:6px 10px}
 .modal-zu:hover{color:var(--leinwand)}
-.m-schritt-label{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:12px}
+.m-titel{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:16px}
 .m-frage{font-size:22px;font-weight:700;text-align:center;margin-bottom:28px;color:var(--leinwand)}
 .m-schritt{display:none}
 .m-schritt.aktiv{display:block}
@@ -398,9 +398,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <div class="modal-hg" id="kontaktModal" role="dialog" aria-modal="true" aria-label="Kostenloses Erstgespräch anfragen">
   <div class="modal">
     <button class="modal-zu" type="button" aria-label="Schließen">×</button>
+    <p class="m-titel">Erstgespräch vereinbaren</p>
     <form id="mForm" action="#" method="post" novalidate>
       <div class="m-schritt aktiv" data-schritt="1">
-        <p class="m-schritt-label">Schritt 1 von 3</p>
         <h3 class="m-frage">Wie heißt du?</h3>
         <div class="m-feld"><label for="m-name">Dein Name</label><input type="text" id="m-name" name="name" autocomplete="name"></div>
         <div class="m-feld"><label for="m-firma">Firma</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
@@ -408,7 +408,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="m-nav"><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
       <div class="m-schritt" data-schritt="2">
-        <p class="m-schritt-label">Schritt 2 von 3</p>
         <h3 class="m-frage">Wie erreichen wir dich?</h3>
         <div class="m-feld"><label for="m-mail">E-Mail</label><input type="email" id="m-mail" name="email" autocomplete="email"></div>
         <div class="m-feld"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
@@ -416,7 +415,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
       <div class="m-schritt" data-schritt="3">
-        <p class="m-schritt-label">Schritt 3 von 3</p>
         <h3 class="m-frage">Erzähl uns von deinem Projekt.</h3>
         <div class="m-feld"><label for="m-msg">Worum geht's? (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
         <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
