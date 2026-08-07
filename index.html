@@ -162,9 +162,11 @@ nav{
 
 .reel-slider{
   margin-top:50px;display:flex;gap:18px;
-  overflow-x:auto;scroll-snap-type:x mandatory;
+  overflow-x:auto;
   padding-bottom:16px;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
 }
 .reel-slider::-webkit-scrollbar{display:none}
 .reel-card{
@@ -1122,5 +1124,30 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   })();
 </script>
 
+<script>
+  (function(){
+    var slider = document.querySelector('.reel-slider');
+    if(!slider) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ slider.classList.add('manuell'); return; }
+    var richtung = 1, gestoppt = false, laufend = false, rafId, pos = 0;
+    function schritt(){
+      if(gestoppt || !laufend) return;
+      var max = slider.scrollWidth - slider.clientWidth;
+      pos += 0.35 * richtung;
+      if(pos <= 0){ pos = 0; richtung = 1; }
+      if(pos >= max){ pos = max; richtung = -1; }
+      slider.scrollLeft = pos;
+      rafId = requestAnimationFrame(schritt);
+    }
+    function anhalten(){ laufend = false; cancelAnimationFrame(rafId); }
+    function weiter(){ if(gestoppt || laufend) return; laufend = true; pos = slider.scrollLeft; rafId = requestAnimationFrame(schritt); }
+    function stoppFuerImmer(){ gestoppt = true; anhalten(); slider.classList.add('manuell'); }
+    ['pointerdown','wheel','touchstart'].forEach(function(ev){ slider.addEventListener(ev, stoppFuerImmer, {passive:true}); });
+    slider.addEventListener('mouseenter', anhalten);
+    slider.addEventListener('mouseleave', weiter);
+    var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? weiter() : anhalten(); }, {threshold:.25});
+    io.observe(slider);
+  })();
+</script>
 </body>
 </html>
