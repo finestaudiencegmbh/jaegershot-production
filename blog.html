@@ -10,6 +10,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+  /* Muss vor dem Widget-Script laufen: erzwingt offene Shadow-Roots,
+     damit der Kontrast-Fixer unten die Widget-Texte erreichen kann. */
+  (function(){
+    var orig = Element.prototype.attachShadow;
+    if(!orig) return;
+    Element.prototype.attachShadow = function(init){
+      try{ init = Object.assign({}, init || {}, {mode:'open'}); }catch(e){}
+      return orig.call(this, init);
+    };
+  })();
+</script>
 <style>
 :root{
   --schwarz:#0B0B0D;
@@ -288,6 +300,19 @@ section:nth-of-type(2)::before{
     var laden = document.getElementById('blogLaden');
     var container = document.getElementById('blogEinbettung');
     if(!laden || !container) return;
+
+    /* Alles, was beim fertigen Aufbau der Seite im DOM steht, gehoert zur Seite
+       selbst und wird vom Kontrast-Fixer nie angefasst - nur spaeter
+       eingefuegte Widget-Elemente. */
+    var eigene = new WeakSet();
+    var markiert = false;
+    function markiereEigene(){
+      document.querySelectorAll('*').forEach(function(el){ eigene.add(el); });
+      markiert = true;
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', markiereEigene); }
+    else{ markiereEigene(); }
+
     var versuche = 0;
     var timer = setInterval(function(){
       versuche++;
@@ -300,16 +325,17 @@ section:nth-of-type(2)::before{
       if(widgetDa){
         laden.style.display = 'none';
         clearInterval(timer);
-        farbenFixen();
       }else if(versuche >= 20){
         laden.innerHTML = '<span class="ph-tag">Blog nicht erreichbar</span>Die Artikel konnten gerade nicht geladen werden. Versuch es später noch einmal.';
         clearInterval(timer);
       }
+      farbenFixen();
     }, 500);
 
     /* Das Widget bringt Farben fuer hellen Hintergrund mit. Dunkle Schrift auf
        unserem schwarzen Grund wird hier aufgehellt; Elemente mit eigenem hellen
-       Hintergrund (z. B. Buttons) bleiben unveraendert. */
+       Hintergrund (z. B. Buttons) bleiben unveraendert. Durchsucht das ganze
+       Dokument inkl. Shadow-Roots, egal wohin das Widget rendert. */
     function leuchtdichte(farbe){
       var m = farbe && farbe.match(/rgba?\(([^)]+)\)/);
       if(!m) return null;
@@ -322,16 +348,26 @@ section:nth-of-type(2)::before{
       while(n && n !== document.documentElement){
         var l = leuchtdichte(getComputedStyle(n).backgroundColor);
         if(l !== null) return l;
-        n = n.parentElement;
+        n = n.parentElement || (n.getRootNode && n.getRootNode().host) || null;
       }
       return 0.04;
     }
+    function sammle(wurzel, liste){
+      var alle = wurzel.querySelectorAll('*');
+      for(var i = 0; i < alle.length; i++){
+        liste.push(alle[i]);
+        if(alle[i].shadowRoot) sammle(alle[i].shadowRoot, liste);
+      }
+    }
     function farbenFixen(){
-      if(container.querySelector('iframe')){ container.classList.add('hell'); return; }
-      var alle = container.querySelectorAll('*');
+      if(!markiert) return;
+      var frame = document.querySelector('iframe[src*="mylocalbusiness"]');
+      if(frame){ (container.contains(frame) ? container : frame.parentElement).classList.add('hell'); return; }
+      var alle = [];
+      sammle(document.body, alle);
       for(var i = 0; i < alle.length; i++){
         var el = alle[i];
-        if(el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || (laden && laden.contains(el)) || el === laden) continue;
+        if(eigene.has(el) || el.tagName === 'SCRIPT' || el.tagName === 'STYLE') continue;
         var hatText = false;
         for(var j = 0; j < el.childNodes.length; j++){
           var kn = el.childNodes[j];
@@ -341,16 +377,19 @@ section:nth-of-type(2)::before{
         var bg = hintergrund(el);
         var fl = leuchtdichte(getComputedStyle(el).color);
         if(bg < 0.35 && fl !== null && fl < 0.5){
-          var titel = /^H[1-6]$/.test(el.tagName) || el.closest('a');
+          var titel = /^H[1-6]$/.test(el.tagName) || (el.closest && el.closest('a,h1,h2,h3,h4'));
           el.style.setProperty('color', titel ? '#F2EFE9' : '#C9C9D2', 'important');
         }
       }
     }
     var fixTimer;
-    new MutationObserver(function(){
+    function fixGleich(){
       clearTimeout(fixTimer);
       fixTimer = setTimeout(farbenFixen, 150);
-    }).observe(container, {childList:true, subtree:true});
+    }
+    new MutationObserver(fixGleich).observe(document.body, {childList:true, subtree:true});
+    /* Nach Klicks (Artikel oeffnen, Blaettern) rendert das Widget neu */
+    document.addEventListener('click', function(){ setTimeout(farbenFixen, 300); setTimeout(farbenFixen, 1200); }, true);
   })();
 </script>
 
