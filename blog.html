@@ -110,8 +110,9 @@ nav{
   font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
   letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:12px;
 }
-/* Fallback: Widget in iframe/Shadow-DOM -> helle Flaeche, damit die Schrift lesbar bleibt */
-.blog-einbettung.hell{background:var(--leinwand);padding:28px;border-radius:10px}
+/* Fallback: Widget fuer Scripts unerreichbar -> helle Flaeche, damit die Schrift lesbar bleibt */
+.hell{background:#F4F2ED;padding:34px 30px;border-radius:12px}
+@media(max-width:760px){.hell{padding:22px 16px}}
 
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
@@ -313,6 +314,10 @@ section:nth-of-type(2)::before{
     if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', markiereEigene); }
     else{ markiereEigene(); }
 
+    var fertig = false;          /* helle Flaeche gesetzt -> Fixer aus */
+    var gefixtGesamt = 0;        /* wie viele Texte je aufgehellt wurden */
+    var widgetGesehen = 0;       /* Zeitpunkt, ab dem das Widget da ist */
+
     var versuche = 0;
     var timer = setInterval(function(){
       versuche++;
@@ -325,6 +330,9 @@ section:nth-of-type(2)::before{
       if(widgetDa){
         laden.style.display = 'none';
         clearInterval(timer);
+        widgetGesehen = Date.now();
+        setTimeout(entscheide, 1600);
+        setTimeout(entscheide, 3600);
       }else if(versuche >= 20){
         laden.innerHTML = '<span class="ph-tag">Blog nicht erreichbar</span>Die Artikel konnten gerade nicht geladen werden. Versuch es später noch einmal.';
         clearInterval(timer);
@@ -332,10 +340,12 @@ section:nth-of-type(2)::before{
       farbenFixen();
     }, 500);
 
-    /* Das Widget bringt Farben fuer hellen Hintergrund mit. Dunkle Schrift auf
-       unserem schwarzen Grund wird hier aufgehellt; Elemente mit eigenem hellen
-       Hintergrund (z. B. Buttons) bleiben unveraendert. Durchsucht das ganze
-       Dokument inkl. Shadow-Roots, egal wohin das Widget rendert. */
+    /* Das Widget bringt Farben fuer hellen Hintergrund mit. Wenn seine Texte
+       per Script erreichbar sind, werden sie fuer den schwarzen Grund
+       aufgehellt; Elemente mit eigenem hellen Hintergrund (z. B. Buttons)
+       bleiben unveraendert. Durchsucht das ganze Dokument inkl. Shadow-Roots.
+       Rendert das Widget unerreichbar (iframe o. ae.), schaltet entscheide()
+       stattdessen eine helle Flaeche hinter das Widget. */
     function leuchtdichte(farbe){
       var m = farbe && farbe.match(/rgba?\(([^)]+)\)/);
       if(!m) return null;
@@ -359,27 +369,51 @@ section:nth-of-type(2)::before{
         if(alle[i].shadowRoot) sammle(alle[i].shadowRoot, liste);
       }
     }
-    function farbenFixen(){
-      if(!markiert) return;
-      var frame = document.querySelector('iframe[src*="mylocalbusiness"]');
-      if(frame){ (container.contains(frame) ? container : frame.parentElement).classList.add('hell'); return; }
+    function neueElemente(){
       var alle = [];
       sammle(document.body, alle);
-      for(var i = 0; i < alle.length; i++){
-        var el = alle[i];
-        if(eigene.has(el) || el.tagName === 'SCRIPT' || el.tagName === 'STYLE') continue;
+      return alle.filter(function(el){
+        return !eigene.has(el) && el.tagName !== 'SCRIPT' && el.tagName !== 'STYLE' && !(laden && laden.contains(el));
+      });
+    }
+    function farbenFixen(){
+      if(!markiert || fertig) return {neu:0, text:0};
+      var neu = neueElemente();
+      var textZaehler = 0;
+      for(var i = 0; i < neu.length; i++){
+        var el = neu[i];
         var hatText = false;
         for(var j = 0; j < el.childNodes.length; j++){
           var kn = el.childNodes[j];
           if(kn.nodeType === 3 && kn.textContent.trim()){ hatText = true; break; }
         }
         if(!hatText) continue;
+        textZaehler++;
         var bg = hintergrund(el);
         var fl = leuchtdichte(getComputedStyle(el).color);
         if(bg < 0.35 && fl !== null && fl < 0.5){
           var titel = /^H[1-6]$/.test(el.tagName) || (el.closest && el.closest('a,h1,h2,h3,h4'));
-          el.style.setProperty('color', titel ? '#F2EFE9' : '#C9C9D2', 'important');
+          var ziel = titel ? '#F2EFE9' : '#C9C9D2';
+          if(el.style.getPropertyValue('color') !== ziel){
+            el.style.setProperty('color', ziel, 'important');
+            gefixtGesamt++;
+          }
         }
+      }
+      return {neu: neu.length, text: textZaehler};
+    }
+    /* Kommt der Fixer nicht an die Widget-Texte heran, hilft nur noch eine
+       helle Flaeche hinter dem Widget. */
+    function entscheide(){
+      if(fertig || !widgetGesehen) return;
+      var stand = farbenFixen();
+      var frame = document.querySelector('iframe[src*="mylocalbusiness"], #blogEinbettung iframe');
+      var unerreichbar = stand.neu > 3 && stand.text === 0 && gefixtGesamt === 0;
+      if(frame || unerreichbar){
+        var ziel = container;
+        if(frame && !container.contains(frame)) ziel = frame.parentElement || container;
+        ziel.classList.add('hell');
+        fertig = true;
       }
     }
     var fixTimer;
@@ -387,7 +421,7 @@ section:nth-of-type(2)::before{
       clearTimeout(fixTimer);
       fixTimer = setTimeout(farbenFixen, 150);
     }
-    new MutationObserver(fixGleich).observe(document.body, {childList:true, subtree:true});
+    new MutationObserver(fixGleich).observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:['style','class']});
     /* Nach Klicks (Artikel oeffnen, Blaettern) rendert das Widget neu */
     document.addEventListener('click', function(){ setTimeout(farbenFixen, 300); setTimeout(farbenFixen, 1200); }, true);
   })();
