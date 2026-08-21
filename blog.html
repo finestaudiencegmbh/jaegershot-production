@@ -98,6 +98,8 @@ nav{
   font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
   letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:12px;
 }
+/* Fallback: Widget in iframe/Shadow-DOM -> helle Flaeche, damit die Schrift lesbar bleibt */
+.blog-einbettung.hell{background:var(--leinwand);padding:28px;border-radius:10px}
 
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
@@ -298,11 +300,57 @@ section:nth-of-type(2)::before{
       if(widgetDa){
         laden.style.display = 'none';
         clearInterval(timer);
+        farbenFixen();
       }else if(versuche >= 20){
         laden.innerHTML = '<span class="ph-tag">Blog nicht erreichbar</span>Die Artikel konnten gerade nicht geladen werden. Versuch es später noch einmal.';
         clearInterval(timer);
       }
     }, 500);
+
+    /* Das Widget bringt Farben fuer hellen Hintergrund mit. Dunkle Schrift auf
+       unserem schwarzen Grund wird hier aufgehellt; Elemente mit eigenem hellen
+       Hintergrund (z. B. Buttons) bleiben unveraendert. */
+    function leuchtdichte(farbe){
+      var m = farbe && farbe.match(/rgba?\(([^)]+)\)/);
+      if(!m) return null;
+      var t = m[1].split(',').map(parseFloat);
+      if(t.length > 3 && t[3] === 0) return null;
+      return (0.2126*t[0] + 0.7152*t[1] + 0.0722*t[2]) / 255;
+    }
+    function hintergrund(el){
+      var n = el;
+      while(n && n !== document.documentElement){
+        var l = leuchtdichte(getComputedStyle(n).backgroundColor);
+        if(l !== null) return l;
+        n = n.parentElement;
+      }
+      return 0.04;
+    }
+    function farbenFixen(){
+      if(container.querySelector('iframe')){ container.classList.add('hell'); return; }
+      var alle = container.querySelectorAll('*');
+      for(var i = 0; i < alle.length; i++){
+        var el = alle[i];
+        if(el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || (laden && laden.contains(el)) || el === laden) continue;
+        var hatText = false;
+        for(var j = 0; j < el.childNodes.length; j++){
+          var kn = el.childNodes[j];
+          if(kn.nodeType === 3 && kn.textContent.trim()){ hatText = true; break; }
+        }
+        if(!hatText) continue;
+        var bg = hintergrund(el);
+        var fl = leuchtdichte(getComputedStyle(el).color);
+        if(bg < 0.35 && fl !== null && fl < 0.5){
+          var titel = /^H[1-6]$/.test(el.tagName) || el.closest('a');
+          el.style.setProperty('color', titel ? '#F2EFE9' : '#C9C9D2', 'important');
+        }
+      }
+    }
+    var fixTimer;
+    new MutationObserver(function(){
+      clearTimeout(fixTimer);
+      fixTimer = setTimeout(farbenFixen, 150);
+    }).observe(container, {childList:true, subtree:true});
   })();
 </script>
 
