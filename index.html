@@ -277,6 +277,10 @@ nav{
 @media(max-width:760px){.ablauf-grid{grid-template-columns:1fr}}
 
 .zitate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:50px 0 70px}
+
+.w-facade{position:relative;width:100%;height:100%;cursor:pointer;background:#101014 center/cover no-repeat;display:flex;align-items:center;justify-content:center;border:0;padding:0}
+.w-facade .w-play{width:60px;height:60px;border-radius:50%;background:rgba(194,44,38,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px;transition:transform .18s ease;box-shadow:0 8px 30px rgba(0,0,0,.45);pointer-events:none}
+.w-facade:hover .w-play{transform:scale(1.08)}
 .zitat-video{aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:18px;background:var(--anthrazit)}
 .zitat-video iframe{width:100%;height:100%;border:0;display:block}
 #kundenstimmen .btn-ghost{margin-top:8px}
@@ -745,22 +749,22 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <div class="reel-slider">
       <div class="reel-track">
       <div class="reel-card reel-video" data-wistia="9otzx62ob7">
-        <iframe src="https://fast.wistia.net/embed/iframe/9otzx62ob7?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 1"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/9otzx62ob7/swatch')"><span class="w-play">▶</span></div>
       </div>
       <div class="reel-card reel-video" data-wistia="nvqidv7pyk">
-        <iframe src="https://fast.wistia.net/embed/iframe/nvqidv7pyk?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 2"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/nvqidv7pyk/swatch')"><span class="w-play">▶</span></div>
       </div>
       <div class="reel-card reel-video" data-wistia="udo11cosfd">
-        <iframe src="https://fast.wistia.net/embed/iframe/udo11cosfd?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 3"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/udo11cosfd/swatch')"><span class="w-play">▶</span></div>
       </div>
       <div class="reel-card reel-video" data-wistia="slhk9clvxj">
-        <iframe src="https://fast.wistia.net/embed/iframe/slhk9clvxj?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 4"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/slhk9clvxj/swatch')"><span class="w-play">▶</span></div>
       </div>
       <div class="reel-card reel-video" data-wistia="6h3fhul5i1">
-        <iframe src="https://fast.wistia.net/embed/iframe/6h3fhul5i1?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 5"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/6h3fhul5i1/swatch')"><span class="w-play">▶</span></div>
       </div>
       <div class="reel-card reel-video" data-wistia="vvvztviceo">
-        <iframe src="https://fast.wistia.net/embed/iframe/vvvztviceo?playsinline=true&videoFoam=false" loading="lazy" allow="autoplay; fullscreen" allowfullscreen title="Reel 6"></iframe>
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></div>
       </div>
       </div>
     </div>
@@ -971,17 +975,17 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
     <div class="zitate-grid">
       <figure class="zitat">
-        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/owx1vg030o?playsinline=true&videoFoam=false" title="Kundenstimme: Nicolai" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="owx1vg030o" aria-label="Kundenstimme Nicolai abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch')"><span class="w-play">▶</span></button></div>
         <blockquote><p>„Man wird super an die Hand genommen – und es geht sehr, sehr schnell."</p></blockquote>
         <figcaption class="autor"><strong>Nicolai</strong>Kunde · Videoprojekt</figcaption>
       </figure>
       <figure class="zitat">
-        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/j5uikhp0c6?playsinline=true&videoFoam=false" title="Kundenstimme: Marcel" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="j5uikhp0c6" aria-label="Kundenstimme Marcel abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch')"><span class="w-play">▶</span></button></div>
         <blockquote><p>„Vom ersten Video sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell."</p></blockquote>
         <figcaption class="autor"><strong>Marcel</strong>Unternehmer · mehrere Betriebe</figcaption>
       </figure>
       <figure class="zitat">
-        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/aut15vk190?playsinline=true&videoFoam=false" title="Kundenstimme: Julian" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="aut15vk190" aria-label="Kundenstimme Julian abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/aut15vk190/swatch')"><span class="w-play">▶</span></button></div>
         <blockquote><p>„Man ist direkt auf einer Wellenlänge – alles läuft schnell und professionell."</p></blockquote>
         <figcaption class="autor"><strong>Julian</strong>Kunde · Videoprojekt</figcaption>
       </figure>
@@ -1296,7 +1300,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       tap.className = 'reel-tap';
       karte.appendChild(tap);
       var startScroll = 0;
-      tap.addEventListener('pointerdown', function(){ startScroll = reelSlider ? reelSlider.scrollLeft : 0; }, {passive:true});
+      tap.addEventListener('pointerdown', function(){
+        startScroll = reelSlider ? reelSlider.scrollLeft : 0;
+        /* Der Drift-Stopp uebergibt seine Position an scrollLeft - danach neu lesen,
+           sonst wird der erste Tipp faelschlich als Wisch gewertet */
+        setTimeout(function(){ startScroll = reelSlider ? reelSlider.scrollLeft : 0; }, 0);
+      }, {passive:true});
       tap.addEventListener('click', function(){
         if(reelSlider && Math.abs(reelSlider.scrollLeft - startScroll) > 8) return; // war ein Wisch, kein Tipp
         oeffnen(karte.dataset.wistia);
@@ -1306,6 +1315,20 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     lb.addEventListener('click', function(e){ if(e.target === lb) schliessen(); });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('offen')) schliessen(); });
   })();
+</script>
+<script>
+  /* Wistia-Player erst beim Klick laden - spart beim Seitenaufbau mehrere MB */
+  document.querySelectorAll('button.w-facade[data-wistia]').forEach(function(f){
+    f.addEventListener('click', function(){
+      var frame = document.createElement('iframe');
+      frame.src = 'https://fast.wistia.net/embed/iframe/' + f.dataset.wistia + '?playsinline=true&videoFoam=false&autoPlay=true';
+      frame.setAttribute('allow', 'autoplay; fullscreen');
+      frame.allowFullscreen = true;
+      frame.title = f.getAttribute('aria-label') || 'Video';
+      frame.style.cssText = 'width:100%;height:100%;border:0;display:block';
+      f.replaceWith(frame);
+    });
+  });
 </script>
 </body>
 </html>
