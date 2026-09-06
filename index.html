@@ -109,7 +109,7 @@ nav{
 .nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500}
 .nav-links a{color:var(--grau);transition:color .15s}
 .nav-links a:hover{color:var(--leinwand)}
-.nav-links .btn{padding:10px 20px;font-size:14px}
+.nav-links .btn{padding:10px 20px;font-size:14px;color:#FFFFFF}
 .nav-links .btn:hover{color:#FFFFFF}
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
 .nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
@@ -351,6 +351,36 @@ nav{
 .zitat-video{border-radius:6px;overflow:hidden;margin-bottom:18px;background:var(--anthrazit)}
 .zitat-video wistia-player{display:block;width:100%}
 .zitat-video iframe{width:100%;height:100%;border:0;display:block}
+.stimmen-stapel{margin-top:50px}
+.stimme{
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:18px;
+  overflow:hidden;
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
+  position:sticky;margin-bottom:22px;min-height:300px;
+  box-shadow:0 -18px 46px rgba(0,0,0,.55);
+}
+.stimme:nth-child(1){top:88px}
+.stimme:nth-child(2){top:98px}
+.stimme:nth-child(3){top:108px}
+.stimme .s-text{padding:34px 44px;text-align:left}
+.stimme .kat{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
+  letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:14px;
+}
+.stimme h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:24px;line-height:1.2;margin-bottom:14px}
+.stimme .s-text > p{color:var(--grau);font-size:15px;line-height:1.55;max-width:480px}
+.stimme .s-meta{color:var(--leinwand);font-size:13.5px;font-weight:500;margin-top:14px}
+.stimme .s-video{padding:26px 28px 26px 0}
+.stimme .s-video wistia-player{display:block;width:100%;border-radius:10px;overflow:hidden}
+@media(max-width:860px){
+  .stimme{display:flex;flex-direction:column;min-height:0;position:sticky}
+  .stimme:nth-child(1){top:84px}
+  .stimme:nth-child(2){top:92px}
+  .stimme:nth-child(3){top:100px}
+  .stimme .s-video{order:-1;width:100%;padding:16px 16px 0}
+  .stimme .s-text{padding:22px 22px 26px}
+  .stimme h3{font-size:20px}
+}
 #kundenstimmen .zitate-grid{margin-bottom:34px}
 #kundenstimmen .btn-ghost{display:block;width:max-content;margin:0 auto}
 .zitat{
@@ -762,7 +792,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <a href="ueber-uns.html">Über uns</a>
       <a href="referenzen.html">Referenzen</a>
       <a href="blog.html">Blog</a>
-      <a href="#faq">Fragen</a>
       <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
     </div>
   </div>
@@ -898,22 +927,38 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="timecode">Kundenstimmen</p>
     <h2 class="display">Das sagen Kunden, die es gemacht haben.</h2>
     <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
-    <div class="zitate-grid">
-      <figure class="zitat">
-        <div class="zitat-video"><script src="https://fast.wistia.com/embed/owx1vg030o.js" async type="module"></script><style>wistia-player[media-id='owx1vg030o']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="owx1vg030o" seo="false" aspect="1.7777777777777777"></wistia-player></div>
-        <blockquote><p>„Man wird super an die Hand genommen – und es geht sehr, sehr schnell."</p></blockquote>
-        <figcaption class="autor"><strong>Nicolai</strong>Kunde · Videoprojekt</figcaption>
-      </figure>
-      <figure class="zitat">
-        <div class="zitat-video"><script src="https://fast.wistia.com/embed/j5uikhp0c6.js" async type="module"></script><style>wistia-player[media-id='j5uikhp0c6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="j5uikhp0c6" seo="false" aspect="1.7777777777777777"></wistia-player></div>
-        <blockquote><p>„Vom ersten Video sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell."</p></blockquote>
-        <figcaption class="autor"><strong>Marcel</strong>Unternehmer · mehrere Betriebe</figcaption>
-      </figure>
-      <figure class="zitat">
-        <div class="zitat-video"><script src="https://fast.wistia.com/embed/aut15vk190.js" async type="module"></script><style>wistia-player[media-id='aut15vk190']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aut15vk190/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="aut15vk190" seo="false" aspect="1.7777777777777777"></wistia-player></div>
-        <blockquote><p>„Man ist direkt auf einer Wellenlänge – alles läuft schnell und professionell."</p></blockquote>
-        <figcaption class="autor"><strong>Julian</strong>Kunde · Videoprojekt</figcaption>
-      </figure>
+    <div class="stimmen-stapel">
+
+      <div class="stimme">
+        <div class="s-text">
+          <span class="kat">Kundenstimme 01 · Nicolai</span>
+          <h3>„Diese Ängste werden einem komplett genommen."</h3>
+          <p>Was soll ich machen? Habe ich überhaupt Zeit dafür? Nicolai kannte die typischen Sorgen vor dem ersten Videoprojekt – nach dem Dreh war davon nichts mehr übrig: super an die Hand genommen, sehr schnell umgesetzt, die Qualität „sehr, sehr gut". Er empfiehlt es besonders Unternehmen, die skalieren und ihr Business aufs nächste Level heben wollen.</p>
+          <p class="s-meta">Kunde · Videoprojekt</p>
+        </div>
+        <div class="s-video"><script src="https://fast.wistia.com/embed/owx1vg030o.js" async type="module"></script><style>wistia-player[media-id='owx1vg030o']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="owx1vg030o" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      </div>
+
+      <div class="stimme">
+        <div class="s-text">
+          <span class="kat">Kundenstimme 02 · Marcel</span>
+          <h3>„Wer jetzt nicht digital mitzieht, wird digital abgehängt."</h3>
+          <p>Marcel führt mehrere Unternehmen und hat uns an einem Tag der offenen Tür kennengelernt. Vom ersten Video war er sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell in Bild, Ton und Schnitt – und eine Empfehlung, die er „wärmstens" ausspricht. Sein Rat an andere Betriebe: Wer nicht mit der Zeit geht und sich bemerkbar macht, wird mit der Zeit gehen.</p>
+          <p class="s-meta">Unternehmer · mehrere Betriebe</p>
+        </div>
+        <div class="s-video"><script src="https://fast.wistia.com/embed/j5uikhp0c6.js" async type="module"></script><style>wistia-player[media-id='j5uikhp0c6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="j5uikhp0c6" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      </div>
+
+      <div class="stimme">
+        <div class="s-text">
+          <span class="kat">Kundenstimme 03 · Julian</span>
+          <h3>„Man ist direkt auf einer Wellenlänge."</h3>
+          <p>Ein sehr sympathisches Team und gute Kommunikation – so beschreibt Julian die Zusammenarbeit. Alles läuft schnell und professionell, ohne Abstimmungsschleifen und Reibungsverluste. Genau dafür sind wir ein Zwei-Personen-Team mit kurzen Wegen: Du redest immer mit den Leuten, die dein Video auch wirklich machen.</p>
+          <p class="s-meta">Kunde · Videoprojekt</p>
+        </div>
+        <div class="s-video"><script src="https://fast.wistia.com/embed/aut15vk190.js" async type="module"></script><style>wistia-player[media-id='aut15vk190']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aut15vk190/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="aut15vk190" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      </div>
+
     </div>
     <a class="btn-ghost" href="ergebnisse.html">Alle Ergebnisse &amp; Stimmen ansehen</a>
   </div>
@@ -1035,18 +1080,18 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         </div>
       </div>
       <div class="leistung">
-        <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
-        <div class="l-body">
-          <h3>Schnitt &amp; Postproduktion</h3>
-          <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
-        </div>
-      </div>
-      <div class="leistung">
         <img decoding="async" src="https://framerusercontent.com/images/9y0BiYQ4cCAT0BOIMWUIdE8baKc.jpg?width=600&height=600" alt="Eventfilm und Aftermovie" loading="lazy">
         <div class="l-body">
           <h3>Eventfilm &amp; Aftermovie</h3>
           <p>Dein Event lebt weiter: als Eventfilm oder Aftermovie, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
           <a class="btn-ghost" href="eventfilm.html" style="margin-top:16px">Mehr zum Eventfilm</a>
+        </div>
+      </div>
+      <div class="leistung">
+        <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
+        <div class="l-body">
+          <h3>Schnitt &amp; Postproduktion</h3>
+          <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
         </div>
       </div>
       <div class="leistung">
