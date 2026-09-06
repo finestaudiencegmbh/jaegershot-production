@@ -1323,56 +1323,37 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   (function(){
     var slider = document.querySelector('.reel-slider');
     if(!slider) return;
-    var track = slider.querySelector('.reel-track');
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var GESCHW = 22; // px pro Sekunde
-    var pos = 0, richtung = 1, gestoppt = false, laufend = false, rafId, zuletzt = null;
-    function schritt(t){
-      if(gestoppt || !laufend) return;
-      if(zuletzt !== null){
-        var dt = Math.min((t - zuletzt) / 1000, .05);
-        var max = track.scrollWidth - slider.clientWidth;
-        if(max <= 0){ zuletzt = t; rafId = requestAnimationFrame(schritt); return; }
-        pos += GESCHW * dt * richtung;
-        if(pos <= 0){ pos = 0; richtung = 1; }
-        if(pos >= max){ pos = max; richtung = -1; }
-        track.style.transform = 'translateX(' + (-pos) + 'px)';
-      }
-      zuletzt = t;
-      rafId = requestAnimationFrame(schritt);
+    var karten = slider.querySelectorAll('.reel-card');
+    if(!karten.length) return;
+
+    function schrittweite(){ return karten[0].getBoundingClientRect().width + 18; }
+    function maxScroll(){ return slider.scrollWidth - slider.clientWidth; }
+    function blaettern(richtung){
+      var ziel = slider.scrollLeft + richtung * schrittweite();
+      if(richtung > 0 && slider.scrollLeft >= maxScroll() - 4) ziel = 0;   // Ende -> von vorn
+      if(richtung < 0 && slider.scrollLeft <= 4) ziel = maxScroll();       // Anfang -> ans Ende
+      slider.scrollTo({left: ziel, behavior: 'smooth'});
     }
-    function anhalten(){ laufend = false; zuletzt = null; cancelAnimationFrame(rafId); }
-    function weiter(){ if(gestoppt || laufend) return; laufend = true; rafId = requestAnimationFrame(schritt); }
-    function stoppFuerImmer(){
-      if(gestoppt) return;
-      gestoppt = true; anhalten();
-      track.style.transform = 'none';
-      slider.scrollLeft = Math.round(pos);
-    }
-    slider.addEventListener('pointerdown', function(e){
-      if(e.pointerType === 'mouse') stoppFuerImmer(); // Touch stoppt erst bei echtem Seitwaerts-Wisch
-    }, {passive:true});
-    slider.addEventListener('wheel', function(e){
-      if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) stoppFuerImmer(); // nur seitliches Scrollen zaehlt
-    }, {passive:true});
-    var tX = 0, tY = 0;
-    slider.addEventListener('touchstart', function(e){ tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, {passive:true});
-    slider.addEventListener('touchmove', function(e){
-      var dx = Math.abs(e.touches[0].clientX - tX), dy = Math.abs(e.touches[0].clientY - tY);
-      if(dx > 8 && dx > dy) stoppFuerImmer(); // Wisch nach links/rechts, kein Seiten-Scroll
-    }, {passive:true});
-    slider.querySelectorAll('.reel-card').forEach(function(k){
-      k.addEventListener('mouseenter', anhalten);
-      k.addEventListener('mouseleave', weiter);
+
+    /* Automatisch weiterblaettern - pausiert nach Nutzer-Eingriff und ausserhalb des Viewports */
+    var pauseBis = 0, sichtbar = false, schwebt = false;
+    new IntersectionObserver(function(e){ sichtbar = e[0].isIntersecting; }, {threshold:.3}).observe(slider);
+    karten.forEach(function(k){
+      k.addEventListener('mouseenter', function(){ schwebt = true; });
+      k.addEventListener('mouseleave', function(){ schwebt = false; });
     });
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      setInterval(function(){
+        if(!sichtbar || schwebt || Date.now() < pauseBis) return;
+        blaettern(1);
+      }, 4000);
+    }
+    function benutzt(){ pauseBis = Date.now() + 9000; }
+    ['pointerdown','wheel','touchstart'].forEach(function(ev){ slider.addEventListener(ev, benutzt, {passive:true}); });
+
     document.querySelectorAll('.reel-pfeil').forEach(function(p){
-      p.addEventListener('click', function(){
-        stoppFuerImmer();
-        slider.scrollBy({left: parseInt(p.dataset.dir, 10) * 318, behavior: 'smooth'});
-      });
+      p.addEventListener('click', function(){ benutzt(); blaettern(parseInt(p.dataset.dir, 10)); });
     });
-    var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? weiter() : anhalten(); }, {threshold:.25});
-    io.observe(slider);
   })();
 </script>
 <div class="reel-lb" id="reelLightbox" role="dialog" aria-modal="true" aria-label="Video in Großansicht">
@@ -1406,15 +1387,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       var tap = document.createElement('div');
       tap.className = 'reel-tap';
       karte.appendChild(tap);
-      var startScroll = 0;
-      tap.addEventListener('pointerdown', function(){
-        startScroll = reelSlider ? reelSlider.scrollLeft : 0;
-        /* Der Drift-Stopp uebergibt seine Position an scrollLeft - danach neu lesen,
-           sonst wird der erste Tipp faelschlich als Wisch gewertet */
-        setTimeout(function(){ startScroll = reelSlider ? reelSlider.scrollLeft : 0; }, 0);
-      }, {passive:true});
-      tap.addEventListener('click', function(){
-        if(reelSlider && Math.abs(reelSlider.scrollLeft - startScroll) > 8) return; // war ein Wisch, kein Tipp
+      var startX = null;
+      tap.addEventListener('pointerdown', function(e){ startX = e.clientX; }, {passive:true});
+      tap.addEventListener('click', function(e){
+        if(startX !== null && Math.abs(e.clientX - startX) > 10) return; // Finger hat gewischt, kein Tipp
         oeffnen(karte.dataset.wistia);
       });
     });
