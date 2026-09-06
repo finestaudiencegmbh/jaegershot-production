@@ -156,8 +156,9 @@ nav{
 .hero .lead{margin:26px 0 38px;max-width:560px;color:#C9C7C0}
 .hero-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:54px}
-.problem-video{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:54px}
+.problem-video{border-radius:14px;overflow:hidden;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.problem-video wistia-player{display:block;width:100%}
 .problem-video iframe{width:100%;height:100%;border:0;display:block}
 .problem-list{display:flex;flex-direction:column;gap:14px}
 .problem-item{
@@ -779,8 +780,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <h2 class="display">Du weißt, dass du sichtbar sein müsstest.</h2>
     <p class="lead">Deine Konkurrenz postet schon. Deine Kunden sind längst auf Instagram und Facebook unterwegs. Und du?</p>
     <div class="problem-grid">
-      <div class="problem-video">
-        <button class="w-facade" type="button" data-wistia="jga3nwirt3" aria-label="Vorstellungsvideo von Maria abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/jga3nwirt3/swatch')"><span class="w-play">▶</span></button>
+      <div>
+        <div class="problem-video">
+          <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/jga3nwirt3.js" async type="module"></script><style>wistia-player[media-id='jga3nwirt3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jga3nwirt3/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+          <wistia-player media-id="jga3nwirt3" seo="false" aspect="1.7777777777777777"></wistia-player>
+        </div>
+        <a class="btn" href="index.html#kontakt" style="margin-top:22px;display:inline-block">Kostenloses Erstgespräch</a>
       </div>
       <div>
         <div class="problem-list">
