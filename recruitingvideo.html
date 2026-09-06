@@ -99,7 +99,10 @@ nav{
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
 .nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
 
-.kopf{padding:170px 0 70px;border-top:none}
+.kopf{position:relative;overflow:hidden;padding:200px 0 150px;border-top:none}
+.kopf-bg{position:absolute;inset:0;background-position:center;background-size:cover;filter:saturate(.85)}
+.kopf-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.86) 0%,rgba(11,11,13,.55) 42%,rgba(11,11,13,.78) 72%,var(--schwarz) 100%)}
+.kopf .wrap{position:relative;z-index:1}
 .kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
 .kopf .lead{margin-top:22px}
 .kopf-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
@@ -176,7 +179,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 }
 @media(max-width:760px){
   section{padding:96px 0}
-  .kopf{padding:130px 0 54px}
+  .kopf{padding:150px 0 110px}
 }
 @media(max-width:520px){
   .wrap{padding:0 18px}
@@ -191,6 +194,8 @@ section > .wrap > .timecode{justify-content:center}
 section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
 section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
 .kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-content;margin-left:auto;margin-right:auto}
+.faq-list{max-width:760px;margin-left:auto;margin-right:auto}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
@@ -336,7 +341,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <a href="index.html#pakete">Monatspakete</a>
       <a class="aktiv" href="leistungen.html">Leistungen</a>
       <a href="ueber-uns.html">Über uns</a>
-      <a href="referenzen.html">Referenzen</a>
+      <a href="ergebnisse.html">Referenzen</a>
       <a href="blog.html">Blog</a>
       <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
     </div>
@@ -345,15 +350,15 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
 <!-- ============ HERO ============ -->
 <section class="kopf">
+  <div class="kopf-bg" role="img" aria-label="Recruiting-Dreh bei einem Betrieb in Aschaffenburg: Team bei der Arbeit vor der Kamera" style="background-image:url('assets/shooting-feuerwehr-aschaffenburg.jpg')"></div>
   <div class="wrap">
     <a class="timecode" href="leistungen.html" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Recruitingvideo</span></a>
     <h1 class="display">Bewerber überzeugt man mit <span style="color:var(--rot-hell)">echten Einblicken.</span></h1>
     <p class="lead">Fachkräfte entscheiden heute in Sekunden, ob ein Arbeitgeber interessant ist. Ein Recruitingvideo zeigt dein Team, deinen Alltag und deine Benefits so, wie sie wirklich sind – und holt genau die Bewerber, die zu deinem Betrieb passen.</p>
     <div class="kopf-ctas">
       <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
-      <a class="btn-ghost" href="referenzen.html">Referenzen ansehen</a>
+      <a class="btn-ghost" href="ergebnisse.html">Referenzen ansehen</a>
     </div>
-    <img class="kopf-bild" decoding="async" src="assets/shooting-feuerwehr-aschaffenburg.jpg" alt="Recruiting-Dreh bei einem Betrieb in Aschaffenburg: Team bei der Arbeit vor der Kamera" loading="lazy">
   </div>
 </section>
 

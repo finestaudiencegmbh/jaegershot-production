@@ -124,6 +124,9 @@ nav{
   font-size:13px;color:var(--rot-hell);margin-top:16px;
 }
 
+.arbeit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.arbeit-grid .reel-card{aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:var(--karte);border:1px solid var(--linie)}
+@media(max-width:860px){.arbeit-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
 .cta-band .lead{margin:0 auto 36px}
@@ -177,6 +180,8 @@ section > .wrap > .timecode{justify-content:center}
 section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
 section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
 .kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-content;margin-left:auto;margin-right:auto}
+.faq-list{max-width:760px;margin-left:auto;margin-right:auto}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
@@ -299,7 +304,7 @@ section:nth-of-type(2)::before{
       <a href="index.html#pakete">Monatspakete</a>
       <a href="leistungen.html">Leistungen</a>
       <a href="ueber-uns.html">Über uns</a>
-      <a href="referenzen.html">Referenzen</a>
+      <a class="aktiv" href="ergebnisse.html">Referenzen</a>
       <a href="blog.html">Blog</a>
       <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
     </div>
@@ -358,6 +363,23 @@ section:nth-of-type(2)::before{
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============ EIN BLICK IN UNSERE ARBEIT ============ -->
+<section class="arbeit-sektion">
+  <div class="wrap">
+    <p class="timecode">Direkt aus der Produktion</p>
+    <h2 class="display">Ein Blick in unsere Arbeit.</h2>
+    <p class="lead">Aktuelle Ausschnitte aus echten Projekten – gedreht für Betriebe wie deinen.</p>
+    <div class="arbeit-grid">
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="9otzx62ob7" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/9otzx62ob7/swatch')"><span class="w-play">▶</span></button></div>
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="nvqidv7pyk" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/nvqidv7pyk/swatch')"><span class="w-play">▶</span></button></div>
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="udo11cosfd" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/udo11cosfd/swatch')"><span class="w-play">▶</span></button></div>
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="slhk9clvxj" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/slhk9clvxj/swatch')"><span class="w-play">▶</span></button></div>
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="6h3fhul5i1" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/6h3fhul5i1/swatch')"><span class="w-play">▶</span></button></div>
+      <div class="reel-card"><button class="w-facade" type="button" data-wistia="vvvztviceo" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></button></div>
+    </div>
   </div>
 </section>
 

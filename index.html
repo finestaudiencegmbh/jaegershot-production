@@ -589,6 +589,8 @@ section > .wrap > .timecode{justify-content:center}
 section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
 section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
 .kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-content;margin-left:auto;margin-right:auto}
+.faq-list{max-width:760px;margin-left:auto;margin-right:auto}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
@@ -790,7 +792,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <a href="#pakete">Monatspakete</a>
       <a href="leistungen.html">Leistungen</a>
       <a href="ueber-uns.html">Über uns</a>
-      <a href="referenzen.html">Referenzen</a>
+      <a href="ergebnisse.html">Referenzen</a>
       <a href="blog.html">Blog</a>
       <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
     </div>
@@ -808,7 +810,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="lead">Wir produzieren jeden Monat professionelle Videos für deinen Betrieb. Du kümmerst dich um dein Geschäft, wir uns um deinen Auftritt.</p>
     <div class="hero-ctas">
       <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
-      <a class="btn-ghost" href="referenzen.html">Referenzen ansehen</a>
+      <a class="btn-ghost" href="ergebnisse.html">Referenzen ansehen</a>
     </div>
     <p class="trust-line">Aschaffenburg · Rhein-Main · Main-Spessart · Unterfranken</p>
     <div class="logo-marquee">
@@ -870,57 +872,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   </div>
 </section>
 
-<!-- ============ REEL-SLIDER ============ -->
-<section id="reels">
-  <div class="wrap">
-    <p class="timecode">Direkt aus der Produktion</p>
-    <h2 class="display">Ein Blick in unsere Arbeit.</h2>
-    <p class="lead">Wisch dich durch ein paar aktuelle Ausschnitte – gedreht für Betriebe wie deinen.</p>
-    <div class="reel-slider">
-      <div class="reel-track">
-      <div class="reel-card reel-video" data-wistia="9otzx62ob7">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/9otzx62ob7/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      <div class="reel-card reel-video" data-wistia="nvqidv7pyk">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/nvqidv7pyk/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      <div class="reel-card reel-video" data-wistia="udo11cosfd">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/udo11cosfd/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      <div class="reel-card reel-video" data-wistia="slhk9clvxj">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/slhk9clvxj/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      <div class="reel-card reel-video" data-wistia="6h3fhul5i1">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/6h3fhul5i1/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      <div class="reel-card reel-video" data-wistia="vvvztviceo">
-        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></div>
-      </div>
-      </div>
-    </div>
-    <div class="reel-pfeile">
-      <button class="reel-pfeil" type="button" data-dir="-1" aria-label="Vorheriges Video">←</button>
-      <button class="reel-pfeil" type="button" data-dir="1" aria-label="Nächstes Video">→</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SZENE 03: DAS GEGENTEIL DER TYPISCHEN AGENTUR ============ -->
-<section>
-  <div class="wrap">
-    <p class="timecode">Warum wir anders arbeiten</p>
-    <h2 class="display">Das Gegenteil der typischen Agentur.</h2>
-    <p class="lead">Wir wissen, was Unternehmer an Agenturen nervt. Deshalb haben wir uns bewusst anders aufgestellt. Kein Marketing-Sprech, sondern fünf Zusagen, die wir halten können, weil unsere Struktur genau dafür gemacht ist.</p>
-    <div class="zusage-grid">
-      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Immer dieselben Gesichter</h3><p>Erstgespräch, Dreh, Schnitt – du redest immer mit Ronny und Maria.</p></div></div>
-      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Transparenz statt Blackbox</h3><p>Preis und Leistung stehen fest, bevor du zusagst. Keine versteckten Kosten.</p></div></div>
-      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Faire Pakete statt Knebelverträge</h3><p>Du wählst die Laufzeit. Längere Treue heißt besserer Preis – kein Käfig.</p></div></div>
-      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Kein Verkaufsdruck</h3><p>Ehrliche Einschätzung im Erstgespräch – auch wenn wir daran nichts verdienen.</p></div></div>
-      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Planbare Entlastung</h3><p>Jeden Monat fertiger Content – du musst nichts organisieren, nichts können.</p></div></div>
-      <div class="zusage-punch"><p>Wir kümmern uns um die Produktion.<br><span>Du dich um dein Geschäft.</span></p></div>
-    </div>
-  </section>
-
 <!-- ============ SZENE 08B: KUNDENSTIMMEN ============ -->
 <section id="kundenstimmen">
   <div class="wrap">
@@ -961,6 +912,57 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
     </div>
     <a class="btn-ghost" href="ergebnisse.html">Alle Ergebnisse &amp; Stimmen ansehen</a>
+  </div>
+</section>
+
+<!-- ============ SZENE 03: DAS GEGENTEIL DER TYPISCHEN AGENTUR ============ -->
+<section>
+  <div class="wrap">
+    <p class="timecode">Warum wir anders arbeiten</p>
+    <h2 class="display">Das Gegenteil der typischen Agentur.</h2>
+    <p class="lead">Wir wissen, was Unternehmer an Agenturen nervt. Deshalb haben wir uns bewusst anders aufgestellt. Kein Marketing-Sprech, sondern fünf Zusagen, die wir halten können, weil unsere Struktur genau dafür gemacht ist.</p>
+    <div class="zusage-grid">
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Immer dieselben Gesichter</h3><p>Erstgespräch, Dreh, Schnitt – du redest immer mit Ronny und Maria.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Transparenz statt Blackbox</h3><p>Preis und Leistung stehen fest, bevor du zusagst. Keine versteckten Kosten.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Faire Pakete statt Knebelverträge</h3><p>Du wählst die Laufzeit. Längere Treue heißt besserer Preis – kein Käfig.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Kein Verkaufsdruck</h3><p>Ehrliche Einschätzung im Erstgespräch – auch wenn wir daran nichts verdienen.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Planbare Entlastung</h3><p>Jeden Monat fertiger Content – du musst nichts organisieren, nichts können.</p></div></div>
+      <div class="zusage-punch"><p>Wir kümmern uns um die Produktion.<br><span>Du dich um dein Geschäft.</span></p></div>
+    </div>
+  </section>
+
+<!-- ============ REEL-SLIDER ============ -->
+<section id="reels">
+  <div class="wrap">
+    <p class="timecode">Direkt aus der Produktion</p>
+    <h2 class="display">Ein Blick in unsere Arbeit.</h2>
+    <p class="lead">Wisch dich durch ein paar aktuelle Ausschnitte – gedreht für Betriebe wie deinen.</p>
+    <div class="reel-slider">
+      <div class="reel-track">
+      <div class="reel-card reel-video" data-wistia="9otzx62ob7">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/9otzx62ob7/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      <div class="reel-card reel-video" data-wistia="nvqidv7pyk">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/nvqidv7pyk/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      <div class="reel-card reel-video" data-wistia="udo11cosfd">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/udo11cosfd/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      <div class="reel-card reel-video" data-wistia="slhk9clvxj">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/slhk9clvxj/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      <div class="reel-card reel-video" data-wistia="6h3fhul5i1">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/6h3fhul5i1/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      <div class="reel-card reel-video" data-wistia="vvvztviceo">
+        <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></div>
+      </div>
+      </div>
+    </div>
+    <div class="reel-pfeile">
+      <button class="reel-pfeil" type="button" data-dir="-1" aria-label="Vorheriges Video" onclick="window.reelBlaettern?window.reelBlaettern(-1):document.querySelector('.reel-slider').scrollBy({left:-318,behavior:'smooth'})">←</button>
+      <button class="reel-pfeil" type="button" data-dir="1" aria-label="Nächstes Video" onclick="window.reelBlaettern?window.reelBlaettern(1):document.querySelector('.reel-slider').scrollBy({left:318,behavior:'smooth'})">→</button>
+    </div>
   </div>
 </section>
 
@@ -1132,7 +1134,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="timecode" style="justify-content:center">Beispiele statt Behauptungen</p>
     <h2 class="display">Schau dir an, was dabei rauskommt.</h2>
     <p class="lead">Reels, Firmenvideos und Imagefilme aus echten Projekten. Kein Show-Material, sondern Arbeiten für Kunden wie dich.</p>
-    <a class="btn" href="referenzen.html">Referenzvideos ansehen</a>
+    <a class="btn" href="ergebnisse.html">Referenzvideos ansehen</a>
   </div>
 </section>
 
@@ -1394,11 +1396,16 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       }, 4000);
     }
     function benutzt(){ pauseBis = Date.now() + 9000; }
-    ['pointerdown','wheel','touchstart'].forEach(function(ev){ slider.addEventListener(ev, benutzt, {passive:true}); });
+    slider.addEventListener('pointerdown', function(e){ if(e.pointerType === 'mouse') benutzt(); }, {passive:true});
+    slider.addEventListener('wheel', function(e){ if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) benutzt(); }, {passive:true});
+    var tX = 0, tY = 0;
+    slider.addEventListener('touchstart', function(e){ tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, {passive:true});
+    slider.addEventListener('touchmove', function(e){
+      var dx = Math.abs(e.touches[0].clientX - tX), dy = Math.abs(e.touches[0].clientY - tY);
+      if(dx > 8 && dx > dy) benutzt();
+    }, {passive:true});
 
-    document.querySelectorAll('.reel-pfeil').forEach(function(p){
-      p.addEventListener('click', function(){ benutzt(); blaettern(parseInt(p.dataset.dir, 10)); });
-    });
+    window.reelBlaettern = function(richtung){ benutzt(); blaettern(richtung); };
   })();
 </script>
 <div class="reel-lb" id="reelLightbox" role="dialog" aria-modal="true" aria-label="Video in Großansicht">
