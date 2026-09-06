@@ -536,18 +536,32 @@ section:nth-of-type(2)::before{
   /* Wistia-Player erst beim Klick laden - spart beim Seitenaufbau mehrere MB */
 
   /* Echte Video-Standbilder von Wistia nachladen (das swatch-Bild ist unzuverlaessig) */
+  var wistiaGeprueft = {};
   document.querySelectorAll('.w-facade').forEach(function(f){
     var traeger = f.dataset.wistia ? f : f.closest('[data-wistia]');
     if(!traeger) return;
+    var id = traeger.dataset.wistia;
+    if(wistiaGeprueft[id]) return;
+    wistiaGeprueft[id] = true;
     var hochkant = !!f.closest('.reel-card');
-    fetch('https://fast.wistia.net/oembed?url=' + encodeURIComponent('https://fast.wistia.net/embed/iframe/' + traeger.dataset.wistia) + '&format=json')
-      .then(function(r){ return r.json(); })
+    function entfernen(){
+      /* Video bei Wistia nicht (mehr) verfuegbar -> Kachel(n) samt Klonen ausblenden */
+      document.querySelectorAll('.reel-card[data-wistia="' + id + '"]').forEach(function(el){ el.remove(); });
+      var einzel = document.querySelector('.w-facade[data-wistia="' + id + '"]');
+      if(einzel && einzel.parentElement) einzel.parentElement.remove();
+      if(window.reelNeuMessen) window.reelNeuMessen();
+    }
+    fetch('https://fast.wistia.net/oembed?url=' + encodeURIComponent('https://fast.wistia.net/embed/iframe/' + id) + '&format=json&nocache=' + Date.now())
+      .then(function(r){ if(!r.ok) throw new Error('weg'); return r.json(); })
       .then(function(d){
-        if(d && d.thumbnail_url){
-          var url = d.thumbnail_url.split('?')[0] + '?image_crop_resized=' + (hochkant ? '450x800' : '800x450');
-          f.style.backgroundImage = "url('" + url + "')";
-        }
-      }).catch(function(){});
+        if(!d || !d.thumbnail_url){ entfernen(); return; }
+        var url = d.thumbnail_url.split('?')[0] + '?image_crop_resized=' + (hochkant ? '450x800' : '800x450');
+        document.querySelectorAll('[data-wistia="' + id + '"]').forEach(function(t){
+          var ziel = t.classList.contains('w-facade') ? t : t.querySelector('.w-facade');
+          if(ziel) ziel.style.backgroundImage = "url('" + url + "')";
+        });
+      })
+      .catch(function(){ entfernen(); });
   });
   document.querySelectorAll('button.w-facade[data-wistia]').forEach(function(f){
     f.addEventListener('click', function(){
