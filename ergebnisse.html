@@ -500,6 +500,21 @@ section:nth-of-type(2)::before{
 
 <script>
   /* Wistia-Player erst beim Klick laden - spart beim Seitenaufbau mehrere MB */
+
+  /* Echte Video-Standbilder von Wistia nachladen (das swatch-Bild ist unzuverlaessig) */
+  document.querySelectorAll('.w-facade').forEach(function(f){
+    var traeger = f.dataset.wistia ? f : f.closest('[data-wistia]');
+    if(!traeger) return;
+    var hochkant = !!f.closest('.reel-card');
+    fetch('https://fast.wistia.net/oembed?url=' + encodeURIComponent('https://fast.wistia.net/embed/iframe/' + traeger.dataset.wistia) + '&format=json')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d && d.thumbnail_url){
+          var url = d.thumbnail_url.split('?')[0] + '?image_crop_resized=' + (hochkant ? '450x800' : '800x450');
+          f.style.backgroundImage = "url('" + url + "')";
+        }
+      }).catch(function(){});
+  });
   document.querySelectorAll('button.w-facade[data-wistia]').forEach(function(f){
     f.addEventListener('click', function(){
       var frame = document.createElement('iframe');
