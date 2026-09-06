@@ -387,7 +387,7 @@ nav{
   background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:18px;
   overflow:hidden;
   display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;
-  position:sticky;margin-bottom:22px;min-height:280px;
+  position:sticky;margin-bottom:22px;height:320px;
   box-shadow:0 -18px 46px rgba(0,0,0,.55);
 }
 .leistung:nth-child(1){top:88px}
@@ -396,14 +396,14 @@ nav{
 .leistung:nth-child(4){top:118px}
 .leistung:nth-child(5){top:128px}
 .leistung:nth-child(6){top:138px}
-.leistung img{order:2;height:100%;min-height:280px;width:100%;object-fit:cover;filter:saturate(.85)}
+.leistung img{order:2;height:100%;width:100%;object-fit:cover;filter:saturate(.85)}
 .leistung .l-body{padding:34px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .leistung h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:28px;margin-bottom:12px}
 .leistung p{color:var(--grau);font-size:16px;max-width:460px;line-height:1.55}
 .leistung .l-body .btn-ghost{margin-top:20px!important}
 .leistungen-grid .leistung.reveal{opacity:1;transform:none;transition:none}
 @media(max-width:860px){
-  .leistung{display:flex;flex-direction:column;min-height:0}
+  .leistung{display:flex;flex-direction:column;height:auto}
   .leistung img{order:0;height:190px;min-height:0}
   .leistung .l-body{padding:26px 26px 30px}
   .leistung h3{font-size:25px}
