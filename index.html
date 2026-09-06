@@ -1369,26 +1369,37 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <script>
   (function(){
     var slider = document.querySelector('.reel-slider');
-    if(!slider) return;
-    var karten = slider.querySelectorAll('.reel-card');
-    if(!karten.length) return;
+    var track = slider && slider.querySelector('.reel-track');
+    if(!slider || !track || !track.children.length) return;
 
-    function schrittweite(){ return karten[0].getBoundingClientRect().width + 18; }
-    function maxScroll(){ return slider.scrollWidth - slider.clientWidth; }
+    /* Kartensatz verdreifachen: so gibt es auf jeder Bildschirmbreite
+       Scrollweg und eine nahtlose Endlos-Schleife */
+    var originale = Array.prototype.slice.call(track.children);
+    for(var k = 0; k < 2; k++) originale.forEach(function(c){ track.appendChild(c.cloneNode(true)); });
+    var basis = track.scrollWidth / 3;
+    slider.scrollLeft = basis;
+    window.addEventListener('resize', function(){
+      var rel = slider.scrollLeft - basis;
+      basis = track.scrollWidth / 3;
+      slider.scrollLeft = basis + rel;
+    });
+
+    function wickle(){
+      if(slider.scrollLeft < basis * 0.5) slider.scrollLeft += basis;
+      else if(slider.scrollLeft > basis * 1.5) slider.scrollLeft -= basis;
+    }
+    slider.addEventListener('scroll', wickle, {passive:true});
+
+    function schrittweite(){ return track.children[0].getBoundingClientRect().width + 18; }
     function blaettern(richtung){
-      var ziel = slider.scrollLeft + richtung * schrittweite();
-      if(richtung > 0 && slider.scrollLeft >= maxScroll() - 4) ziel = 0;   // Ende -> von vorn
-      if(richtung < 0 && slider.scrollLeft <= 4) ziel = maxScroll();       // Anfang -> ans Ende
-      slider.scrollTo({left: ziel, behavior: 'smooth'});
+      wickle(); /* vor programmatischen Schritten still zuruecksetzen */
+      slider.scrollBy({left: richtung * schrittweite(), behavior: 'smooth'});
     }
 
-    /* Automatisch weiterblaettern - pausiert nach Nutzer-Eingriff und ausserhalb des Viewports */
     var pauseBis = 0, sichtbar = false, schwebt = false;
     new IntersectionObserver(function(e){ sichtbar = e[0].isIntersecting; }, {threshold:.3}).observe(slider);
-    karten.forEach(function(k){
-      k.addEventListener('mouseenter', function(){ schwebt = true; });
-      k.addEventListener('mouseleave', function(){ schwebt = false; });
-    });
+    track.addEventListener('mouseover', function(e){ if(e.target.closest('.reel-card')) schwebt = true; });
+    track.addEventListener('mouseout', function(e){ if(e.target.closest('.reel-card')) schwebt = false; });
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       setInterval(function(){
         if(!sichtbar || schwebt || Date.now() < pauseBis) return;
