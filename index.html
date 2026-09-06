@@ -148,6 +148,9 @@ nav{
   color:var(--rot-hell);margin-bottom:26px;
   line-height:1.5;
 }
+.hero .wrap > h1, .hero .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
+.hero-ctas{justify-content:center}
+.trust-line{justify-content:center;text-align:center}
 .hero h1{
   font-size:clamp(44px,7.4vw,92px);
   max-width:900px;
@@ -156,17 +159,24 @@ nav{
 .hero .lead{margin:26px 0 38px;max-width:560px;color:#C9C7C0}
 .hero-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;margin-top:54px}
-.problem-video{border-radius:14px;overflow:hidden;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.problem-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:stretch;margin-top:54px}
+.problem-video{border-radius:14px;overflow:hidden;align-self:center;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
 .problem-video wistia-player{display:block;width:100%}
 .problem-video iframe{width:100%;height:100%;border:0;display:block}
-.problem-list{display:grid;grid-auto-rows:1fr;gap:14px;height:100%}
+.problem-list{display:grid;grid-auto-rows:1fr;gap:10px;height:100%}
+@media(min-width:861px){
+  .problem-grid > div:last-child{position:relative}
+  .problem-grid .problem-list{position:absolute;inset:0}
+}
+@media(min-width:861px) and (max-width:1150px){
+  .problem-item{font-size:13.5px;padding:10px 14px}
+}
 .problem-item{
-  display:flex;gap:16px;align-items:center;
+  display:flex;gap:14px;align-items:center;
   background:linear-gradient(180deg,#17171C 0%,#111115 100%);
   border:1px solid var(--linie);border-radius:12px;
-  padding:20px 22px;
-  font-size:16.5px;color:var(--grau);line-height:1.55;
+  padding:12px 16px;
+  font-size:14.5px;color:var(--grau);line-height:1.45;
   transition:border-color .2s ease,transform .2s ease;
 }
 .problem-item:hover{border-color:var(--rot-dunkel);transform:translateY(-2px)}
@@ -223,6 +233,15 @@ nav{
   mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
 }
 .reel-slider::-webkit-scrollbar{display:none}
+.reel-pfeile{display:flex;gap:12px;justify-content:center;margin-top:20px}
+.reel-pfeil{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--karte);border:1px solid var(--linie);
+  color:var(--leinwand);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease;
+}
+.reel-pfeil:hover{border-color:var(--rot);background:rgba(194,44,38,.10);transform:translateY(-1px)}
 .reel-track{display:flex;gap:18px;width:max-content;will-change:transform}
 .reel-card{
   flex:0 0 auto;width:280px;aspect-ratio:9/16;
@@ -535,6 +554,11 @@ footer{
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+/* Sektions- und Seitenkoepfe mittig */
+section > .wrap > .timecode{justify-content:center}
+section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
+section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
+.kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
@@ -810,7 +834,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="problem-list">
           <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Dir fehlt die Zeit.</strong> Du hast einen Betrieb zu führen, keine Content-Abteilung.</div></div>
           <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Dir fehlt die Lust.</strong> Selbst filmen, schneiden, posten? Ganz ehrlich: Das ist nicht dein Job.</div></div>
-          <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Und vielleicht bist du gebrannt.</strong> Große Versprechen, langer Vertrag, wenig dahinter. Kennst du? Kennen wir auch.</div></div>
+          <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Und vielleicht bist du gebrannt.</strong> Große Versprechen, langer Vertrag, wenig dahinter. Kennen wir auch.</div></div>
         </div>
       </div>
     </div>
@@ -844,6 +868,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="w-facade" aria-hidden="true" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></div>
       </div>
       </div>
+    </div>
+    <div class="reel-pfeile">
+      <button class="reel-pfeil" type="button" data-dir="-1" aria-label="Vorheriges Video">←</button>
+      <button class="reel-pfeil" type="button" data-dir="1" aria-label="Nächstes Video">→</button>
     </div>
   </div>
 </section>
@@ -1333,8 +1361,16 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       var dx = Math.abs(e.touches[0].clientX - tX), dy = Math.abs(e.touches[0].clientY - tY);
       if(dx > 8 && dx > dy) stoppFuerImmer(); // Wisch nach links/rechts, kein Seiten-Scroll
     }, {passive:true});
-    slider.addEventListener('mouseenter', anhalten);
-    slider.addEventListener('mouseleave', weiter);
+    slider.querySelectorAll('.reel-card').forEach(function(k){
+      k.addEventListener('mouseenter', anhalten);
+      k.addEventListener('mouseleave', weiter);
+    });
+    document.querySelectorAll('.reel-pfeil').forEach(function(p){
+      p.addEventListener('click', function(){
+        stoppFuerImmer();
+        slider.scrollBy({left: parseInt(p.dataset.dir, 10) * 318, behavior: 'smooth'});
+      });
+    });
     var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? weiter() : anhalten(); }, {threshold:.25});
     io.observe(slider);
   })();

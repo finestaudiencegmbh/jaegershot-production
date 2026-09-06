@@ -186,6 +186,11 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
+/* Sektions- und Seitenkoepfe mittig */
+section > .wrap > .timecode{justify-content:center}
+section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
+section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
+.kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
