@@ -99,9 +99,10 @@ nav{
 .erg-row:last-child{margin-bottom:0}
 .erg-row.getauscht .erg-video{order:2}
 .erg-video{
-  aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+  border-radius:8px;overflow:hidden;
   background:var(--karte);border:1px solid var(--linie);
 }
+.erg-video wistia-player{display:block;width:100%}
 .erg-video iframe{width:100%;height:100%;border:0;display:block}
 .w-facade{position:relative;width:100%;height:100%;cursor:pointer;background:#101014 center/cover no-repeat;display:flex;align-items:center;justify-content:center;border:0;padding:0}
 .w-facade .w-play{width:60px;height:60px;border-radius:50%;background:rgba(194,44,38,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px;transition:transform .18s ease;box-shadow:0 8px 30px rgba(0,0,0,.45);pointer-events:none}
@@ -316,7 +317,7 @@ section:nth-of-type(2)::before{
 
     <div class="erg-row">
       <div class="erg-video">
-        <button class="w-facade" type="button" data-wistia="owx1vg030o" aria-label="Kundenstimme Nicolai abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch')"><span class="w-play">▶</span></button>
+        <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/owx1vg030o.js" async type="module"></script><style>wistia-player[media-id='owx1vg030o']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="owx1vg030o" seo="false" aspect="1.7777777777777777"></wistia-player>
       </div>
       <div class="erg-text">
         <span class="kat">Kundenstimme 01</span>
@@ -329,7 +330,7 @@ section:nth-of-type(2)::before{
 
     <div class="erg-row getauscht">
       <div class="erg-video">
-        <button class="w-facade" type="button" data-wistia="j5uikhp0c6" aria-label="Kundenstimme Marcel abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch')"><span class="w-play">▶</span></button>
+        <script src="https://fast.wistia.com/embed/j5uikhp0c6.js" async type="module"></script><style>wistia-player[media-id='j5uikhp0c6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="j5uikhp0c6" seo="false" aspect="1.7777777777777777"></wistia-player>
       </div>
       <div class="erg-text">
         <span class="kat">Kundenstimme 02</span>
@@ -342,7 +343,7 @@ section:nth-of-type(2)::before{
 
     <div class="erg-row">
       <div class="erg-video">
-        <button class="w-facade" type="button" data-wistia="aut15vk190" aria-label="Kundenstimme Julian abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/aut15vk190/swatch')"><span class="w-play">▶</span></button>
+        <script src="https://fast.wistia.com/embed/aut15vk190.js" async type="module"></script><style>wistia-player[media-id='aut15vk190']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aut15vk190/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="aut15vk190" seo="false" aspect="1.7777777777777777"></wistia-player>
       </div>
       <div class="erg-text">
         <span class="kat">Kundenstimme 03</span>

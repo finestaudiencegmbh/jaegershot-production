@@ -156,13 +156,13 @@ nav{
 .hero .lead{margin:26px 0 38px;max-width:560px;color:#C9C7C0}
 .hero-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:54px}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;margin-top:54px}
 .problem-video{border-radius:14px;overflow:hidden;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
 .problem-video wistia-player{display:block;width:100%}
 .problem-video iframe{width:100%;height:100%;border:0;display:block}
-.problem-list{display:flex;flex-direction:column;gap:14px}
+.problem-list{display:grid;grid-auto-rows:1fr;gap:14px;height:100%}
 .problem-item{
-  display:flex;gap:16px;align-items:flex-start;
+  display:flex;gap:16px;align-items:center;
   background:linear-gradient(180deg,#17171C 0%,#111115 100%);
   border:1px solid var(--linie);border-radius:12px;
   padding:20px 22px;
@@ -217,7 +217,6 @@ nav{
   margin-top:50px;display:flex;gap:18px;
   overflow-x:auto;
   width:100vw;margin-left:calc(50% - 50vw);
-  padding-left:calc(50vw - 50%);padding-right:calc(50vw - 50%);
   padding-bottom:16px;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
@@ -330,7 +329,8 @@ nav{
 .w-facade{position:relative;width:100%;height:100%;cursor:pointer;background:#101014 center/cover no-repeat;display:flex;align-items:center;justify-content:center;border:0;padding:0}
 .w-facade .w-play{width:60px;height:60px;border-radius:50%;background:rgba(194,44,38,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px;transition:transform .18s ease;box-shadow:0 8px 30px rgba(0,0,0,.45);pointer-events:none}
 .w-facade:hover .w-play{transform:scale(1.08)}
-.zitat-video{aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:18px;background:var(--anthrazit)}
+.zitat-video{border-radius:6px;overflow:hidden;margin-bottom:18px;background:var(--anthrazit)}
+.zitat-video wistia-player{display:block;width:100%}
 .zitat-video iframe{width:100%;height:100%;border:0;display:block}
 #kundenstimmen .btn-ghost{margin-top:8px}
 .zitat{
@@ -804,7 +804,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/jga3nwirt3.js" async type="module"></script><style>wistia-player[media-id='jga3nwirt3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jga3nwirt3/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
           <wistia-player media-id="jga3nwirt3" seo="false" aspect="1.7777777777777777"></wistia-player>
         </div>
-        <a class="btn" href="index.html#kontakt" style="margin-top:22px;display:inline-block">Kostenloses Erstgespräch</a>
       </div>
       <div>
         <div class="problem-list">
@@ -812,7 +811,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Dir fehlt die Lust.</strong> Selbst filmen, schneiden, posten? Ganz ehrlich: Das ist nicht dein Job.</div></div>
           <div class="problem-item"><span class="p-icon" aria-hidden="true">✕</span><div><strong>Und vielleicht bist du gebrannt.</strong> Große Versprechen, langer Vertrag, wenig dahinter. Kennst du? Kennen wir auch.</div></div>
         </div>
-        <p class="problem-punch">Genau dafür gibt es uns. <span>Und zwar anders, als du es erwartest.</span></p>
       </div>
     </div>
   </div>
@@ -864,6 +862,33 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <div class="zusage-punch"><p>Wir kümmern uns um die Produktion.<br><span>Du dich um dein Geschäft.</span></p></div>
     </div>
   </section>
+
+<!-- ============ SZENE 08B: KUNDENSTIMMEN ============ -->
+<section id="kundenstimmen">
+  <div class="wrap">
+    <p class="timecode">Kundenstimmen</p>
+    <h2 class="display">Das sagen Kunden, die es gemacht haben.</h2>
+    <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
+    <div class="zitate-grid">
+      <figure class="zitat">
+        <div class="zitat-video"><script src="https://fast.wistia.com/embed/owx1vg030o.js" async type="module"></script><style>wistia-player[media-id='owx1vg030o']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="owx1vg030o" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+        <blockquote><p>„Man wird super an die Hand genommen – und es geht sehr, sehr schnell."</p></blockquote>
+        <figcaption class="autor"><strong>Nicolai</strong>Kunde · Videoprojekt</figcaption>
+      </figure>
+      <figure class="zitat">
+        <div class="zitat-video"><script src="https://fast.wistia.com/embed/j5uikhp0c6.js" async type="module"></script><style>wistia-player[media-id='j5uikhp0c6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="j5uikhp0c6" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+        <blockquote><p>„Vom ersten Video sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell."</p></blockquote>
+        <figcaption class="autor"><strong>Marcel</strong>Unternehmer · mehrere Betriebe</figcaption>
+      </figure>
+      <figure class="zitat">
+        <div class="zitat-video"><script src="https://fast.wistia.com/embed/aut15vk190.js" async type="module"></script><style>wistia-player[media-id='aut15vk190']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/aut15vk190/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="aut15vk190" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+        <blockquote><p>„Man ist direkt auf einer Wellenlänge – alles läuft schnell und professionell."</p></blockquote>
+        <figcaption class="autor"><strong>Julian</strong>Kunde · Videoprojekt</figcaption>
+      </figure>
+    </div>
+    <a class="btn-ghost" href="ergebnisse.html">Alle Ergebnisse &amp; Stimmen ansehen</a>
+  </div>
+</section>
 
 <!-- ============ SZENE 04: MONATSPAKETE ============ -->
 <section id="pakete">
@@ -1024,33 +1049,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <a class="btn" href="#kontakt" style="margin-top:10px">Lern uns kennen</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ SZENE 08B: KUNDENSTIMMEN ============ -->
-<section id="kundenstimmen">
-  <div class="wrap">
-    <p class="timecode">Kundenstimmen</p>
-    <h2 class="display">Das sagen Kunden, die es gemacht haben.</h2>
-    <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
-    <div class="zitate-grid">
-      <figure class="zitat">
-        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="owx1vg030o" aria-label="Kundenstimme Nicolai abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/owx1vg030o/swatch')"><span class="w-play">▶</span></button></div>
-        <blockquote><p>„Man wird super an die Hand genommen – und es geht sehr, sehr schnell."</p></blockquote>
-        <figcaption class="autor"><strong>Nicolai</strong>Kunde · Videoprojekt</figcaption>
-      </figure>
-      <figure class="zitat">
-        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="j5uikhp0c6" aria-label="Kundenstimme Marcel abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch')"><span class="w-play">▶</span></button></div>
-        <blockquote><p>„Vom ersten Video sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell."</p></blockquote>
-        <figcaption class="autor"><strong>Marcel</strong>Unternehmer · mehrere Betriebe</figcaption>
-      </figure>
-      <figure class="zitat">
-        <div class="zitat-video"><button class="w-facade" type="button" data-wistia="aut15vk190" aria-label="Kundenstimme Julian abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/aut15vk190/swatch')"><span class="w-play">▶</span></button></div>
-        <blockquote><p>„Man ist direkt auf einer Wellenlänge – alles läuft schnell und professionell."</p></blockquote>
-        <figcaption class="autor"><strong>Julian</strong>Kunde · Videoprojekt</figcaption>
-      </figure>
-    </div>
-    <a class="btn-ghost" href="ergebnisse.html">Alle Ergebnisse &amp; Stimmen ansehen</a>
   </div>
 </section>
 
@@ -1305,6 +1303,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       if(zuletzt !== null){
         var dt = Math.min((t - zuletzt) / 1000, .05);
         var max = track.scrollWidth - slider.clientWidth;
+        if(max <= 0){ zuletzt = t; rafId = requestAnimationFrame(schritt); return; }
         pos += GESCHW * dt * richtung;
         if(pos <= 0){ pos = 0; richtung = 1; }
         if(pos >= max){ pos = max; richtung = -1; }
@@ -1321,7 +1320,18 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       track.style.transform = 'none';
       slider.scrollLeft = Math.round(pos);
     }
-    ['pointerdown','wheel','touchstart'].forEach(function(ev){ slider.addEventListener(ev, stoppFuerImmer, {passive:true}); });
+    slider.addEventListener('pointerdown', function(e){
+      if(e.pointerType === 'mouse') stoppFuerImmer(); // Touch stoppt erst bei echtem Seitwaerts-Wisch
+    }, {passive:true});
+    slider.addEventListener('wheel', function(e){
+      if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) stoppFuerImmer(); // nur seitliches Scrollen zaehlt
+    }, {passive:true});
+    var tX = 0, tY = 0;
+    slider.addEventListener('touchstart', function(e){ tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, {passive:true});
+    slider.addEventListener('touchmove', function(e){
+      var dx = Math.abs(e.touches[0].clientX - tX), dy = Math.abs(e.touches[0].clientY - tY);
+      if(dx > 8 && dx > dy) stoppFuerImmer(); // Wisch nach links/rechts, kein Seiten-Scroll
+    }, {passive:true});
     slider.addEventListener('mouseenter', anhalten);
     slider.addEventListener('mouseleave', weiter);
     var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? weiter() : anhalten(); }, {threshold:.25});
