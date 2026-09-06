@@ -277,6 +277,9 @@ nav{
 @media(max-width:760px){.ablauf-grid{grid-template-columns:1fr}}
 
 .zitate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:50px 0 70px}
+.zitat-video{aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:18px;background:var(--anthrazit)}
+.zitat-video iframe{width:100%;height:100%;border:0;display:block}
+#kundenstimmen .btn-ghost{margin-top:8px}
 .zitat{
   background:var(--karte);border:1px solid var(--linie);border-radius:8px;
   padding:30px 28px;display:flex;flex-direction:column;gap:18px;
@@ -957,6 +960,33 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <a class="btn" href="#kontakt" style="margin-top:10px">Lern uns kennen</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ SZENE 08B: KUNDENSTIMMEN ============ -->
+<section id="kundenstimmen">
+  <div class="wrap">
+    <p class="timecode">Kundenstimmen</p>
+    <h2 class="display">Das sagen Kunden, die es gemacht haben.</h2>
+    <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
+    <div class="zitate-grid">
+      <figure class="zitat">
+        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/owx1vg030o?playsinline=true&videoFoam=false" title="Kundenstimme: Nicolai" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <blockquote><p>„Man wird super an die Hand genommen – und es geht sehr, sehr schnell."</p></blockquote>
+        <figcaption class="autor"><strong>Nicolai</strong>Kunde · Videoprojekt</figcaption>
+      </figure>
+      <figure class="zitat">
+        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/j5uikhp0c6?playsinline=true&videoFoam=false" title="Kundenstimme: Marcel" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <blockquote><p>„Vom ersten Video sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell."</p></blockquote>
+        <figcaption class="autor"><strong>Marcel</strong>Unternehmer · mehrere Betriebe</figcaption>
+      </figure>
+      <figure class="zitat">
+        <div class="zitat-video"><iframe src="https://fast.wistia.net/embed/iframe/aut15vk190?playsinline=true&videoFoam=false" title="Kundenstimme: Julian" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+        <blockquote><p>„Man ist direkt auf einer Wellenlänge – alles läuft schnell und professionell."</p></blockquote>
+        <figcaption class="autor"><strong>Julian</strong>Kunde · Videoprojekt</figcaption>
+      </figure>
+    </div>
+    <a class="btn-ghost" href="ergebnisse.html">Alle Ergebnisse &amp; Stimmen ansehen</a>
   </div>
 </section>
 

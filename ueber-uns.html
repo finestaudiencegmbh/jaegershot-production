@@ -173,6 +173,8 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-logo img{height:44px}
   .footer-inner{justify-content:center;text-align:center}
 }
+.vorstellung-video{max-width:760px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;margin-top:44px;background:var(--karte);border:1px solid var(--linie)}
+.vorstellung-video iframe{width:100%;height:100%;border:0;display:block}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
@@ -290,6 +292,17 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
  ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "VideoObject",
+ "name": "Maria Krämer stellt sich vor – Jäger Shot Productions",
+ "description": "Maria Krämer, Regie und Konzept bei Jäger Shot Productions in Aschaffenburg, stellt sich vor.",
+ "thumbnailUrl": "https://fast.wistia.com/embed/medias/jga3nwirt3/swatch",
+ "uploadDate": "2026-09-06",
+ "embedUrl": "https://fast.wistia.net/embed/iframe/jga3nwirt3"
+}
+</script>
 </head>
 <body>
 
@@ -336,6 +349,18 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <a class="timecode" href="index.html" title="Zurück zur Startseite">Über uns <span class="tc-num">// Wer hinter der Kamera steht</span></a>
     <h1 class="display">Kamera trifft <span style="color:var(--rot-hell)">Regie.</span></h1>
     <p class="lead">Wir sind Jäger Shot Productions: ein eingespieltes Zwei-Personen-Team aus Aschaffenburg. Keine Agentur-Hierarchie, keine Warteschleifen – nur zwei Leute, die ihr Handwerk lieben.</p>
+  </div>
+</section>
+
+<!-- ============ MARIA IM VIDEO ============ -->
+<section id="maria-video">
+  <div class="wrap">
+    <p class="timecode">Kurz vorgestellt</p>
+    <h2 class="display">Lern Maria kennen.</h2>
+    <p class="lead">Bevor wir bei dir drehen, weißt du, mit wem du arbeitest. Maria erklärt in unter einer Minute, wie wir arbeiten: technisches Know-how plus kreatives Storytelling, von der Planung über den Dreh bis zum fertigen Schnitt – mit über 100 abgeschlossenen Projekten.</p>
+    <div class="vorstellung-video">
+      <iframe src="https://fast.wistia.net/embed/iframe/jga3nwirt3?playsinline=true&videoFoam=false" title="Maria Krämer stellt sich vor – Jäger Shot Productions" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 
@@ -438,6 +463,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
     <div class="footer-links">
       <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="ergebnisse.html">Ergebnisse</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </div>

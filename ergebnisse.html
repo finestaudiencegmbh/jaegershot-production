@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow"> <!-- WICHTIG: Vor Umzug auf jaeger-shot.de ENTFERNEN -->
-<title>Leistungen: Videoproduktion, Social Media &amp; Drohne – Jäger Shot Productions</title>
-<meta name="description" content="Videoproduktion, Social Media Content, Drohnenaufnahmen, Schnitt, Eventfilme und Design – alle Leistungen von Jäger Shot Productions aus Aschaffenburg im Überblick.">
+<title>Ergebnisse &amp; Kundenstimmen – Videoproduktion Aschaffenburg | Jäger Shot Productions</title>
+<meta name="description" content="Echte Kunden, echte Projekte, ehrliche Stimmen: Ergebnisse aus der Zusammenarbeit mit Jäger Shot Productions – Videoproduktion und Social Media Content aus Aschaffenburg.">
 <link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,7 @@ body{
   font-size:17px;
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -47,10 +48,9 @@ a{color:inherit;text-decoration:none}
 a.timecode{transition:color .15s}
 a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
-section{padding:200px 0}
+section{padding:200px 0;position:relative}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.55}
-.lead strong{color:var(--leinwand);font-weight:500}
 .btn{
   display:inline-block;
   background:var(--rot);color:#FFFFFF;
@@ -60,18 +60,6 @@ h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 }
 .btn:hover{background:#D63A33;transform:translateY(-1px)}
 .btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
-.btn-ghost{
-  display:inline-block;
-  color:var(--leinwand);
-  font-weight:400;
-  font-size:16px;
-  padding:15px 30px;
-  border:1px solid var(--rot-dunkel);
-  border-radius:4px;
-  text-align:center;
-  transition:border-color .18s ease,background .18s ease;
-}
-.btn-ghost:hover{border-color:var(--rot);background:rgba(194,44,38,.08)}
 
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
@@ -92,39 +80,37 @@ nav{
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
 .nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
 
-.kopf{padding:170px 0 70px;border-top:none}
-.kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
-.kopf .lead{margin-top:22px}
+.erg-kopf{padding:170px 0 70px;border-top:none}
+.erg-kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
+.erg-kopf .lead{margin-top:22px}
 
-.leistung-row{
+.erg-sektion{padding-top:0}
+.erg-row{
   display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  margin-bottom:130px;
 }
-.leistung-row.getauscht .leistung-bild{order:2}
-.leistung-bild img{
-  border-radius:8px;width:100%;height:380px;object-fit:cover;filter:saturate(.85);
+.erg-row:last-child{margin-bottom:0}
+.erg-row.getauscht .erg-video{order:2}
+.erg-video{
+  aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+  background:var(--karte);border:1px solid var(--linie);
 }
-.leistung-text .lnum{
+.erg-video iframe{width:100%;height:100%;border:0;display:block}
+.erg-text .kat{
   font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
-  letter-spacing:.14em;display:block;margin-bottom:14px;
+  letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:14px;
 }
-.leistung-text h2{margin-bottom:14px}
-.leistung-text p{color:var(--grau);margin-bottom:18px;line-height:1.5}
-.leistung-text p strong{color:var(--leinwand);font-weight:500}
-.leistung-text ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-.leistung-text li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative;line-height:1.45}
-.leistung-text li::before{content:"—";position:absolute;left:0;color:var(--rot)}
-.leistung-text li strong{color:var(--leinwand);font-weight:500}
-
-.paket-hinweis{
-  background:var(--karte);
-  border:1px solid var(--rot-dunkel);
-  border-radius:8px;
-  padding:22px 26px;
-  margin-top:26px;
-  font-size:15.5px;color:var(--grau);line-height:1.5;
+.erg-text h2{margin-bottom:8px}
+.erg-meta{color:var(--grau);font-size:15px;margin-bottom:22px}
+.erg-zitat{
+  border-left:2px solid var(--rot);padding:6px 0 6px 20px;margin:0 0 22px;
+  font-size:18px;color:var(--leinwand);font-style:italic;line-height:1.55;
 }
-.paket-hinweis strong{color:var(--leinwand);font-weight:500}
-.paket-hinweis a{color:var(--rot-hell)}
+.erg-text p{color:var(--grau);line-height:1.55}
+.platzhalter-hinweis{
+  border:1px dashed var(--rot-dunkel);border-radius:6px;padding:12px 16px;
+  font-size:13px;color:var(--rot-hell);margin-top:16px;
+}
 
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
@@ -135,7 +121,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
 }
 .footer-inner img{height:44px;width:auto}
-.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau);flex-wrap:wrap}
 .footer-links a:hover{color:var(--leinwand)}
 .footer-copy{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
 
@@ -155,35 +141,28 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-burger{display:block}
 }
 @media(max-width:860px){
-  .leistung-row{grid-template-columns:1fr;gap:28px}
-  .leistung-row.getauscht .leistung-bild{order:0}
-  .leistung-bild img{height:260px}
+  .erg-row{grid-template-columns:1fr;gap:26px;margin-bottom:90px}
+  .erg-row.getauscht .erg-video{order:0}
 }
 @media(max-width:760px){
   section{padding:142px 0}
-  .kopf{padding:130px 0 54px}
+  .erg-kopf{padding:130px 0 54px}
+  .erg-sektion{padding-top:0}
+  body{line-height:1.55}
+  .timecode{margin-bottom:20px}
+  h2.display{margin-bottom:20px}
+  .lead{font-size:16.5px;line-height:1.6}
+  .erg-zitat{font-size:16.5px}
 }
 @media(max-width:520px){
   .wrap{padding:0 18px}
   .nav-logo img{height:44px}
   .footer-inner{justify-content:center;text-align:center}
+  .footer-links{justify-content:center}
 }
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
 .reveal.sichtbar{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
-@media(max-width:760px){
-  body{line-height:1.55}
-  .timecode{margin-bottom:20px}
-  h2.display{margin-bottom:20px}
-  .lead{font-size:16.5px;line-height:1.6}
-  .kern-grid,.ablauf-grid,.leistungen-grid,.zitate-grid,.pakete-grid,.profil-grid,.werte-grid,.ref-grid-breit,.ref-grid-hoch{gap:28px}
-  .problem-item{padding:26px 0}
-  .paket ul{gap:14px}
-  .paket li,.kern-card p,.schritt p,.leistung p,.wert p,.profil p{line-height:1.6}
-  details .antwort{line-height:1.65}
-  .anker p,.paket-hinweis,.pakete-fussnote,.cta-verweis{line-height:1.6}
-  .team-text p,.duo-text p,.netzwerk-text p,.kontakt-info p{line-height:1.6}
-}
 .intro{position:fixed;inset:0;z-index:200;background:var(--schwarz);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .6s ease 2.4s forwards}
 .intro img{height:96px;width:auto;animation:introLogo 1s cubic-bezier(.22,.61,.36,1) both}
 .intro-linie{width:0;height:2px;background:var(--rot);animation:introLinie 1.2s cubic-bezier(.22,.61,.36,1) .55s forwards}
@@ -220,77 +199,55 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .m-danke h3{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--leinwand)}
 .m-danke p{color:var(--grau);line-height:1.55;max-width:380px;margin:0 auto}
 @media(max-width:520px){.modal{padding:40px 22px 28px}.m-frage{font-size:19px}}
-body{overflow-x:hidden}
-section{position:relative}
-section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{
+section:nth-of-type(2)::before{
   content:"";position:absolute;left:0;right:0;height:680px;pointer-events:none;z-index:-1;
+  top:-120px;background:radial-gradient(circle 330px at calc(100% + 110px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%);
 }
-section:nth-of-type(2)::before{top:-120px;background:radial-gradient(circle 330px at calc(100% + 110px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
-section:nth-of-type(4)::before{top:-80px;background:radial-gradient(circle 330px at -130px 50%,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
-section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330px at calc(100% + 120px) 50%,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
 @media(max-width:760px){
-  section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{height:460px}
-  section:nth-of-type(2)::before{background:radial-gradient(circle 220px at calc(100% + 80px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
-  section:nth-of-type(4)::before{background:radial-gradient(circle 220px at -90px 50%,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
-  section:nth-of-type(7)::before{background:radial-gradient(circle 220px at calc(100% + 85px) 50%,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
+  section:nth-of-type(2)::before{height:460px;background:radial-gradient(circle 220px at calc(100% + 80px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
 }
 </style>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "ItemList",
+ "@type": "BreadcrumbList",
  "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Imagefilm & Werbevideo",
-   "url": "https://www.jaeger-shot.de/imagefilm.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Social Media Content",
-   "url": "https://www.jaeger-shot.de/social-media-content.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 3,
-   "name": "Drohnenaufnahmen",
-   "url": "https://www.jaeger-shot.de/drohnenaufnahmen.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 4,
-   "name": "Eventfilm & Aftermovie",
-   "url": "https://www.jaeger-shot.de/eventfilm.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 5,
-   "name": "Recruitingvideo",
-   "url": "https://www.jaeger-shot.de/recruitingvideo.html"
-  }
+  {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.jaeger-shot.de/index.html"},
+  {"@type": "ListItem", "position": 2, "name": "Ergebnisse & Kundenstimmen", "item": "https://www.jaeger-shot.de/ergebnisse.html"}
  ]
 }
 </script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Startseite",
-   "item": "https://www.jaeger-shot.de/index.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Leistungen",
-   "item": "https://www.jaeger-shot.de/leistungen.html"
-  }
- ]
+ "@type": "VideoObject",
+ "name": "Kundenstimme Nicolai – Jäger Shot Productions",
+ "description": "Kunde Nicolai über die Zusammenarbeit mit Jäger Shot Productions: schnelle Umsetzung, enge Begleitung und ein Ergebnis, das er Unternehmen empfiehlt, die wachsen wollen.",
+ "thumbnailUrl": "https://fast.wistia.com/embed/medias/owx1vg030o/swatch",
+ "uploadDate": "2026-09-06",
+ "embedUrl": "https://fast.wistia.net/embed/iframe/owx1vg030o"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "VideoObject",
+ "name": "Kundenstimme Marcel – Jäger Shot Productions",
+ "description": "Unternehmer Marcel über sein erstes Video mit Jäger Shot Productions: in kürzester Zeit erstellt, hochprofessionelle Qualität in Bild, Ton und Schnitt.",
+ "thumbnailUrl": "https://fast.wistia.com/embed/medias/j5uikhp0c6/swatch",
+ "uploadDate": "2026-09-06",
+ "embedUrl": "https://fast.wistia.net/embed/iframe/j5uikhp0c6"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "VideoObject",
+ "name": "Kundenstimme Julian – Jäger Shot Productions",
+ "description": "Kunde Julian über die Zusammenarbeit mit Jäger Shot Productions: direkte Kommunikation auf einer Wellenlänge, schnell und professionell umgesetzt.",
+ "thumbnailUrl": "https://fast.wistia.com/embed/medias/aut15vk190/swatch",
+ "uploadDate": "2026-09-06",
+ "embedUrl": "https://fast.wistia.net/embed/iframe/aut15vk190"
 }
 </script>
 </head>
@@ -323,7 +280,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="index.html#pakete">Monatspakete</a>
-      <a class="aktiv" href="leistungen.html">Leistungen</a>
+      <a href="leistungen.html">Leistungen</a>
       <a href="ueber-uns.html">Über uns</a>
       <a href="referenzen.html">Referenzen</a>
       <a href="blog.html">Blog</a>
@@ -334,171 +291,57 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 </nav>
 
 <!-- ============ KOPF ============ -->
-<section class="kopf">
+<section class="erg-kopf">
   <div class="wrap">
-    <a class="timecode" href="index.html" title="Zurück zur Startseite">Leistungen <span class="tc-num">// Was wir für dich drehen</span></a>
-    <h1 class="display">Vom Reel bis zum <span style="color:var(--rot-hell)">Imagefilm.</span></h1>
-    <p class="lead">Jede Leistung gibt es einzeln und individuell auf dein Projekt zugeschnitten – gedreht in Aschaffenburg, dem Rhein-Main-Gebiet und Unterfranken. Du sagst uns, wo du hin willst. Wir sagen dir, was es dafür braucht.</p>
+    <a class="timecode" href="index.html" title="Zurück zur Startseite">Ergebnisse <span class="tc-num">// Kundenstimmen</span></a>
+    <h1 class="display">Das sagen Kunden. <span style="color:var(--rot-hell)">In ihren Worten.</span></h1>
+    <p class="lead">Keine anonymen Sternchen-Bewertungen, sondern echte Kunden vor der Kamera: Wer sie sind, was wir für sie gemacht haben und was dabei rausgekommen ist.</p>
   </div>
 </section>
 
-<!-- ============ 01 VIDEOPRODUKTION ============ -->
-<section id="videoproduktion">
+<!-- ============ KUNDENSTIMMEN ============ -->
+<section class="erg-sektion">
   <div class="wrap">
-    <div class="leistung-row">
-      <div class="leistung-bild">
-        <img decoding="async" src="assets/shooting-interview-buero.jpg" alt="Videoproduktion: Interview-Dreh vor Ort" loading="lazy">
-      </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 01</span>
-        <h2 class="display">Videoproduktion</h2>
-        <p>Imagefilme, Werbevideos und Firmenvideos, die Vertrauen schaffen. Damit Interessenten dich schon kennen, bevor sie das erste Mal anrufen.</p>
-        <ul>
-          <li><strong>Konzept &amp; Drehplanung</strong> – wir entwickeln die Idee mit dir im Erstgespräch</li>
-          <li><strong>Dreh bei dir vor Ort</strong> – ohne dass dein Betrieb stillstehen muss</li>
-          <li><strong>Schnitt, Farbkorrektur &amp; Ton</strong> aus einer Hand</li>
-          <li>Fertige Formate für Website, Social Media und Präsentationen</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="imagefilm.html" style="margin-left:18px">Mehr zum Imagefilm</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 02 SOCIAL MEDIA CONTENT ============ -->
-<section id="social-media">
-  <div class="wrap">
-    <div class="leistung-row getauscht">
-      <div class="leistung-bild">
-        <img decoding="async" src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=600&height=600" alt="Social Media Content" loading="lazy">
+    <div class="erg-row">
+      <div class="erg-video">
+        <iframe src="https://fast.wistia.net/embed/iframe/owx1vg030o?playsinline=true&videoFoam=false" title="Kundenstimme: Nicolai über die Zusammenarbeit mit Jäger Shot Productions" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 02</span>
-        <h2 class="display">Social Media Content</h2>
-        <p>Reels, kurze Videos und Grafiken, die auffallen und zu deiner Marke passen. Damit du im Feed deiner Kunden auftauchst, nicht nur deine Konkurrenz.</p>
-        <ul>
-          <li><strong>Reels bis 45 Sekunden</strong> – gedreht und geschnitten für Instagram, Facebook &amp; TikTok</li>
-          <li>Lizenzierte Musik und dein Firmenlogo inklusive</li>
-          <li>Fertig zum Posten – du musst nichts mehr bearbeiten</li>
-        </ul>
-        <div class="paket-hinweis"><strong>Tipp:</strong> Wer dauerhaft sichtbar sein will, fährt mit unseren <a href="index.html#pakete">Monatspaketen</a> am besten – jeden Monat fertiger Content, mit Laufzeit-Vorteil bis 30&nbsp;%.</div>
-        <a class="btn-ghost" href="social-media-content.html" style="margin-top:20px">Mehr zum Social Media Content</a>
+      <div class="erg-text">
+        <span class="kat">Kundenstimme 01</span>
+        <h2 class="display">Nicolai</h2>
+        <p class="erg-meta">Kunde · Videoprojekt mit Jäger Shot Productions <!-- TODO: Firma · Branche · Ort ergänzen --></p>
+        <blockquote class="erg-zitat">„Diese Ängste werden einem komplett genommen. Man wird super an die Hand genommen, es geht sehr, sehr schnell – ich würde es jedem Unternehmen empfehlen, das sein Business aufs nächste Level heben will."</blockquote>
+        <p>Nicolai kannte die typischen Sorgen vor dem ersten Videoprojekt: Was soll ich machen? Habe ich überhaupt Zeit dafür? Nach dem Dreh war davon nichts mehr übrig – schnelle Umsetzung, enge Begleitung und ein Endprodukt, das er besonders Unternehmen empfiehlt, die skalieren und mit der Zeit gehen wollen.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ 03 DROHNENAUFNAHMEN ============ -->
-<section id="drohne">
-  <div class="wrap">
-    <div class="leistung-row">
-      <div class="leistung-bild">
-        <img decoding="async" src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=600&height=600" alt="Drohnenaufnahmen" loading="lazy">
+    <div class="erg-row getauscht">
+      <div class="erg-video">
+        <iframe src="https://fast.wistia.net/embed/iframe/j5uikhp0c6?playsinline=true&videoFoam=false" title="Kundenstimme: Marcel über die Zusammenarbeit mit Jäger Shot Productions" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 03</span>
-        <h2 class="display">Drohnenaufnahmen</h2>
-        <p>Drohnenaufnahmen für Immobilien, Baustellen und Betriebe in Aschaffenburg und Umgebung. Hochauflösend, aus der Perspektive, die Eindruck macht.</p>
-        <ul>
-          <li><strong>Immobilien &amp; Grundstücke</strong> – für Exposés, die aus der Masse stechen</li>
-          <li><strong>Baustellen-Dokumentation</strong> – Baufortschritt eindrucksvoll festgehalten</li>
-          <li>Als eigenständiger Clip oder Teil deines Imagefilms</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="drohnenaufnahmen.html" style="margin-left:18px">Mehr zu Drohnenaufnahmen</a>
+      <div class="erg-text">
+        <span class="kat">Kundenstimme 02</span>
+        <h2 class="display">Marcel</h2>
+        <p class="erg-meta">Unternehmer · mehrere Betriebe <!-- TODO: Firma · Branche · Ort ergänzen --></p>
+        <blockquote class="erg-zitat">„Ich muss wirklich sagen, dass ich vom ersten Video sehr überzeugt bin – nach kürzester Zeit erstellt, hochprofessionell. Ich kann Jäger Shot Productions wärmstens empfehlen."</blockquote>
+        <p>Marcel führt mehrere Unternehmen und hat Ronny und Maria an einem Tag der offenen Tür kennengelernt. Aus dem kurzen Gespräch wurde das erste gemeinsame Video – überzeugend in Bild, Ton und Schnitt. Sein Fazit: Wer jetzt nicht digital mitzieht, wird digital abgehängt.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ 04 SCHNITT & POSTPRODUKTION ============ -->
-<section id="postproduktion">
-  <div class="wrap">
-    <div class="leistung-row getauscht">
-      <div class="leistung-bild">
-        <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
+    <div class="erg-row">
+      <div class="erg-video">
+        <iframe src="https://fast.wistia.net/embed/iframe/aut15vk190?playsinline=true&videoFoam=false" title="Kundenstimme: Julian über die Zusammenarbeit mit Jäger Shot Productions" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 04</span>
-        <h2 class="display">Schnitt &amp; Postproduktion</h2>
-        <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
-        <ul>
-          <li><strong>Schnitt &amp; Dramaturgie</strong> – aus Rohmaterial wird eine Geschichte</li>
-          <li><strong>Farbkorrektur &amp; Tonmischung</strong> für den professionellen Look</li>
-          <li>Export in allen Formaten, die du brauchst – von Social Media bis Großleinwand</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
+      <div class="erg-text">
+        <span class="kat">Kundenstimme 03</span>
+        <h2 class="display">Julian</h2>
+        <p class="erg-meta">Kunde · Videoprojekt mit Jäger Shot Productions <!-- TODO: Firma · Branche · Ort ergänzen --></p>
+        <blockquote class="erg-zitat">„Ein sehr sympathisches Team, gute Kommunikation. Man ist direkt auf einer Wellenlänge, sodass alles ziemlich schnell und professionell vonstattenläuft."</blockquote>
+        <p>Julian beschreibt die Zusammenarbeit so, wie wir sie uns wünschen: direkte Kommunikation, eine Wellenlänge vom ersten Gespräch an – und eine Produktion, die ohne Reibungsverluste durchläuft. Genau dafür sind wir ein Zwei-Personen-Team mit kurzen Wegen.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ 05 EVENTFILM ============ -->
-<section id="eventfilm">
-  <div class="wrap">
-    <div class="leistung-row">
-      <div class="leistung-bild">
-        <img decoding="async" src="assets/shooting-eventdreh-villa.jpg" alt="Eventfilm: Dreh mit zwei Kameras" loading="lazy">
-      </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 05</span>
-        <h2 class="display">Eventfilm &amp; Aftermovie</h2>
-        <p>Dein Event lebt weiter: als Eventfilm oder Aftermovie, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
-        <ul>
-          <li><strong>Firmenfeiern, Festivals &amp; Veranstaltungen</strong> – wir halten die Stimmung fest</li>
-          <li>Unauffällig gedreht, damit dein Event ungestört läuft</li>
-          <li>Als langer Rückblick oder kurzer Social-Media-Teaser</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="eventfilm.html" style="margin-left:18px">Mehr zum Eventfilm</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 06 MARKETING & DESIGN ============ -->
-<section id="design">
-  <div class="wrap">
-    <div class="leistung-row getauscht">
-      <div class="leistung-bild">
-        <img decoding="async" src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=600&height=600" alt="Marketing und Grafikdesign" loading="lazy">
-      </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 06</span>
-        <h2 class="display">Marketing &amp; Design</h2>
-        <p>Flyer, Visitenkarten, Grafikdesign und Branding. Ein Auftritt aus einem Guss, online wie gedruckt.</p>
-        <ul>
-          <li><strong>Print &amp; Digital</strong> – Flyer, Visitenkarten, Social-Media-Grafiken</li>
-          <li>Passend zu deinen Videos – ein Look über alle Kanäle</li>
-          <li>Vom einzelnen Flyer bis zum kompletten Branding</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 07 RECRUITINGVIDEO ============ -->
-<section id="recruitingvideo">
-  <div class="wrap">
-    <div class="leistung-row">
-      <div class="leistung-bild">
-        <img decoding="async" src="assets/shooting-feuerwehr-aschaffenburg.jpg" alt="Recruitingvideo-Dreh: Team eines Betriebs in Aschaffenburg vor der Kamera" loading="lazy">
-      </div>
-      <div class="leistung-text">
-        <span class="lnum">Leistung 07</span>
-        <h2 class="display">Recruitingvideo</h2>
-        <p>Recruitingvideos für Mittelstand und Handwerk in Aschaffenburg: echte Einblicke in Team und Arbeitsalltag, die passende Bewerber überzeugen – bevor sie die Stellenanzeige zu Ende gelesen haben.</p>
-        <ul>
-          <li><strong>Team &amp; Arbeitsalltag dokumentarisch gedreht</strong> – ohne gestellte Szenen</li>
-          <li><strong>Formate für Karriereseite, Stellenanzeigen &amp; Social Media</strong> gleich mit</li>
-          <li>Konzept, Dreh und Schnitt aus einer Hand</li>
-        </ul>
-        <a class="btn-ghost" href="index.html#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="recruitingvideo.html" style="margin-left:18px">Mehr zum Recruitingvideo</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -506,8 +349,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section class="cta-band">
   <div class="wrap">
     <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Dein Projekt</span></p>
-    <h2 class="display">Nicht sicher, was du brauchst?</h2>
-    <p class="lead">Genau dafür ist das Erstgespräch da. Du erzählst, wir hören zu – und sagen dir ehrlich, welche Leistung für dein Ziel Sinn ergibt. Und welche nicht.</p>
+    <h2 class="display">So ein Ergebnis willst du auch?</h2>
+    <p class="lead">Erzähl uns im kostenlosen Erstgespräch, wo dein Betrieb hin will. Wir sagen dir ehrlich, was Sinn ergibt – und was nicht.</p>
     <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
   </div>
 </section>
@@ -528,7 +371,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <script>
   (function(){
     if(!('IntersectionObserver' in window)) return;
-    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .erg-row');
     ziele.forEach(function(el){ el.classList.add('reveal'); });
     var io = new IntersectionObserver(function(eintraege){
       var i = 0;
@@ -576,7 +419,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <h3>Danke für deine Anfrage!</h3>
       <p>Wir melden uns innerhalb von 24 Stunden persönlich bei dir. Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch.</p>
     </div>
-    <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
+    <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
   </div>
 </div>
 <script>
