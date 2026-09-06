@@ -9,8 +9,15 @@
 <link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
+@font-face{
+  font-family:'Inter';
+  src:url('assets/fonts/inter-variable.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
 :root{
   --schwarz:#0B0B0D;
   --anthrazit:#141418;
@@ -27,7 +34,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--schwarz);
   color:var(--leinwand);
-  font-family:'Schibsted Grotesk',sans-serif;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
   font-size:17px;
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -37,7 +44,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 .display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
 .timecode{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--rot-hell);
   display:flex;align-items:center;gap:12px;margin-bottom:22px;
@@ -49,7 +56,7 @@ a.timecode:hover{color:var(--leinwand)}
 a.timecode:hover::before{background:var(--leinwand)}
 section{padding:200px 0}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
-.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.55}
+.lead{font-size:17px;color:var(--grau);max-width:640px;line-height:1.55}
 .lead strong{color:var(--leinwand);font-weight:500}
 .btn{
   display:inline-block;
@@ -95,13 +102,13 @@ nav{
 
 .profil-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
 .profil{
-  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   overflow:hidden;display:flex;flex-direction:column;
 }
 .profil img{height:340px;width:100%;object-fit:cover;object-position:top;filter:saturate(.9)}
 .profil .p-body{padding:28px 28px 32px}
 .profil .rolle{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--rot-hell);display:block;margin-bottom:10px;
 }
 .profil h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:24px;margin-bottom:12px}
@@ -113,14 +120,14 @@ nav{
   padding:12px 16px;margin-top:6px;color:var(--grau);font-size:14px;line-height:1.5;
 }
 .platzhalter .ph-tag{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
   letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;
 }
 
 .werte-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
 .wert{border-top:2px solid var(--rot);padding-top:24px}
 .wert .wnum{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
   letter-spacing:.14em;display:block;margin-bottom:12px;
 }
 .wert h3{font-size:22px;font-weight:700;margin-bottom:12px}
@@ -142,7 +149,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .footer-inner img{height:44px;width:auto}
 .footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
 .footer-links a:hover{color:var(--leinwand)}
-.footer-copy{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+.footer-copy{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
 
 @media(max-width:900px){
   .nav-links{
@@ -198,7 +205,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .intro{position:fixed;inset:0;z-index:200;background:var(--schwarz);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .6s ease 2.4s forwards}
 .intro img{height:96px;width:auto;animation:introLogo 1s cubic-bezier(.22,.61,.36,1) both}
 .intro-linie{width:0;height:2px;background:var(--rot);animation:introLinie 1.2s cubic-bezier(.22,.61,.36,1) .55s forwards}
-.intro-claim{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--rot-hell);animation:introLogo .8s ease 1.15s both}
+.intro-claim{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--rot-hell);animation:introLogo .8s ease 1.15s both}
 @keyframes introLogo{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
 @keyframes introLinie{to{width:170px}}
 @keyframes introOut{to{opacity:0;visibility:hidden}}
@@ -209,7 +216,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .modal{background:var(--anthrazit);border:1px solid var(--linie);border-radius:10px;max-width:540px;width:100%;padding:44px 36px 36px;position:relative;max-height:92vh;overflow-y:auto}
 .modal-zu{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--grau);font-size:28px;line-height:1;cursor:pointer;padding:6px 10px}
 .modal-zu:hover{color:var(--leinwand)}
-.m-titel{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:16px}
+.m-titel{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:16px}
 .m-frage{font-size:22px;font-weight:700;text-align:center;margin-bottom:28px;color:var(--leinwand)}
 .m-schritt{display:none}
 .m-schritt.aktiv{display:block}
@@ -224,7 +231,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .m-zurueck:hover{color:var(--leinwand)}
 .m-hinweis{font-size:13px;color:var(--grau);margin-top:14px;line-height:1.5}
 .m-hinweis a{text-decoration:underline}
-.m-trust{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.06em;color:var(--grau);text-align:center;margin-top:22px}
+.m-trust{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.06em;color:var(--grau);text-align:center;margin-top:22px}
 .m-danke{display:none;text-align:center;padding:20px 0}
 .m-danke.aktiv{display:block}
 .m-danke .m-check{width:64px;height:64px;border-radius:50%;background:rgba(194,44,38,.16);border:1px solid var(--rot);color:var(--rot-hell);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}

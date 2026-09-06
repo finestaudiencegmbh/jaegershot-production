@@ -10,8 +10,15 @@
 <link rel="apple-touch-icon" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=180&height=113">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
+@font-face{
+  font-family:'Inter';
+  src:url('assets/fonts/inter-variable.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
 :root{
   --schwarz:#0B0B0D;
   --anthrazit:#141418;
@@ -28,7 +35,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--schwarz);
   color:var(--leinwand);
-  font-family:'Schibsted Grotesk',sans-serif;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
   font-size:17px;
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -38,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 .display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
 .timecode{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
   font-size:12px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -52,7 +59,7 @@ a{color:inherit;text-decoration:none}
 .timecode .tc-num{color:var(--grau)}
 section{padding:220px 0}
 h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
-.lead{font-size:clamp(17px,2vw,20px);color:var(--grau);max-width:640px;line-height:1.55}
+.lead{font-size:17px;color:var(--grau);max-width:640px;line-height:1.55}
 .lead strong{color:var(--leinwand);font-weight:500}
 
 .btn{
@@ -82,7 +89,7 @@ h2.display{font-size:clamp(34px,5vw,54px);margin-bottom:18px}
 }
 .btn-ghost:hover{border-color:var(--rot);background:rgba(194,44,38,.08)}
 .trust-line{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
   font-size:12.5px;
   letter-spacing:.06em;
   color:var(--grau);
@@ -136,7 +143,7 @@ nav{
 .hero .wrap{position:relative;z-index:3;width:100%;min-width:0}
 .hero-claim{
   display:block;
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
   font-size:13px;letter-spacing:.28em;text-transform:uppercase;
   color:var(--rot-hell);margin-bottom:26px;
   line-height:1.5;
@@ -149,10 +156,10 @@ nav{
 .hero .lead{margin:26px 0 38px;max-width:560px;color:#C9C7C0}
 .hero-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-.problem-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
-.problem-video{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--karte);border:1px solid var(--linie);margin-top:38px}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:54px}
+.problem-video{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--karte);border:1px solid #2E2E38;box-shadow:0 16px 38px rgba(0,0,0,.32)}
 .problem-video iframe{width:100%;height:100%;border:0;display:block}
-.problem-list{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.problem-list{display:flex;flex-direction:column;gap:14px}
 .problem-item{
   display:flex;gap:16px;align-items:flex-start;
   background:linear-gradient(180deg,#17171C 0%,#111115 100%);
@@ -164,11 +171,36 @@ nav{
 .problem-item:hover{border-color:var(--rot-dunkel);transform:translateY(-2px)}
 .problem-item .p-icon{
   flex:0 0 auto;width:40px;height:40px;border-radius:10px;
-  background:rgba(194,44,38,.14);border:1px solid var(--rot-dunkel);
+  background:linear-gradient(180deg,rgba(228,86,79,.24),rgba(194,44,38,.08));
+  border:1px solid var(--rot-dunkel);
+  box-shadow:0 0 18px rgba(194,44,38,.18);
   display:flex;align-items:center;justify-content:center;
   color:var(--rot-hell);font-size:16px;font-weight:700;margin-top:2px;
 }
 .problem-item strong{color:var(--leinwand);font-weight:500}
+
+.zusage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:50px}
+.zusage{
+  display:flex;gap:16px;align-items:flex-start;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);
+  border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;
+  padding:22px 24px;box-shadow:0 16px 38px rgba(0,0,0,.32);
+  transition:border-color .2s ease,transform .2s ease;
+}
+.zusage:hover{border-color:var(--rot-dunkel);transform:translateY(-2px)}
+.zusage .z-icon{
+  flex:0 0 auto;width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(180deg,rgba(228,86,79,.24),rgba(194,44,38,.08));
+  border:1px solid var(--rot-dunkel);box-shadow:0 0 18px rgba(194,44,38,.18);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--rot-hell);font-size:16px;font-weight:700;margin-top:2px;
+}
+.zusage h3{font-size:17px;font-weight:600;margin-bottom:6px}
+.zusage p{color:var(--grau);font-size:15px;line-height:1.5}
+.zusage-punch{display:flex;align-items:center;padding:10px 6px}
+.zusage-punch p{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(20px,2.4vw,26px);line-height:1.25;letter-spacing:.02em}
+.zusage-punch span{color:var(--rot-hell)}
+@media(max-width:760px){.zusage-grid{grid-template-columns:1fr;gap:12px}.zusage{padding:18px}.zusage-punch{padding:14px 4px 0}}
 .problem-punch{
   margin-top:34px;font-size:clamp(22px,3vw,28px);
   font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.2;
@@ -217,15 +249,13 @@ nav{
 
 .kern-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:50px}
 .kern-card{
-  background:var(--karte);
-  border:1px solid var(--linie);
-  border-radius:8px;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   padding:30px 28px;
 }
 .kern-card.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
 .kern-card h3{font-size:22px;font-weight:700;margin-bottom:12px}
 .kern-card h3 .no{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;color:var(--rot-hell);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12px;color:var(--rot-hell);
   display:block;margin-bottom:10px;letter-spacing:.12em;
 }
 .kern-card p{color:var(--grau);font-size:15.5px}
@@ -240,16 +270,14 @@ nav{
   display:flex;gap:20px;align-items:flex-start;
 }
 .anker-icon{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;color:var(--rot-hell);font-size:13px;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;color:var(--rot-hell);font-size:13px;
   letter-spacing:.12em;white-space:nowrap;padding-top:3px;
 }
 .anker p{color:var(--leinwand);font-size:16.5px;max-width:720px}
 .anker p span{color:var(--grau)}
 .pakete-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .paket{
-  background:var(--karte);
-  border:1px solid var(--linie);
-  border-radius:8px;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   padding:34px 30px;
   display:flex;flex-direction:column;
   position:relative;
@@ -258,12 +286,12 @@ nav{
 .paket .badge{
   position:absolute;top:-13px;left:30px;
   background:var(--rot);color:#FFFFFF;
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;font-weight:500;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;font-weight:500;
   letter-spacing:.1em;text-transform:uppercase;
   padding:5px 12px;border-radius:3px;
 }
 .paket .laufzeit{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12.5px;color:var(--grau);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12.5px;color:var(--grau);
   letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
 }
 .paket h3{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase;letter-spacing:.02em;font-weight:400;margin-bottom:4px}
@@ -282,7 +310,7 @@ nav{
   padding-top:26px;
 }
 .schritt .snum{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
   letter-spacing:.14em;display:block;margin-bottom:14px;
 }
 .schritt h3{font-size:22px;font-weight:700;margin-bottom:12px}
@@ -298,7 +326,7 @@ nav{
 .zitat-video iframe{width:100%;height:100%;border:0;display:block}
 #kundenstimmen .btn-ghost{margin-top:8px}
 .zitat{
-  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   padding:30px 28px;display:flex;flex-direction:column;gap:18px;
 }
 .zitat p{color:var(--leinwand);font-size:16px;font-style:italic;flex:1}
@@ -308,7 +336,7 @@ nav{
   border-style:dashed;border-color:var(--rot-dunkel);
 }
 .platzhalter .ph-tag{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
   letter-spacing:.12em;text-transform:uppercase;
 }
 .logo-grid{
@@ -328,7 +356,7 @@ nav{
 
 .leistungen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
 .leistung{
-  background:var(--karte);border:1px solid var(--linie);border-radius:8px;
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   overflow:hidden;display:flex;flex-direction:column;
 }
 .leistung img{height:190px;width:100%;object-fit:cover;filter:saturate(.85)}
@@ -387,7 +415,7 @@ details .antwort strong{color:var(--leinwand);font-weight:500}
 .kontakt-info p{color:var(--grau);margin-bottom:24px}
 .kontakt-info p strong{color:var(--leinwand);font-weight:500}
 .kontakt-daten{
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;line-height:2.1;color:var(--grau);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:14px;line-height:2.1;color:var(--grau);
   border-top:1px solid var(--linie);padding-top:24px;margin-top:8px;
 }
 .kontakt-daten a{color:var(--leinwand)}
@@ -416,7 +444,7 @@ footer{
 .footer-inner img{height:44px;width:auto}
 .footer-links{display:flex;gap:24px;font-size:14px;color:var(--grau)}
 .footer-links a:hover{color:var(--leinwand)}
-.footer-copy{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+.footer-copy{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
 
 @media(max-width:900px){
   .nav-links{
@@ -467,7 +495,7 @@ footer{
 .logo-track{display:flex;gap:14px;width:max-content;animation:logoflow 85s linear infinite;will-change:transform}
 .logo-track.rueck{animation-direction:reverse}
 .logo-marquee:hover .logo-track{animation-play-state:paused}
-.logo-track .logo-cell{flex:0 0 auto;width:170px;height:80px;background:var(--karte);border:1px solid var(--linie);border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:center}
+.logo-track .logo-cell{flex:0 0 auto;width:170px;height:80px;background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);padding:16px;display:flex;align-items:center;justify-content:center}
 .logo-track img{max-height:42px;width:auto;max-width:100%;filter:grayscale(1) brightness(1.6) contrast(.85);opacity:.75;transition:filter .2s,opacity .2s}
 .logo-track .logo-cell:hover img{filter:grayscale(0) brightness(1);opacity:1}
 @media(max-width:520px){.logo-track .logo-cell{width:136px;height:66px;padding:12px}.logo-track img{max-height:34px}.logo-ebene{gap:10px}.logo-track{gap:10px;animation-duration:60s}}
@@ -506,7 +534,7 @@ footer{
 .intro{position:fixed;inset:0;z-index:200;background:var(--schwarz);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .6s ease 2.4s forwards}
 .intro img{height:96px;width:auto;animation:introLogo 1s cubic-bezier(.22,.61,.36,1) both}
 .intro-linie{width:0;height:2px;background:var(--rot);animation:introLinie 1.2s cubic-bezier(.22,.61,.36,1) .55s forwards}
-.intro-claim{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--rot-hell);animation:introLogo .8s ease 1.15s both}
+.intro-claim{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--rot-hell);animation:introLogo .8s ease 1.15s both}
 @keyframes introLogo{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
 @keyframes introLinie{to{width:170px}}
 @keyframes introOut{to{opacity:0;visibility:hidden}}
@@ -517,7 +545,7 @@ footer{
 .modal{background:var(--anthrazit);border:1px solid var(--linie);border-radius:10px;max-width:540px;width:100%;padding:44px 36px 36px;position:relative;max-height:92vh;overflow-y:auto}
 .modal-zu{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--grau);font-size:28px;line-height:1;cursor:pointer;padding:6px 10px}
 .modal-zu:hover{color:var(--leinwand)}
-.m-titel{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:16px}
+.m-titel{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--rot-hell);text-align:center;margin-bottom:16px}
 .m-frage{font-size:22px;font-weight:700;text-align:center;margin-bottom:28px;color:var(--leinwand)}
 .m-schritt{display:none}
 .m-schritt.aktiv{display:block}
@@ -532,7 +560,7 @@ footer{
 .m-zurueck:hover{color:var(--leinwand)}
 .m-hinweis{font-size:13px;color:var(--grau);margin-top:14px;line-height:1.5}
 .m-hinweis a{text-decoration:underline}
-.m-trust{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.06em;color:var(--grau);text-align:center;margin-top:22px}
+.m-trust{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.06em;color:var(--grau);text-align:center;margin-top:22px}
 .m-danke{display:none;text-align:center;padding:20px 0}
 .m-danke.aktiv{display:block}
 .m-danke .m-check{width:64px;height:64px;border-radius:50%;background:rgba(194,44,38,.16);border:1px solid var(--rot);color:var(--rot-hell);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
@@ -747,14 +775,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <!-- ============ SZENE 02: PROBLEM ============ -->
 <section>
   <div class="wrap">
+    <p class="timecode">Kommt dir das bekannt vor?</p>
+    <h2 class="display">Du weißt, dass du sichtbar sein müsstest.</h2>
+    <p class="lead">Deine Konkurrenz postet schon. Deine Kunden sind längst auf Instagram und Facebook unterwegs. Und du?</p>
     <div class="problem-grid">
-      <div>
-        <p class="timecode">Kommt dir das bekannt vor?</p>
-        <h2 class="display">Du weißt, dass du sichtbar sein müsstest.</h2>
-        <p class="lead">Deine Konkurrenz postet schon. Deine Kunden sind längst auf Instagram und Facebook unterwegs. Und du?</p>
-        <div class="problem-video">
-          <button class="w-facade" type="button" data-wistia="jga3nwirt3" aria-label="Vorstellungsvideo von Maria abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/jga3nwirt3/swatch')"><span class="w-play">▶</span></button>
-        </div>
+      <div class="problem-video">
+        <button class="w-facade" type="button" data-wistia="jga3nwirt3" aria-label="Vorstellungsvideo von Maria abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/jga3nwirt3/swatch')"><span class="w-play">▶</span></button>
       </div>
       <div>
         <div class="problem-list">
@@ -805,33 +831,15 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <p class="timecode">Warum wir anders arbeiten</p>
     <h2 class="display">Das Gegenteil der typischen Agentur.</h2>
     <p class="lead">Wir wissen, was Unternehmer an Agenturen nervt. Deshalb haben wir uns bewusst anders aufgestellt. Kein Marketing-Sprech, sondern fünf Zusagen, die wir halten können, weil unsere Struktur genau dafür gemacht ist.</p>
-    <div class="kern-grid">
-      <div class="kern-card">
-        <h3><span class="no">01</span>Immer dieselben Gesichter</h3>
-        <p>Beim Erstgespräch, beim Dreh und beim Schnitt: Du redest immer mit Ronny und Maria. Kein Wechsel zum unerfahrenen Mitarbeiter nach Vertragsabschluss.</p>
-      </div>
-      <div class="kern-card">
-        <h3><span class="no">02</span>Transparenz statt Blackbox</h3>
-        <p>Du weißt vor der Zusammenarbeit, in welchem Rahmen du dich preislich bewegst und was du dafür bekommst. Keine versteckten Kosten, keine Überraschungen auf der Rechnung.</p>
-      </div>
-      <div class="kern-card">
-        <h3><span class="no">03</span>Faire Pakete statt Knebelverträge</h3>
-        <p>Wer länger bucht, bekommt einen besseren Preis. Das ist eine Belohnung für Vertrauen, kein Käfig. Du entscheidest, welche Laufzeit zu dir passt.</p>
-      </div>
-      <div class="kern-card">
-        <h3><span class="no">04</span>Kein Verkaufsdruck</h3>
-        <p>Ein unverbindliches Gespräch, eine ehrliche Einschätzung. Wenn etwas für dich keinen Sinn ergibt, sagen wir dir das. Auch wenn wir daran nichts verdienen.</p>
-      </div>
-      <div class="kern-card wide">
-        <div>
-          <h3><span class="no">05</span>Planbare Entlastung</h3>
-          <p>Jeden Monat kommt zuverlässig fertiger Content bei dir an, einsatzbereit für deine Kanäle. Du musst nichts organisieren, nichts nachhalten, nichts können.</p>
-        </div>
-        <p style="font-family:'Anton',sans-serif;text-transform:uppercase;font-size:22px;line-height:1.25;color:var(--leinwand)">Wir kümmern uns um die Produktion.<br><span style="color:var(--rot-hell)">Du dich um dein Geschäft.</span></p>
-      </div>
+    <div class="zusage-grid">
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Immer dieselben Gesichter</h3><p>Erstgespräch, Dreh, Schnitt – du redest immer mit Ronny und Maria.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Transparenz statt Blackbox</h3><p>Preis und Leistung stehen fest, bevor du zusagst. Keine versteckten Kosten.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Faire Pakete statt Knebelverträge</h3><p>Du wählst die Laufzeit. Längere Treue heißt besserer Preis – kein Käfig.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Kein Verkaufsdruck</h3><p>Ehrliche Einschätzung im Erstgespräch – auch wenn wir daran nichts verdienen.</p></div></div>
+      <div class="zusage"><span class="z-icon" aria-hidden="true">✓</span><div><h3>Planbare Entlastung</h3><p>Jeden Monat fertiger Content – du musst nichts organisieren, nichts können.</p></div></div>
+      <div class="zusage-punch"><p>Wir kümmern uns um die Produktion.<br><span>Du dich um dein Geschäft.</span></p></div>
     </div>
-  </div>
-</section>
+  </section>
 
 <!-- ============ SZENE 04: MONATSPAKETE ============ -->
 <section id="pakete">
@@ -1137,7 +1145,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <script>
   (function(){
     if(!('IntersectionObserver' in window)) return;
-    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .zusage, .zusage-punch, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
     ziele.forEach(function(el){ el.classList.add('reveal'); });
     var io = new IntersectionObserver(function(eintraege){
       var i = 0;
