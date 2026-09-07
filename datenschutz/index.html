@@ -156,8 +156,13 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
     <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung deiner Anfrage). Deine Daten werden gelöscht, sobald deine Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
     <p>Für den technischen Versand der Formulardaten nutzen wir den Dienst <strong>Web3Forms</strong> (<a class="link" href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a>). Deine Eingaben werden dabei an Web3Forms übermittelt und von dort per E-Mail an uns weitergeleitet; der Dienst speichert die Inhalte nach eigenen Angaben nicht dauerhaft. Weitere Informationen findest du in der <a class="link" href="https://web3forms.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Web3Forms</a>.</p>
 
-    <h2>7. Cookies und Tracking</h2>
-    <p>Diese Website verwendet <strong>keine Cookies zu Analyse- oder Marketingzwecken</strong> und setzt keine Tracking-Dienste ein.</p>
+    <h2>7. Cookies, Einwilligung und Tracking</h2>
+    <p>Diese Website setzt Analyse- und Marketing-Dienste <strong>nur mit deiner Einwilligung</strong> ein (Art. 6 Abs. 1 lit. a DSGVO). Beim ersten Besuch fragt dich ein Hinweis-Banner, ob du zustimmst. Ohne Zustimmung werden die nachfolgend genannten Dienste nicht geladen und es werden keine Marketing-Cookies gesetzt. Deine Wahl wird lokal in deinem Browser gespeichert und kann jederzeit über den Link <strong>„Cookie-Einstellungen"</strong> im Seitenfuß geändert werden.</p>
+    <h3>Google Tag Manager</h3>
+    <p>Nach deiner Einwilligung nutzen wir den <strong>Google Tag Manager</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland), über den Analyse- und Marketing-Tags verwaltet und geladen werden. Dabei wird deine IP-Adresse an Google übermittelt; eine Verarbeitung in den USA ist möglich (Grundlage: EU-US Data Privacy Framework bzw. EU-Standardvertragsklauseln). Weitere Informationen findest du in der <a class="link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.</p>
+    <h3>Meta Pixel</h3>
+    <p>Nach deiner Einwilligung nutzen wir das <strong>Meta Pixel</strong> (Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland), um die Wirksamkeit unserer Werbeanzeigen zu messen (z.&nbsp;B. Seitenaufrufe und abgesendete Anfragen). Dabei können Daten an Meta übermittelt und in den USA verarbeitet werden (Grundlage: EU-US Data Privacy Framework bzw. EU-Standardvertragsklauseln). Weitere Informationen findest du in der <a class="link" href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Datenschutzerklärung von Meta</a>.</p>
+    <p>Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen – über „Cookie-Einstellungen" im Seitenfuß.</p>
 
     <h2>8. Deine Rechte</h2>
     <p>Du hast im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:</p>
@@ -190,5 +195,79 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   </div>
 </footer>
 
+
+<!-- ============ COOKIE-CONSENT + TRACKING (GTM & Meta Pixel) ============ -->
+<style>
+.consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:400;max-width:560px;margin:0 auto;background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.55);padding:22px 24px;font-family:'Inter',-apple-system,'Segoe UI',sans-serif}
+.consent-banner p{color:var(--grau);font-size:14px;line-height:1.55;margin:0 0 16px;max-width:none}
+.consent-banner p strong{color:var(--leinwand);font-weight:500}
+.consent-banner a{color:var(--leinwand);text-decoration:underline}
+.consent-knoepfe{display:flex;gap:12px;flex-wrap:wrap}
+.consent-knoepfe button{cursor:pointer;border-radius:6px;font-family:inherit;font-weight:500;font-size:14.5px;padding:12px 22px;transition:background .15s,border-color .15s}
+.consent-annehmen{background:var(--rot);border:1px solid var(--rot);color:#FFFFFF}
+.consent-annehmen:hover{background:#D63A33}
+.consent-ablehnen{background:none;border:1px solid #2E2E38;color:var(--leinwand)}
+.consent-ablehnen:hover{border-color:var(--grau)}
+@media(max-width:520px){.consent-banner{left:10px;right:10px;bottom:10px;padding:18px}.consent-knoepfe button{flex:1}}
+</style>
+<script>
+(function(){
+  var SPEICHER = 'jsCookieWahl';
+  function wahl(){ try { return localStorage.getItem(SPEICHER); } catch(e) { return null; } }
+  function merke(w){ try { localStorage.setItem(SPEICHER, w); } catch(e) {} }
+
+  function ladeTracking(){
+    if (window.__trackingAktiv) return;
+    window.__trackingAktiv = true;
+    /* Google Tag Manager */
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W3GS78QC');
+    /* Meta Pixel */
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1364005672562530');
+    fbq('track', 'PageView');
+    if (location.pathname.indexOf('termin-danke') !== -1) {
+      window.dataLayer.push({ event: 'lead' });
+      fbq('track', 'Lead');
+    }
+  }
+
+  var banner = null;
+  function zeigeBanner(){
+    if (banner) { banner.hidden = false; return; }
+    banner = document.createElement('div');
+    banner.className = 'consent-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie-Einstellungen');
+    banner.innerHTML = '<p><strong>Cookies für Statistik &amp; Marketing.</strong> Wir nutzen Google Tag Manager und Meta Pixel, um zu verstehen, wie unsere Website genutzt wird. Die Dienste laden erst, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p><div class="consent-knoepfe"><button type="button" class="consent-annehmen">Annehmen</button><button type="button" class="consent-ablehnen">Ablehnen</button></div>';
+    document.body.appendChild(banner);
+    banner.querySelector('.consent-annehmen').addEventListener('click', function(){ merke('ja'); banner.hidden = true; ladeTracking(); });
+    banner.querySelector('.consent-ablehnen').addEventListener('click', function(){ merke('nein'); banner.hidden = true; });
+  }
+
+  var w = wahl();
+  if (w === 'ja') ladeTracking();
+  else if (w !== 'nein') zeigeBanner();
+
+  /* Footer-Link, um die Wahl jederzeit zu ändern */
+  document.querySelectorAll('.footer-links').forEach(function(fl){
+    var a = document.createElement('a');
+    a.href = '#';
+    a.textContent = 'Cookie-Einstellungen';
+    a.addEventListener('click', function(e){ e.preventDefault(); zeigeBanner(); });
+    fl.appendChild(a);
+  });
+})();
+</script>
 </body>
 </html>

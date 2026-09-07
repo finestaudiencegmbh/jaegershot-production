@@ -729,5 +729,79 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   })();
 </script>
 
+
+<!-- ============ COOKIE-CONSENT + TRACKING (GTM & Meta Pixel) ============ -->
+<style>
+.consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:400;max-width:560px;margin:0 auto;background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.55);padding:22px 24px;font-family:'Inter',-apple-system,'Segoe UI',sans-serif}
+.consent-banner p{color:var(--grau);font-size:14px;line-height:1.55;margin:0 0 16px;max-width:none}
+.consent-banner p strong{color:var(--leinwand);font-weight:500}
+.consent-banner a{color:var(--leinwand);text-decoration:underline}
+.consent-knoepfe{display:flex;gap:12px;flex-wrap:wrap}
+.consent-knoepfe button{cursor:pointer;border-radius:6px;font-family:inherit;font-weight:500;font-size:14.5px;padding:12px 22px;transition:background .15s,border-color .15s}
+.consent-annehmen{background:var(--rot);border:1px solid var(--rot);color:#FFFFFF}
+.consent-annehmen:hover{background:#D63A33}
+.consent-ablehnen{background:none;border:1px solid #2E2E38;color:var(--leinwand)}
+.consent-ablehnen:hover{border-color:var(--grau)}
+@media(max-width:520px){.consent-banner{left:10px;right:10px;bottom:10px;padding:18px}.consent-knoepfe button{flex:1}}
+</style>
+<script>
+(function(){
+  var SPEICHER = 'jsCookieWahl';
+  function wahl(){ try { return localStorage.getItem(SPEICHER); } catch(e) { return null; } }
+  function merke(w){ try { localStorage.setItem(SPEICHER, w); } catch(e) {} }
+
+  function ladeTracking(){
+    if (window.__trackingAktiv) return;
+    window.__trackingAktiv = true;
+    /* Google Tag Manager */
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W3GS78QC');
+    /* Meta Pixel */
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1364005672562530');
+    fbq('track', 'PageView');
+    if (location.pathname.indexOf('termin-danke') !== -1) {
+      window.dataLayer.push({ event: 'lead' });
+      fbq('track', 'Lead');
+    }
+  }
+
+  var banner = null;
+  function zeigeBanner(){
+    if (banner) { banner.hidden = false; return; }
+    banner = document.createElement('div');
+    banner.className = 'consent-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie-Einstellungen');
+    banner.innerHTML = '<p><strong>Cookies für Statistik &amp; Marketing.</strong> Wir nutzen Google Tag Manager und Meta Pixel, um zu verstehen, wie unsere Website genutzt wird. Die Dienste laden erst, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p><div class="consent-knoepfe"><button type="button" class="consent-annehmen">Annehmen</button><button type="button" class="consent-ablehnen">Ablehnen</button></div>';
+    document.body.appendChild(banner);
+    banner.querySelector('.consent-annehmen').addEventListener('click', function(){ merke('ja'); banner.hidden = true; ladeTracking(); });
+    banner.querySelector('.consent-ablehnen').addEventListener('click', function(){ merke('nein'); banner.hidden = true; });
+  }
+
+  var w = wahl();
+  if (w === 'ja') ladeTracking();
+  else if (w !== 'nein') zeigeBanner();
+
+  /* Footer-Link, um die Wahl jederzeit zu ändern */
+  document.querySelectorAll('.footer-links').forEach(function(fl){
+    var a = document.createElement('a');
+    a.href = '#';
+    a.textContent = 'Cookie-Einstellungen';
+    a.addEventListener('click', function(e){ e.preventDefault(); zeigeBanner(); });
+    fl.appendChild(a);
+  });
+})();
+</script>
 </body>
 </html>
