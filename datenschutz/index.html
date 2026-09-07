@@ -69,15 +69,16 @@ nav{
 }
 .nav-back:hover{color:var(--leinwand)}
 main{padding:150px 0 100px}
-h1.display{font-size:clamp(34px,6vw,54px);margin-bottom:44px}
+h1.display{font-size:clamp(34px,6vw,54px);margin-bottom:44px;overflow-wrap:anywhere;hyphens:auto}
 h2{font-size:22px;font-weight:700;margin:44px 0 12px}
 h3{font-size:18px;font-weight:700;margin:28px 0 10px}
-p,li{color:var(--grau);margin-bottom:14px;max-width:680px}
+p,li{color:var(--grau);margin-bottom:14px;max-width:680px;overflow-wrap:anywhere}
 ul{padding-left:22px;margin-bottom:14px}
 li{margin-bottom:6px}
 p strong,li strong{color:var(--leinwand);font-weight:500}
-a.link{color:var(--leinwand);border-bottom:1px solid var(--rot);transition:color .15s}
-a.link:hover{color:var(--rot-hell)}
+a.link{color:var(--leinwand);border-bottom:1px solid var(--leinwand);transition:color .15s,border-color .15s}
+.block a.link{border-bottom:none}
+a.link:hover{color:var(--rot-hell);border-color:var(--rot-hell)}
 .block{
   background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   padding:26px 28px;margin:8px 0 20px;
@@ -173,11 +174,6 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 
     <h2>9. Aktualität dieser Erklärung</h2>
     <p>Diese Datenschutzerklärung hat den Stand August 2026. Durch die Weiterentwicklung unserer Website kann es notwendig werden, diese Erklärung anzupassen.</p>
-
-    <div class="platzhalter">
-      <span class="ph-tag">Hinweis · Entwurf</span>
-      Diese Datenschutzerklärung ist ein auf den Prototyp zugeschnittener Entwurf und ersetzt keine Rechtsberatung. Vor dem offiziellen Livegang bitte anwaltlich oder über einen Datenschutz-Generator prüfen lassen.
-    </div>
   </div>
 </main>
 

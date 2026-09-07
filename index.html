@@ -333,13 +333,12 @@ nav{
   letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
 }
 .paket h3{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase;letter-spacing:.02em;font-weight:400;margin-bottom:4px}
-.paket .rabatt{color:var(--rot-hell);font-weight:700;font-size:15px;margin-bottom:24px}
 .paket ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex:1}
 .paket li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative}
 .paket li::before{content:"—";position:absolute;left:0;color:var(--rot)}
 .paket li strong{color:var(--leinwand);font-weight:500}
 .paket .btn,.paket .btn-ghost{text-align:center;width:100%}
-.pakete-fussnote{margin-top:28px;color:var(--grau);font-size:15px;max-width:680px}
+.pakete-fussnote{margin-top:28px;color:var(--grau);font-size:15px;max-width:680px;margin-left:auto;margin-right:auto;text-align:center}
 @media(max-width:860px){.pakete-grid{grid-template-columns:1fr}}
 
 .ablauf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
@@ -810,7 +809,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <a class="btn nav-cta-mobil" href="#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="#pakete">Monatspakete</a>
       <a href="/leistungen/">Leistungen</a>
       <a href="/ueber-uns/">Über uns</a>
       <a href="/ergebnisse/">Referenzen</a>
@@ -897,13 +895,13 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="kundenstimmen">
   <div class="wrap">
     <p class="timecode">Kundenstimmen</p>
-    <h2 class="display">Das sagen Kunden, die es gemacht haben.</h2>
+    <h2 class="display">Das sagen Kunden über uns.</h2>
     <p class="lead">Echte Kunden vor der Kamera statt anonymer Sternchen-Bewertungen.</p>
     <div class="stimmen-stapel">
 
       <div class="stimme">
         <div class="s-text">
-          <span class="kat">Kundenstimme 01 · Nicolai</span>
+          <span class="kat">Kundenstimme · Nicolai</span>
           <h3>„Diese Ängste werden einem komplett genommen."</h3>
           <p>Was soll ich machen? Habe ich überhaupt Zeit dafür? Nicolai kannte die typischen Sorgen vor dem ersten Videoprojekt – nach dem Dreh war davon nichts mehr übrig: super an die Hand genommen, sehr schnell umgesetzt, die Qualität „sehr, sehr gut". Er empfiehlt es besonders Unternehmen, die skalieren und ihr Business aufs nächste Level heben wollen.</p>
           <p class="s-meta">Kunde · Videoprojekt</p>
@@ -913,7 +911,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
       <div class="stimme">
         <div class="s-text">
-          <span class="kat">Kundenstimme 02 · Marcel</span>
+          <span class="kat">Kundenstimme · Marcel</span>
           <h3>„Wer jetzt nicht digital mitzieht, wird digital abgehängt."</h3>
           <p>Marcel führt mehrere Unternehmen und hat uns an einem Tag der offenen Tür kennengelernt. Vom ersten Video war er sehr überzeugt: nach kürzester Zeit erstellt, hochprofessionell in Bild, Ton und Schnitt – und eine Empfehlung, die er „wärmstens" ausspricht. Sein Rat an andere Betriebe: Wer nicht mit der Zeit geht und sich bemerkbar macht, wird mit der Zeit gehen.</p>
           <p class="s-meta">Unternehmer · mehrere Betriebe</p>
@@ -923,7 +921,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
       <div class="stimme">
         <div class="s-text">
-          <span class="kat">Kundenstimme 03 · Julian</span>
+          <span class="kat">Kundenstimme · Julian</span>
           <h3>„Man ist direkt auf einer Wellenlänge."</h3>
           <p>Ein sehr sympathisches Team und gute Kommunikation – so beschreibt Julian die Zusammenarbeit. Alles läuft schnell und professionell, ohne Abstimmungsschleifen und Reibungsverluste. Genau dafür sind wir ein Zwei-Personen-Team mit kurzen Wegen: Du redest immer mit den Leuten, die dein Video auch wirklich machen.</p>
           <p class="s-meta">Kunde · Videoprojekt</p>
@@ -992,18 +990,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   <div class="wrap">
     <p class="timecode">Unser Kernangebot</p>
     <h2 class="display">Social Media Content aus Aschaffenburg. Jeden Monat fertig für dich.</h2>
-    <p class="lead">Für Handwerksbetriebe, Gastronomie, Autohäuser und Dienstleister, die dauerhaft präsent sein wollen: regelmäßige Reels und kurze Videos, professionell gedreht und geschnitten, fertig für Instagram, Facebook, TikTok und deine Website.</p>
-
-    <div class="anker">
-      <span class="anker-icon">Preis-Orientierung</span>
-      <p>Unsere Monatspakete starten im niedrigen vierstelligen Bereich pro Monat. <span>Den genauen Umfang schneiden wir im Erstgespräch auf deinen Betrieb zu, damit du für nichts zahlst, was du nicht brauchst.</span></p>
-    </div>
+    <p class="lead">Image-Trailer, regelmäßige Reels und kurze Videos, professionell gedreht und geschnitten, fertig für Instagram, Facebook, TikTok und deine Website.</p>
 
     <div class="pakete-grid">
       <div class="paket">
         <p class="laufzeit">3 Monate Laufzeit</p>
         <h3>Content Booster</h3>
-        <p class="rabatt">10 % Laufzeit-Vorteil</p>
         <ul>
           <li><strong>6 Social Media Reels</strong> (bis 45 Sekunden)</li>
           <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
@@ -1011,13 +1003,12 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Farbkorrektur &amp; dein Firmenlogo</li>
           <li>Ideal zum <strong>risikoarmen Reinschnuppern</strong></li>
         </ul>
-        <a class="btn-ghost" href="#kontakt">Im Gespräch besprechen</a>
+        <a class="btn-ghost" href="#kontakt">Jetzt unverbindlich anfragen</a>
       </div>
       <div class="paket featured">
         <span class="badge">Meistgewählt</span>
         <p class="laufzeit">6 Monate Laufzeit</p>
         <h3>Premium Paket</h3>
-        <p class="rabatt">20 % Laufzeit-Vorteil</p>
         <ul>
           <li><strong>12 Social Media Reels</strong> (bis 45 Sekunden)</li>
           <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
@@ -1025,12 +1016,11 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Farbkorrektur &amp; dein Firmenlogo</li>
           <li>Genug Zeit, damit dein Auftritt <strong>sichtbar Wirkung zeigt</strong></li>
         </ul>
-        <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+        <a class="btn" href="#kontakt">Jetzt unverbindlich anfragen</a>
       </div>
       <div class="paket">
         <p class="laufzeit">12 Monate Laufzeit</p>
         <h3>VIP Jahrespaket</h3>
-        <p class="rabatt">30 % Laufzeit-Vorteil</p>
         <ul>
           <li><strong>24 Social Media Reels</strong> (bis 45 Sekunden)</li>
           <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
@@ -1038,7 +1028,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Farbkorrektur &amp; dein Firmenlogo</li>
           <li>Der beste Preis pro Video, für alle, die es <strong>ernst meinen</strong></li>
         </ul>
-        <a class="btn-ghost" href="#kontakt">Im Gespräch besprechen</a>
+        <a class="btn-ghost" href="#kontakt">Jetzt unverbindlich anfragen</a>
       </div>
     </div>
     <p class="pakete-fussnote">Du brauchst kein Monatspaket, sondern ein einzelnes Projekt wie einen Imagefilm oder Eventfilm? Kein Problem. Alle Einzelleistungen findest du <a href="#leistungen" style="color:var(--rot-hell)">weiter unten</a>.</p>

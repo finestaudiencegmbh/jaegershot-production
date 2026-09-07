@@ -69,12 +69,13 @@ nav{
 }
 .nav-back:hover{color:var(--leinwand)}
 main{padding:150px 0 100px}
-h1.display{font-size:clamp(34px,6vw,54px);margin-bottom:44px}
+h1.display{font-size:clamp(34px,6vw,54px);margin-bottom:44px;overflow-wrap:anywhere;hyphens:auto}
 h2{font-size:20px;font-weight:700;margin:40px 0 12px}
-p{color:var(--grau);margin-bottom:14px;max-width:680px}
+p{color:var(--grau);margin-bottom:14px;max-width:680px;overflow-wrap:anywhere}
 p strong{color:var(--leinwand);font-weight:500}
-a.link{color:var(--leinwand);border-bottom:1px solid var(--rot);transition:color .15s}
-a.link:hover{color:var(--rot-hell)}
+a.link{color:var(--leinwand);border-bottom:1px solid var(--leinwand);transition:color .15s,border-color .15s}
+a.link:hover{color:var(--rot-hell);border-color:var(--rot-hell)}
+.block a.link{border-bottom:none}
 .block{
   background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
   padding:26px 28px;margin:8px 0 20px;
@@ -140,12 +141,8 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
       E-Mail: <a class="link" href="mailto:info@jaeger-shot.de">info@jaeger-shot.de</a>
     </div>
 
-    <h2>Umsatzsteuer</h2>
-    <div class="platzhalter">
-      <span class="ph-tag">Platzhalter · Bitte ergänzen</span>
-      Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG (falls vorhanden) – oder Hinweis auf Kleinunternehmerregelung nach § 19 UStG.
-    </div>
-
+    <!-- TODO: Sobald die USt-IdNr. vorliegt, hier Abschnitt "Umsatzsteuer" mit
+         "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE..." einfügen -->
     <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
     <div class="block">
       Ronny Jäger<br>
