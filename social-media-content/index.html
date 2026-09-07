@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow"> <!-- WICHTIG: Vor Umzug auf jaeger-shot.de ENTFERNEN -->
-<title>Drohnenaufnahmen in Aschaffenburg &amp; Rhein-Main – Jäger Shot Productions</title>
-<meta name="description" content="Professionelle Drohnenaufnahmen für Immobilien, Baustellen und Betriebe in Aschaffenburg und dem Rhein-Main-Gebiet. Versichert, zertifiziert, hochauflösend.">
+<title>Social Media Content erstellen lassen – Reels &amp; Videos aus Aschaffenburg</title>
+<meta name="description" content="Jeden Monat fertige Reels und Videos für deinen Betrieb. Social Media Content aus Aschaffenburg für das Rhein-Main-Gebiet. Faire Laufzeiten statt Knebelverträge.">
 <link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <style>
 @font-face{
   font-family:'Inter';
-  src:url('assets/fonts/inter-variable.woff2') format('woff2');
+  src:url('/assets/fonts/inter-variable.woff2') format('woff2');
   font-weight:100 900;
   font-style:normal;
   font-display:swap;
@@ -103,18 +103,38 @@ nav{
 .kopf-bg{position:absolute;inset:0;background-position:center;background-size:cover;filter:saturate(.85)}
 .kopf-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.86) 0%,rgba(11,11,13,.55) 42%,rgba(11,11,13,.78) 72%,var(--schwarz) 100%)}
 .kopf .wrap{position:relative;z-index:1}
-.kopf h1{font-size:clamp(38px,6vw,68px);max-width:960px}
+.kopf h1{font-size:clamp(38px,6vw,68px);max-width:900px}
 .kopf .lead{margin-top:22px}
 .kopf-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
 .kopf-bild{border-radius:8px;width:100%;height:340px;object-fit:cover;filter:saturate(.85);margin-top:54px}
 
-.kern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.kern-card{
+.pakete-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.paket{
   background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
-  padding:30px 28px;
+  padding:34px 30px;
+  display:flex;flex-direction:column;
+  position:relative;
 }
-.kern-card h3{font-size:22px;font-weight:700;margin-bottom:12px}
-.kern-card p{color:var(--grau);font-size:15.5px;line-height:1.5}
+.paket.featured{border-color:var(--rot)}
+.paket .badge{
+  position:absolute;top:-13px;left:30px;
+  background:var(--rot);color:#FFFFFF;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:3px;
+}
+.paket .laufzeit{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12.5px;color:var(--grau);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
+}
+.paket h3{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase;letter-spacing:.02em;font-weight:400;margin-bottom:4px}
+.paket .rabatt{color:var(--rot-hell);font-weight:700;font-size:15px;margin-bottom:24px}
+.paket ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex:1}
+.paket li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative}
+.paket li::before{content:"—";position:absolute;left:0;color:var(--rot)}
+.paket li strong{color:var(--leinwand);font-weight:500}
+.paket .btn,.paket .btn-ghost{text-align:center;width:100%}
+.pakete-fussnote{margin-top:28px;color:var(--grau);font-size:15px;max-width:680px;line-height:1.5}
 
 .faq-list{margin-top:50px;max-width:800px}
 details{border-bottom:1px solid var(--linie)}
@@ -163,7 +183,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-burger{display:block}
 }
 @media(max-width:860px){
-  .kern-grid{grid-template-columns:1fr}
+  .pakete-grid{grid-template-columns:1fr}
   .kopf-bild{height:240px}
 }
 @media(max-width:760px){
@@ -175,6 +195,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-logo img{height:44px}
   .kopf-ctas{gap:14px}
   .kopf-ctas .btn,.kopf-ctas .btn-ghost{width:100%;text-align:center}
+  .paket{padding:26px 22px}
   summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
@@ -256,10 +277,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 {
  "@context": "https://schema.org",
  "@type": "Service",
- "name": "Drohnenaufnahmen",
- "serviceType": "Drohnen-Videografie",
- "url": "https://www.jaeger-shot.de/drohnenaufnahmen.html",
- "description": "Professionelle Drohnenaufnahmen für Immobilien, Baustellen und Betriebe in Aschaffenburg und dem Rhein-Main-Gebiet.",
+ "name": "Social Media Content",
+ "serviceType": "Social-Media-Videoproduktion",
+ "url": "https://www.jaeger-shot.de/social-media-content/",
+ "description": "Jeden Monat fertige Reels und Videos für deinen Betrieb. Social Media Content aus Aschaffenburg für das Rhein-Main-Gebiet.",
  "provider": {
   "@type": "LocalBusiness",
   "@id": "https://www.jaeger-shot.de/#business",
@@ -281,19 +302,19 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
    "@type": "ListItem",
    "position": 1,
    "name": "Startseite",
-   "item": "https://www.jaeger-shot.de/index.html"
+   "item": "https://www.jaeger-shot.de/"
   },
   {
    "@type": "ListItem",
    "position": 2,
    "name": "Leistungen",
-   "item": "https://www.jaeger-shot.de/leistungen.html"
+   "item": "https://www.jaeger-shot.de/leistungen/"
   },
   {
    "@type": "ListItem",
    "position": 3,
-   "name": "Drohnenaufnahmen",
-   "item": "https://www.jaeger-shot.de/drohnenaufnahmen.html"
+   "name": "Social Media Content",
+   "item": "https://www.jaeger-shot.de/social-media-content/"
   }
  ]
 }
@@ -321,32 +342,32 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+    <a class="nav-logo" href="/" aria-label="Jäger Shot Productions">
       <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
     </a>
-    <a class="btn nav-cta-mobil" href="index.html#kontakt">Erstgespräch</a>
+    <a class="btn nav-cta-mobil" href="/#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="index.html#pakete">Monatspakete</a>
-      <a class="aktiv" href="leistungen.html">Leistungen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="ergebnisse.html">Referenzen</a>
-      <a href="blog.html">Blog</a>
-      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+      <a href="/#pakete">Monatspakete</a>
+      <a class="aktiv" href="/leistungen/">Leistungen</a>
+      <a href="/ueber-uns/">Über uns</a>
+      <a href="/ergebnisse/">Referenzen</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
     </div>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <section class="kopf">
-  <div class="kopf-bg" role="img" aria-label="Drohnenaufnahmen" style="background-image:url('https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=800&height=800')"></div>
+  <div class="kopf-bg" role="img" aria-label="Social Media Content" style="background-image:url('https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=800&height=800')"></div>
   <div class="wrap">
-    <a class="timecode" href="leistungen.html" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Drohnenaufnahmen</span></a>
-    <h1 class="display">Dein Betrieb aus der Perspektive, die <span style="color:var(--rot-hell)">Eindruck macht.</span></h1>
-    <p class="lead">Manche Dinge versteht man erst von oben: die Größe deines Firmengeländes, die Lage einer Immobilie, den Fortschritt deiner Baustelle. Wir liefern Luftaufnahmen in Kinoqualität, als eigenständiges Projekt oder als Teil deines Films.</p>
+    <a class="timecode" href="/leistungen/" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Social Media Content</span></a>
+    <h1 class="display">Sichtbar im Feed. <span style="color:var(--rot-hell)">Ohne dass du dich kümmerst.</span></h1>
+    <p class="lead">Deine Kunden scrollen jeden Tag durch Instagram, Facebook und TikTok. Die Frage ist nur, ob sie dabei dich sehen oder deine Konkurrenz. Wir produzieren jeden Monat fertigen Content für deinen Betrieb, damit die Antwort klar ist.</p>
     <div class="kopf-ctas">
-      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
-      <a class="btn-ghost" href="ergebnisse.html">Referenzen ansehen</a>
+      <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
+      <a class="btn-ghost" href="/ergebnisse/">Referenzen ansehen</a>
     </div>
   </div>
 </section>
@@ -354,41 +375,71 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <!-- ============ SZENE 01 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Wofür sich Luftaufnahmen lohnen</p>
-    <h2 class="display">Einsatzbereiche, die wir regelmäßig fliegen.</h2>
-    <div class="kern-grid">
-      <div class="kern-card">
-        <h3>Immobilien &amp; Grundstücke</h3>
-        <p>Lage, Umgebung, Grundstücksgröße: Luftaufnahmen zeigen in Sekunden, was Fotos vom Boden nie schaffen. Für Makler, Bauträger und Eigentümer, die verkaufen oder vermieten wollen.</p>
-      </div>
-      <div class="kern-card">
-        <h3>Baustellen &amp; Projekte</h3>
-        <p>Baufortschritt dokumentieren, Meilensteine festhalten, das fertige Projekt in Szene setzen. Regelmäßige Befliegungen machen aus deiner Baustelle eine Geschichte, die du Kunden und Auftraggebern zeigen kannst.</p>
-      </div>
-      <div class="kern-card">
-        <h3>Betriebe &amp; Events</h3>
-        <p>Dein Firmengelände, deine Produktion, dein Event von oben: Drohnenaufnahmen geben jedem Imagefilm und jedem Aftermovie die Bilder, die im Kopf bleiben.</p>
-      </div>
-    </div>
+    <p class="timecode">Das Problem mit Social Media</p>
+    <h2 class="display">Du weißt, dass du posten müsstest. Aber wann?</h2>
+    <p class="lead">Zwischen Aufträgen, Team und Tagesgeschäft bleibt Social Media immer liegen. Selbst filmen, schneiden, Musik auswählen, hochladen: <strong>Das ist ein eigener Job, nicht dein Job.</strong> Genau den übernehmen wir.</p>
+    <p class="lead" style="margin-top:18px">Du bekommst jeden Monat professionell gedrehte und geschnittene Reels und kurze Videos, fertig zum Posten. Gedreht bei dir vor Ort, geschnitten mit lizenzierter Musik, versehen mit deinem Logo. Du lädst nur noch hoch. Oder wir zeigen dir, wie es am einfachsten geht.</p>
   </div>
 </section>
 
-<!-- ============ SZENE 02 ============ -->
+<!-- ============ SZENE 02: PAKETE ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Sauber und legal</p>
-    <h2 class="display">Zertifiziert, versichert, angemeldet.</h2>
-    <p class="lead">Drohnenflüge über Betriebsgeländen, Baustellen und Wohngebieten sind kein rechtsfreier Raum. <strong>Wir fliegen mit EU-Kompetenznachweis, sind versichert und kümmern uns um nötige Genehmigungen</strong>, bevor die Drohne abhebt. Du musst dich um nichts kümmern und gehst kein Risiko ein.</p>
-    <p class="lead" style="margin-top:18px">Das unterscheidet eine professionelle Produktion von der Drohne aus dem Elektromarkt: Bei uns bekommst du nicht nur schöne Bilder, sondern auch die Sicherheit, dass alles sauber abläuft.</p>
+    <p class="timecode">Deine Monatspakete</p>
+    <h2 class="display">Drei Laufzeiten. Du entscheidest.</h2>
+    <div class="pakete-grid">
+      <div class="paket">
+        <p class="laufzeit">3 Monate Laufzeit</p>
+        <h3>Content Booster</h3>
+        <p class="rabatt">10 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>6 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Ideal zum <strong>risikoarmen Reinschnuppern</strong></li>
+        </ul>
+        <a class="btn-ghost" href="/#kontakt">Im Gespräch besprechen</a>
+      </div>
+      <div class="paket featured">
+        <span class="badge">Meistgewählt</span>
+        <p class="laufzeit">6 Monate Laufzeit</p>
+        <h3>Premium Paket</h3>
+        <p class="rabatt">20 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>12 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Genug Zeit, damit dein Auftritt <strong>sichtbar Wirkung zeigt</strong></li>
+        </ul>
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
+      </div>
+      <div class="paket">
+        <p class="laufzeit">12 Monate Laufzeit</p>
+        <h3>VIP Jahrespaket</h3>
+        <p class="rabatt">30 % Laufzeit-Vorteil</p>
+        <ul>
+          <li><strong>24 Social Media Reels</strong> (bis 45 Sekunden)</li>
+          <li>Dreh bei dir vor Ort (inkl. 50 km)</li>
+          <li>Lizenzierte Musik</li>
+          <li>Farbkorrektur &amp; dein Firmenlogo</li>
+          <li>Der beste Preis pro Video, für alle, die es <strong>ernst meinen</strong></li>
+        </ul>
+        <a class="btn-ghost" href="/#kontakt">Im Gespräch besprechen</a>
+      </div>
+    </div>
+    <p class="pakete-fussnote">Wer länger bucht, bekommt den besseren Preis. Das ist eine Belohnung für Vertrauen, kein Käfig. Unsere Monatspakete starten im niedrigen vierstelligen Bereich pro Monat. Den genauen Umfang schneiden wir im Erstgespräch auf deinen Betrieb zu.</p>
   </div>
 </section>
 
 <!-- ============ SZENE 03 ============ -->
 <section>
   <div class="wrap">
-    <p class="timecode">Einzeln oder kombiniert</p>
-    <h2 class="display">Als eigenes Projekt oder Teil deines Films.</h2>
-    <p class="lead">Drohnenaufnahmen buchst du bei uns einzeln, etwa für ein Immobilien-Exposé oder eine Baudokumentation. Oder als Baustein in einem größeren Projekt: <strong>Die stärksten Imagefilme und Eventfilme kombinieren Bodenaufnahmen mit Luftbildern.</strong> Was für dein Projekt Sinn ergibt, klären wir im Erstgespräch. Ehrlich, wie immer.</p>
+    <p class="timecode">Für wen das gemacht ist</p>
+    <h2 class="display">Content für Betriebe, nicht für Influencer.</h2>
+    <p class="lead">Wir drehen für Handwerksbetriebe, Gastronomie, Autohäuser, Immobilienmakler und Dienstleister in Aschaffenburg, dem Rhein-Main-Gebiet und Unterfranken. <strong>Du brauchst keine Follower-Strategie und keinen Tanz vor der Kamera.</strong> Was funktioniert: echte Einblicke in deinen Betrieb, dein Team bei der Arbeit, fertige Projekte, zufriedene Kunden.</p>
+    <p class="lead" style="margin-top:18px">Genau das produzieren wir. Regelmäßig, verlässlich und so, dass es zu deiner Marke passt statt zu einem Trend, der nächste Woche vorbei ist.</p>
   </div>
 </section>
 
@@ -396,19 +447,23 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section>
   <div class="wrap">
     <p class="timecode">Häufige Fragen</p>
-    <h2 class="display">Fragen zu Drohnenaufnahmen.</h2>
+    <h2 class="display">Fragen zum Social Media Content.</h2>
     <div class="faq-list">
       <details>
-        <summary>Dürft ihr überall fliegen?</summary>
-        <div class="antwort">Nicht überall, aber fast überall dort, wo es für Betriebe relevant ist. <strong>Wir prüfen vor jedem Flug die Rechtslage am Standort</strong> und holen nötige Genehmigungen ein. Falls ein Standort nicht beflogen werden darf, sagen wir dir das vor der Buchung, nicht am Drehtag.</div>
+        <summary>Übernehmt ihr auch das Posten und die Kanalpflege?</summary>
+        <div class="antwort">Unser Kern ist die Produktion: <strong>Du bekommst fertigen Content, einsatzbereit für deine Kanäle.</strong> Beim Hochladen unterstützen wir dich gern und zeigen dir den einfachsten Weg. So behältst du die Hoheit über deine Accounts, ohne dich mit Schnitt und Technik zu beschäftigen.</div>
       </details>
       <details>
-        <summary>In welcher Qualität wird gefilmt?</summary>
-        <div class="antwort">Hochauflösend und farbkorrigiert, damit die Luftaufnahmen zum Rest deines Materials passen. <strong>Du bekommst Bilder, die auch auf großen Bildschirmen und in Präsentationen bestehen</strong>, nicht nur im Handyformat.</div>
+        <summary>Wie viele Drehtermine brauchen wir pro Monat?</summary>
+        <div class="antwort">Weniger, als du denkst. <strong>Aus einem gut geplanten Drehtermin holen wir Material für mehrere Reels.</strong> Wie oft wir zu dir kommen, hängt von deinem Paket ab und wird so gelegt, dass dein Betrieb normal weiterläuft.</div>
       </details>
       <details>
-        <summary>Was kostet ein Drohneneinsatz?</summary>
-        <div class="antwort">Das hängt vom Umfang ab: einzelner Flugtermin, regelmäßige Baudokumentation oder Teil einer Filmproduktion. <strong>Den Preis erfährst du vor der Buchung</strong>, im kostenlosen Erstgespräch. Keine versteckten Kosten, keine Überraschungen.</div>
+        <summary>Was ist, wenn uns ein Video nicht gefällt?</summary>
+        <div class="antwort">Dann reden wir drüber und passen es an. <strong>Du arbeitest immer direkt mit Ronny Jäger und Maria Krämer</strong>, ohne Umweg über einen Projektmanager. Kurze Wege heißt auch: Feedback kommt an und wird umgesetzt.</div>
+      </details>
+      <details>
+        <summary>Funktioniert das auch, wenn wir noch gar keinen Social-Media-Auftritt haben?</summary>
+        <div class="antwort">Ja, das ist sogar ein guter Startpunkt. <strong>Lieber von Anfang an mit professionellem Content starten</strong>, als jahrelang halbherzig zu posten. Im Erstgespräch schauen wir gemeinsam, welche Kanäle für deinen Betrieb überhaupt Sinn ergeben.</div>
       </details>
     </div>
   </div>
@@ -417,11 +472,11 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <!-- ============ CTA ============ -->
 <section class="cta-band">
   <div class="wrap">
-    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Zeit abzuheben</span></p>
-    <h2 class="display">Lass uns über deine Luftaufnahmen reden.</h2>
-    <p class="lead">Ein kurzes, unverbindliches Gespräch. Du erzählst, was du zeigen willst. Wir sagen dir, ob und wie es fliegbar ist, was es kostet und wie schnell es gehen kann.</p>
-    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
-    <p class="cta-verweis">Luftaufnahmen wirken am stärksten als Teil eines <a href="imagefilm.html">Imagefilms</a> oder <a href="eventfilm.html">Eventfilms</a>. Alle Leistungen findest du in der <a href="leistungen.html">Übersicht</a>.</p>
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Werde sichtbar</span></p>
+    <h2 class="display">Lass uns über deinen Content reden.</h2>
+    <p class="lead">Ein kurzes, unverbindliches Gespräch. Du erzählst, wo du hin willst. Wir sagen dir ehrlich, welches Paket passt, was es kostet und ob Social Media für deinen Betrieb gerade die richtige Investition ist.</p>
+    <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
+    <p class="cta-verweis">Du brauchst eher einen einzelnen Film als laufenden Content? Dann ist ein <a href="/imagefilm/">Imagefilm</a> vielleicht das Richtige. Alle Leistungen findest du in der <a href="/leistungen/">Übersicht</a>.</p>
   </div>
 </section>
 
@@ -430,9 +485,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
     <div class="footer-links">
       <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
-      <a href="ergebnisse.html">Ergebnisse</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="/ergebnisse/">Ergebnisse</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
     </div>
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
@@ -479,7 +534,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <div class="m-schritt" data-schritt="3">
         <h3 class="m-frage">Erzähl uns von deinem Projekt.</h3>
         <div class="m-feld"><label for="m-msg">Worum geht's? (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
-        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
       </div>

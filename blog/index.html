@@ -4,16 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow"> <!-- WICHTIG: Vor Umzug auf jaeger-shot.de ENTFERNEN -->
-<title>Eventfilm &amp; Aftermovie erstellen lassen – Aschaffenburg &amp; Rhein-Main</title>
-<meta name="description" content="Eventfilme und Aftermovies für Firmenfeiern, Jubiläen und Veranstaltungen in Aschaffenburg und dem Rhein-Main-Gebiet. Dein Event, festgehalten in Kinoqualität.">
+<title>Blog: Wissen zu Video, Content &amp; Marketing – Jäger Shot Productions</title>
+<meta name="description" content="Artikel rund um Videoproduktion, Social Media Content und Marketing für Betriebe in Aschaffenburg und dem Rhein-Main-Gebiet.">
 <link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<script>
+  /* Muss vor dem Widget-Script laufen: erzwingt offene Shadow-Roots,
+     damit der Kontrast-Fixer unten die Widget-Texte erreichen kann. */
+  (function(){
+    var orig = Element.prototype.attachShadow;
+    if(!orig) return;
+    Element.prototype.attachShadow = function(init){
+      try{ init = Object.assign({}, init || {}, {mode:'open'}); }catch(e){}
+      return orig.call(this, init);
+    };
+  })();
+</script>
 <style>
 @font-face{
   font-family:'Inter';
-  src:url('assets/fonts/inter-variable.woff2') format('woff2');
+  src:url('/assets/fonts/inter-variable.woff2') format('woff2');
   font-weight:100 900;
   font-style:normal;
   font-display:swap;
@@ -57,7 +69,6 @@ a.timecode:hover::before{background:var(--leinwand)}
 section{padding:130px 0}
 h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 .lead{font-size:17px;color:var(--grau);max-width:640px;line-height:1.55}
-.lead strong{color:var(--leinwand);font-weight:500}
 .btn{
   display:inline-block;
   background:var(--rot);color:#FFFFFF;
@@ -67,18 +78,6 @@ h2.display{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
 }
 .btn:hover{background:#D63A33;transform:translateY(-1px)}
 .btn:focus-visible{outline:3px solid var(--leinwand);outline-offset:3px}
-.btn-ghost{
-  display:inline-block;
-  color:var(--leinwand);
-  font-weight:400;
-  font-size:16px;
-  padding:15px 30px;
-  border:1px solid var(--rot-dunkel);
-  border-radius:4px;
-  text-align:center;
-  transition:border-color .18s ease,background .18s ease;
-}
-.btn-ghost:hover{border-color:var(--rot);background:rgba(194,44,38,.08)}
 
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
@@ -99,44 +98,32 @@ nav{
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
 .nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
 
-.kopf{position:relative;overflow:hidden;padding:200px 0 150px;border-top:none}
-.kopf-bg{position:absolute;inset:0;background-position:center;background-size:cover;filter:saturate(.85)}
-.kopf-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.86) 0%,rgba(11,11,13,.55) 42%,rgba(11,11,13,.78) 72%,var(--schwarz) 100%)}
-.kopf .wrap{position:relative;z-index:1}
-.kopf h1{font-size:clamp(38px,6vw,68px);max-width:960px}
-.kopf .lead{margin-top:22px}
-.kopf-ctas{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
-.kopf-bild{border-radius:8px;width:100%;height:340px;object-fit:cover;filter:saturate(.85);margin-top:54px}
+.blog-kopf{padding:170px 0 70px;border-top:none}
+.blog-kopf h1{font-size:clamp(38px,6vw,68px);max-width:860px}
+.blog-kopf .lead{margin-top:22px}
 
-.kern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.kern-card{
-  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
-  padding:30px 28px;
+.blog-sektion{padding-top:0}
+.blog-einbettung{
+  margin-top:8px;
+  min-height:420px;
+  border-radius:8px;
 }
-.kern-card h3{font-size:22px;font-weight:700;margin-bottom:12px}
-.kern-card p{color:var(--grau);font-size:15.5px;line-height:1.5}
-
-.faq-list{margin-top:50px;max-width:800px}
-details{border-bottom:1px solid var(--linie)}
-summary{
-  cursor:pointer;list-style:none;
-  padding:24px 40px 24px 0;position:relative;
-  font-size:18px;font-weight:700;
+.blog-laden{
+  border:1px dashed var(--linie);border-radius:8px;
+  padding:70px 24px;text-align:center;
+  color:var(--grau);font-size:15px;
 }
-summary::-webkit-details-marker{display:none}
-summary::after{
-  content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
-  color:var(--rot);font-size:24px;font-weight:400;transition:transform .2s;
+.blog-laden .ph-tag{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
+  letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:12px;
 }
-details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
-details .antwort{padding:0 0 26px;color:var(--grau);max-width:700px;line-height:1.5}
-details .antwort strong{color:var(--leinwand);font-weight:500}
+/* Fallback: Widget fuer Scripts unerreichbar -> helle Flaeche, damit die Schrift lesbar bleibt */
+.hell{background:#F4F2ED;padding:34px 30px;border-radius:12px}
+@media(max-width:760px){.hell{padding:22px 16px}}
 
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
 .cta-band .lead{margin:0 auto 36px}
-.cta-verweis{font-size:15.5px;color:var(--grau);max-width:640px;margin:32px auto 0;line-height:1.5}
-.cta-verweis a{color:var(--rot-hell)}
 
 footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 .footer-inner{
@@ -162,20 +149,14 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-cta-mobil{display:inline-block;margin-left:auto}
   .nav-burger{display:block}
 }
-@media(max-width:860px){
-  .kern-grid{grid-template-columns:1fr}
-  .kopf-bild{height:240px}
-}
 @media(max-width:760px){
   section{padding:96px 0}
-  .kopf{padding:150px 0 110px}
+  .blog-kopf{padding:130px 0 54px}
+  .blog-sektion{padding-top:0}
 }
 @media(max-width:520px){
   .wrap{padding:0 18px}
   .nav-logo img{height:44px}
-  .kopf-ctas{gap:14px}
-  .kopf-ctas .btn,.kopf-ctas .btn-ghost{width:100%;text-align:center}
-  summary{font-size:16.5px;padding-right:34px}
   .footer-inner{justify-content:center;text-align:center}
 }
 /* Sektions- und Seitenkoepfe mittig */
@@ -193,13 +174,6 @@ section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-con
   .timecode{margin-bottom:20px}
   h2.display{margin-bottom:20px}
   .lead{font-size:16.5px;line-height:1.6}
-  .kern-grid,.ablauf-grid,.leistungen-grid,.zitate-grid,.pakete-grid,.profil-grid,.werte-grid,.ref-grid-breit,.ref-grid-hoch{gap:28px}
-  .problem-item{padding:26px 0}
-  .paket ul{gap:14px}
-  .paket li,.kern-card p,.schritt p,.leistung p,.wert p,.profil p{line-height:1.6}
-  details .antwort{line-height:1.65}
-  .anker p,.paket-hinweis,.pakete-fussnote,.cta-verweis{line-height:1.6}
-  .team-text p,.duo-text p,.netzwerk-text p,.kontakt-info p{line-height:1.6}
 }
 .intro{position:fixed;inset:0;z-index:200;background:var(--schwarz);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .6s ease 2.4s forwards}
 .intro img{height:96px;width:auto;animation:introLogo 1s cubic-bezier(.22,.61,.36,1) both}
@@ -239,39 +213,14 @@ section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-con
 @media(max-width:520px){.modal{padding:40px 22px 28px}.m-frage{font-size:19px}}
 body{overflow-x:hidden}
 section{position:relative}
-section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{
+section:nth-of-type(2)::before{
   content:"";position:absolute;left:0;right:0;height:680px;pointer-events:none;z-index:-1;
+  top:-120px;background:radial-gradient(circle 330px at calc(100% + 110px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%);
 }
-section:nth-of-type(2)::before{top:-120px;background:radial-gradient(circle 330px at calc(100% + 110px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
-section:nth-of-type(4)::before{top:-80px;background:radial-gradient(circle 330px at -130px 50%,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
-section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330px at calc(100% + 120px) 50%,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
 @media(max-width:760px){
-  section:nth-of-type(2)::before,section:nth-of-type(4)::before,section:nth-of-type(7)::before{height:460px}
-  section:nth-of-type(2)::before{background:radial-gradient(circle 220px at calc(100% + 80px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
-  section:nth-of-type(4)::before{background:radial-gradient(circle 220px at -90px 50%,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
-  section:nth-of-type(7)::before{background:radial-gradient(circle 220px at calc(100% + 85px) 50%,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
+  section:nth-of-type(2)::before{height:460px;background:radial-gradient(circle 220px at calc(100% + 80px) 50%,rgba(194,44,38,.14) 0%,rgba(194,44,38,0) 70%)}
 }
 </style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Service",
- "name": "Eventfilm & Aftermovie",
- "serviceType": "Eventfilm-Produktion",
- "url": "https://www.jaeger-shot.de/eventfilm.html",
- "description": "Eventfilme und Aftermovies für Firmenfeiern, Jubiläen und Veranstaltungen in Aschaffenburg und dem Rhein-Main-Gebiet.",
- "provider": {
-  "@type": "LocalBusiness",
-  "@id": "https://www.jaeger-shot.de/#business",
-  "name": "Jäger Shot Productions"
- },
- "areaServed": [
-  "Aschaffenburg",
-  "Rhein-Main-Gebiet",
-  "Unterfranken"
- ]
-}
-</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -281,19 +230,13 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
    "@type": "ListItem",
    "position": 1,
    "name": "Startseite",
-   "item": "https://www.jaeger-shot.de/index.html"
+   "item": "https://www.jaeger-shot.de/"
   },
   {
    "@type": "ListItem",
    "position": 2,
-   "name": "Leistungen",
-   "item": "https://www.jaeger-shot.de/leistungen.html"
-  },
-  {
-   "@type": "ListItem",
-   "position": 3,
-   "name": "Eventfilm & Aftermovie",
-   "item": "https://www.jaeger-shot.de/eventfilm.html"
+   "name": "Blog",
+   "item": "https://www.jaeger-shot.de/blog/"
   }
  ]
 }
@@ -321,86 +264,45 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+    <a class="nav-logo" href="/" aria-label="Jäger Shot Productions">
       <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
     </a>
-    <a class="btn nav-cta-mobil" href="index.html#kontakt">Erstgespräch</a>
+    <a class="btn nav-cta-mobil" href="/#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="index.html#pakete">Monatspakete</a>
-      <a class="aktiv" href="leistungen.html">Leistungen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="ergebnisse.html">Referenzen</a>
-      <a href="blog.html">Blog</a>
-      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+      <a href="/#pakete">Monatspakete</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/ueber-uns/">Über uns</a>
+      <a href="/ergebnisse/">Referenzen</a>
+      <a class="aktiv" href="/blog/">Blog</a>
+      <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
     </div>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="kopf">
-  <div class="kopf-bg" role="img" aria-label="Eventdreh vor Ort: Jäger Shot Productions im Einsatz" style="background-image:url('assets/shooting-eventdreh-villa.jpg')"></div>
+<!-- ============ KOPF ============ -->
+<section class="blog-kopf">
   <div class="wrap">
-    <a class="timecode" href="leistungen.html" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Eventfilm &amp; Aftermovie</span></a>
-    <h1 class="display">Dein Event ist vorbei. Dein Film <span style="color:var(--rot-hell)">fängt gerade an.</span></h1>
-    <p class="lead">Monate Vorbereitung, ein großartiger Abend, und am nächsten Morgen ist alles vorbei? Nicht mit einem Eventfilm. Wir halten die Momente fest, die dein Event ausgemacht haben, und machen daraus den Film, der beim nächsten Mal für volle Plätze sorgt.</p>
-    <div class="kopf-ctas">
-      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
-      <a class="btn-ghost" href="ergebnisse.html">Referenzen ansehen</a>
-    </div>
+    <a class="timecode" href="/" title="Zurück zur Startseite">Blog <span class="tc-num">// Wissen &amp; Einblicke</span></a>
+    <h1 class="display">Wissen, das dein Marketing <span style="color:var(--rot-hell)">weiterbringt.</span></h1>
+    <p class="lead">Artikel rund um Video, Social Media und Sichtbarkeit – geschrieben für Betriebe, nicht für Marketing-Nerds.</p>
   </div>
 </section>
 
-<!-- ============ SZENE 01 ============ -->
-<section>
+<!-- ============ BLOG-ARTIKEL (Sternfänger-Widget) ============ -->
+<section class="blog-sektion">
   <div class="wrap">
-    <p class="timecode">Welche Events wir filmen</p>
-    <h2 class="display">Vom Firmenjubiläum bis zum Stadtfest.</h2>
-    <div class="kern-grid">
-      <div class="kern-card">
-        <h3>Firmenfeiern &amp; Jubiläen</h3>
-        <p>Sommerfest, Weihnachtsfeier, rundes Jubiläum: Ein Aftermovie zeigt deinem Team, dass der Abend etwas wert war, und deinen Bewerbern, wie es sich anfühlt, bei euch zu arbeiten.</p>
+    <div class="blog-einbettung" id="blogEinbettung">
+      <div class="blog-laden" id="blogLaden">
+        <span class="ph-tag">Blog wird geladen</span>
+        Einen Moment – die Artikel kommen gleich.
       </div>
-      <div class="kern-card">
-        <h3>Messen &amp; Firmenevents</h3>
-        <p>Produktvorstellung, Tag der offenen Tür, Messeauftritt: Der Film verlängert dein Event weit über den Tag hinaus und arbeitet danach in Vertrieb und Marketing weiter.</p>
-      </div>
-      <div class="kern-card">
-        <h3>Veranstaltungen &amp; Feste</h3>
-        <p>Konzerte, Vereinsfeste, Sportevents, Stadtfeste: Wir fangen die Stimmung ein, die Besucher erlebt haben, und liefern den Grund, warum nächstes Jahr noch mehr kommen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SZENE 02 ============ -->
-<section>
-  <div class="wrap">
-    <p class="timecode">So arbeiten wir am Eventtag</p>
-    <h2 class="display">Wir sind da, ohne im Weg zu stehen.</h2>
-    <p class="lead">Ein gutes Eventteam erkennt man daran, dass man es kaum bemerkt. <strong>Wir bewegen uns unauffällig durch dein Event</strong>, fangen die echten Momente ein und stellen niemanden bloß. Auf Wunsch ergänzen wir Drohnenaufnahmen, die dein Event von oben zeigen.</p>
-    <p class="lead" style="margin-top:18px">Nach dem Event schneiden wir aus dem Material deinen Film: dicht, emotional, mit lizenzierter Musik und deinem Logo. Dazu liefern wir auf Wunsch kurze Versionen für Social Media, damit die Stimmung direkt in deine Kanäle wandert.</p>
-  </div>
-</section>
-
-<!-- ============ SZENE 03: FAQ ============ -->
-<section>
-  <div class="wrap">
-    <p class="timecode">Häufige Fragen</p>
-    <h2 class="display">Fragen zum Eventfilm.</h2>
-    <div class="faq-list">
-      <details>
-        <summary>Wie lange sollte ein Aftermovie sein?</summary>
-        <div class="antwort">Für die meisten Events gilt: <strong>ein bis drei Minuten, die Lust auf mehr machen.</strong> Lieber ein dichter Film, den jeder bis zum Ende schaut, als zwanzig Minuten, die keiner durchhält. Für Social Media schneiden wir zusätzlich kürzere Versionen.</div>
-      </details>
-      <details>
-        <summary>Wann bekommen wir den fertigen Film?</summary>
-        <div class="antwort">Den Zeitplan legen wir vor dem Event gemeinsam fest und <strong>halten uns dann auch daran</strong>. Wenn du den Film zu einem bestimmten Termin brauchst, etwa für den Ticketverkauf der nächsten Ausgabe, planen wir rückwärts von diesem Datum.</div>
-      </details>
-      <details>
-        <summary>Was ist mit den Persönlichkeitsrechten der Gäste?</summary>
-        <div class="antwort">Ein wichtiges Thema, das viele erst nach dem Event bedenken. <strong>Wir beraten dich vorab, wie du deine Gäste sauber informierst</strong>, und filmen so, dass niemand ungewollt im Mittelpunkt steht. So bekommst du einen Film, den du bedenkenlos veröffentlichen kannst.</div>
-      </details>
+      <script
+          src="https://embed.mylocalbusiness.io/widgets/production/latest/widgets.js"
+          data-my-widget="blog"
+          data-business-id="69e1e46df6e8df7b507a892b"
+          data-location-id="69e1e502f6e8df7b507a892e">
+      </script>
     </div>
   </div>
 </section>
@@ -408,11 +310,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <!-- ============ CTA ============ -->
 <section class="cta-band">
   <div class="wrap">
-    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Der nächste Termin steht</span></p>
-    <h2 class="display">Lass uns über dein Event reden.</h2>
-    <p class="lead">Ein kurzes, unverbindliches Gespräch. Du erzählst, was ansteht. Wir sagen dir ehrlich, was ein Eventfilm kostet, wie wir den Tag planen und bis wann dein Film fertig ist. Je früher wir sprechen, desto entspannter wird der Eventtag.</p>
-    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
-    <p class="cta-verweis">Du willst dein Event zusätzlich von oben zeigen? Dann kombiniere deinen Eventfilm mit <a href="drohnenaufnahmen.html">Drohnenaufnahmen</a>. Alle Leistungen findest du in der <a href="leistungen.html">Übersicht</a>.</p>
+    <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Dein Projekt</span></p>
+    <h2 class="display">Lieber machen statt lesen?</h2>
+    <p class="lead">Erzähl uns im kostenlosen Erstgespräch, wo du hin willst. Wir sagen dir ehrlich, was Sinn ergibt.</p>
+    <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
   </div>
 </section>
 
@@ -421,9 +322,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
     <div class="footer-links">
       <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
-      <a href="ergebnisse.html">Ergebnisse</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="/ergebnisse/">Ergebnisse</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
     </div>
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
@@ -431,8 +332,139 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 
 <script>
   (function(){
+    var laden = document.getElementById('blogLaden');
+    var container = document.getElementById('blogEinbettung');
+    if(!laden || !container) return;
+
+    /* Alles, was beim fertigen Aufbau der Seite im DOM steht, gehoert zur Seite
+       selbst und wird vom Kontrast-Fixer nie angefasst - nur spaeter
+       eingefuegte Widget-Elemente. */
+    var eigene = new WeakSet();
+    var markiert = false;
+    function markiereEigene(){
+      document.querySelectorAll('*').forEach(function(el){ eigene.add(el); });
+      markiert = true;
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', markiereEigene); }
+    else{ markiereEigene(); }
+
+    var fertig = false;          /* helle Flaeche gesetzt -> Fixer aus */
+    var gefixtGesamt = 0;        /* wie viele Texte je aufgehellt wurden */
+    var widgetGesehen = 0;       /* Zeitpunkt, ab dem das Widget da ist */
+
+    var versuche = 0;
+    var timer = setInterval(function(){
+      versuche++;
+      var fremdeKinder = 0;
+      for(var i = 0; i < container.children.length; i++){
+        var k = container.children[i];
+        if(k !== laden && k.tagName !== 'SCRIPT') fremdeKinder++;
+      }
+      var widgetDa = fremdeKinder > 0 || document.querySelector('[class*="mlb"],[id*="mlb"],[class*="my-widget"],iframe[src*="mylocalbusiness"]');
+      if(widgetDa){
+        laden.style.display = 'none';
+        clearInterval(timer);
+        widgetGesehen = Date.now();
+        setTimeout(entscheide, 1600);
+        setTimeout(entscheide, 3600);
+      }else if(versuche >= 20){
+        laden.innerHTML = '<span class="ph-tag">Blog nicht erreichbar</span>Die Artikel konnten gerade nicht geladen werden. Versuch es später noch einmal.';
+        clearInterval(timer);
+      }
+      farbenFixen();
+    }, 500);
+
+    /* Das Widget bringt Farben fuer hellen Hintergrund mit. Wenn seine Texte
+       per Script erreichbar sind, werden sie fuer den schwarzen Grund
+       aufgehellt; Elemente mit eigenem hellen Hintergrund (z. B. Buttons)
+       bleiben unveraendert. Durchsucht das ganze Dokument inkl. Shadow-Roots.
+       Rendert das Widget unerreichbar (iframe o. ae.), schaltet entscheide()
+       stattdessen eine helle Flaeche hinter das Widget. */
+    function leuchtdichte(farbe){
+      var m = farbe && farbe.match(/rgba?\(([^)]+)\)/);
+      if(!m) return null;
+      var t = m[1].split(',').map(parseFloat);
+      if(t.length > 3 && t[3] === 0) return null;
+      return (0.2126*t[0] + 0.7152*t[1] + 0.0722*t[2]) / 255;
+    }
+    function hintergrund(el){
+      var n = el;
+      while(n && n !== document.documentElement){
+        var l = leuchtdichte(getComputedStyle(n).backgroundColor);
+        if(l !== null) return l;
+        n = n.parentElement || (n.getRootNode && n.getRootNode().host) || null;
+      }
+      return 0.04;
+    }
+    function sammle(wurzel, liste){
+      var alle = wurzel.querySelectorAll('*');
+      for(var i = 0; i < alle.length; i++){
+        liste.push(alle[i]);
+        if(alle[i].shadowRoot) sammle(alle[i].shadowRoot, liste);
+      }
+    }
+    function neueElemente(){
+      var alle = [];
+      sammle(document.body, alle);
+      return alle.filter(function(el){
+        return !eigene.has(el) && el.tagName !== 'SCRIPT' && el.tagName !== 'STYLE' && !(laden && laden.contains(el));
+      });
+    }
+    function farbenFixen(){
+      if(!markiert || fertig) return {neu:0, text:0};
+      var neu = neueElemente();
+      var textZaehler = 0;
+      for(var i = 0; i < neu.length; i++){
+        var el = neu[i];
+        var hatText = false;
+        for(var j = 0; j < el.childNodes.length; j++){
+          var kn = el.childNodes[j];
+          if(kn.nodeType === 3 && kn.textContent.trim()){ hatText = true; break; }
+        }
+        if(!hatText) continue;
+        textZaehler++;
+        var bg = hintergrund(el);
+        var fl = leuchtdichte(getComputedStyle(el).color);
+        if(bg < 0.35 && fl !== null && fl < 0.5){
+          var titel = /^H[1-6]$/.test(el.tagName) || (el.closest && el.closest('a,h1,h2,h3,h4'));
+          var ziel = titel ? '#F2EFE9' : '#C9C9D2';
+          if(el.style.getPropertyValue('color') !== ziel){
+            el.style.setProperty('color', ziel, 'important');
+            gefixtGesamt++;
+          }
+        }
+      }
+      return {neu: neu.length, text: textZaehler};
+    }
+    /* Kommt der Fixer nicht an die Widget-Texte heran, hilft nur noch eine
+       helle Flaeche hinter dem Widget. */
+    function entscheide(){
+      if(fertig || !widgetGesehen) return;
+      var stand = farbenFixen();
+      var frame = document.querySelector('iframe[src*="mylocalbusiness"], #blogEinbettung iframe');
+      var unerreichbar = stand.neu > 3 && stand.text === 0 && gefixtGesamt === 0;
+      if(frame || unerreichbar){
+        var ziel = container;
+        if(frame && !container.contains(frame)) ziel = frame.parentElement || container;
+        ziel.classList.add('hell');
+        fertig = true;
+      }
+    }
+    var fixTimer;
+    function fixGleich(){
+      clearTimeout(fixTimer);
+      fixTimer = setTimeout(farbenFixen, 150);
+    }
+    new MutationObserver(fixGleich).observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:['style','class']});
+    /* Nach Klicks (Artikel oeffnen, Blaettern) rendert das Widget neu */
+    document.addEventListener('click', function(){ setTimeout(farbenFixen, 300); setTimeout(farbenFixen, 1200); }, true);
+  })();
+</script>
+
+<script>
+  (function(){
     if(!('IntersectionObserver' in window)) return;
-    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead, .kopf h1, .kopf-ctas, .kopf-bild, .kern-card, .paket, .schritt, .zitat, .leistung, .problem-item, .problem-punch, .anker, .pakete-fussnote, .faq-list details, .leistung-row, .profil, .wert, .ref-karte, .duo, .netzwerk, .team-grid, .logo-marquee, .kontakt-info, form, .cta-verweis');
+    var ziele = document.querySelectorAll('section .timecode, section h2.display, section .lead');
     ziele.forEach(function(el){ el.classList.add('reveal'); });
     var io = new IntersectionObserver(function(eintraege){
       var i = 0;
@@ -470,7 +502,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <div class="m-schritt" data-schritt="3">
         <h3 class="m-frage">Erzähl uns von deinem Projekt.</h3>
         <div class="m-feld"><label for="m-msg">Worum geht's? (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
-        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
       </div>
@@ -480,7 +512,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <h3>Danke für deine Anfrage!</h3>
       <p>Wir melden uns innerhalb von 24 Stunden persönlich bei dir. Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch.</p>
     </div>
-    <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
+    <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
   </div>
 </div>
 <script>

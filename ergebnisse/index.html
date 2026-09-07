@@ -25,7 +25,7 @@
 <style>
 @font-face{
   font-family:'Inter';
-  src:url('assets/fonts/inter-variable.woff2') format('woff2');
+  src:url('/assets/fonts/inter-variable.woff2') format('woff2');
   font-weight:100 900;
   font-style:normal;
   font-display:swap;
@@ -263,8 +263,8 @@ section:nth-of-type(2)::before{
  "@context": "https://schema.org",
  "@type": "BreadcrumbList",
  "itemListElement": [
-  {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.jaeger-shot.de/index.html"},
-  {"@type": "ListItem", "position": 2, "name": "Ergebnisse & Kundenstimmen", "item": "https://www.jaeger-shot.de/ergebnisse.html"}
+  {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.jaeger-shot.de/"},
+  {"@type": "ListItem", "position": 2, "name": "Ergebnisse & Kundenstimmen", "item": "https://www.jaeger-shot.de/ergebnisse/"}
  ]
 }
 </script>
@@ -324,18 +324,18 @@ section:nth-of-type(2)::before{
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Jäger Shot Productions">
+    <a class="nav-logo" href="/" aria-label="Jäger Shot Productions">
       <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
     </a>
-    <a class="btn nav-cta-mobil" href="index.html#kontakt">Erstgespräch</a>
+    <a class="btn nav-cta-mobil" href="/#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="index.html#pakete">Monatspakete</a>
-      <a href="leistungen.html">Leistungen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a class="aktiv" href="ergebnisse.html">Referenzen</a>
-      <a href="blog.html">Blog</a>
-      <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+      <a href="/#pakete">Monatspakete</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/ueber-uns/">Über uns</a>
+      <a class="aktiv" href="/ergebnisse/">Referenzen</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
     </div>
   </div>
 </nav>
@@ -343,7 +343,7 @@ section:nth-of-type(2)::before{
 <!-- ============ KOPF ============ -->
 <section class="erg-kopf">
   <div class="wrap">
-    <a class="timecode" href="index.html" title="Zurück zur Startseite">Ergebnisse <span class="tc-num">// Kundenstimmen</span></a>
+    <a class="timecode" href="/" title="Zurück zur Startseite">Ergebnisse <span class="tc-num">// Kundenstimmen</span></a>
     <h1 class="display">Das sagen Kunden. <span style="color:var(--rot-hell)">In ihren Worten.</span></h1>
     <p class="lead">Keine anonymen Sternchen-Bewertungen, sondern echte Kunden vor der Kamera: Wer sie sind, was wir für sie gemacht haben und was dabei rausgekommen ist.</p>
   </div>
@@ -454,7 +454,7 @@ section:nth-of-type(2)::before{
     <p class="timecode" style="justify-content:center">And Action <span class="tc-num">// Dein Projekt</span></p>
     <h2 class="display">So ein Ergebnis willst du auch?</h2>
     <p class="lead">Erzähl uns im kostenlosen Erstgespräch, wo dein Betrieb hin will. Wir sagen dir ehrlich, was Sinn ergibt – und was nicht.</p>
-    <a class="btn" href="index.html#kontakt">Kostenloses Erstgespräch</a>
+    <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
   </div>
 </section>
 
@@ -463,9 +463,9 @@ section:nth-of-type(2)::before{
     <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
     <div class="footer-links">
       <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
-      <a href="ergebnisse.html">Ergebnisse</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="/ergebnisse/">Ergebnisse</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
     </div>
     <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
   </div>
@@ -512,7 +512,7 @@ section:nth-of-type(2)::before{
       <div class="m-schritt" data-schritt="3">
         <h3 class="m-frage">Erzähl uns von deinem Projekt.</h3>
         <div class="m-feld"><label for="m-msg">Worum geht's? (2 Sätze reichen)</label><textarea id="m-msg" name="nachricht"></textarea></div>
-        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <p class="m-hinweis">Mit dem Absenden stimmst du unserer <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
       </div>
