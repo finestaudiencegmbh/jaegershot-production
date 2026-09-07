@@ -11,6 +11,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<script>
+  /* Muss vor dem Widget-Script laufen: erzwingt offene Shadow-Roots,
+     damit der Kontrast-Fixer die Widget-Texte erreichen kann. */
+  (function(){
+    var orig = Element.prototype.attachShadow;
+    if(!orig) return;
+    Element.prototype.attachShadow = function(init){
+      try{ init = Object.assign({}, init || {}, {mode:'open'}); }catch(e){}
+      return orig.call(this, init);
+    };
+  })();
+</script>
 <style>
 @font-face{
   font-family:'Inter';
@@ -1050,6 +1062,27 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   </div>
 </section>
 
+<!-- ============ GOOGLE BEWERTUNGEN ============ -->
+<section id="bewertungen">
+  <div class="wrap">
+    <p class="timecode">Google Bewertungen</p>
+    <h2 class="display">Das sagen Kunden auf Google.</h2>
+    <p class="lead">Echte Bewertungen aus unserem Google-Unternehmensprofil.</p>
+    <div class="bewertungen-einbettung" id="bewertungenEinbettung">
+      <div class="bewertungen-laden" id="bewertungenLaden">
+        <span class="ph-tag">Bewertungen werden geladen</span>
+        Einen Moment bitte.
+      </div>
+      <script
+          src="https://embed.mylocalbusiness.io/widgets/production/latest/widgets.js"
+          data-my-widget="carousel"
+          data-business-id="69e1e46df6e8df7b507a892b"
+          data-location-id="69e1e502f6e8df7b507a892e">
+      </script>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SZENE 07: EINZELLEISTUNGEN ============ -->
 <section id="leistungen">
   <div class="wrap">
@@ -1508,6 +1541,118 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       f.replaceWith(frame);
     });
   });
+</script>
+<script>
+  (function(){
+    var laden = document.getElementById('bewertungenLaden');
+    var container = document.getElementById('bewertungenEinbettung');
+    if(!laden || !container) return;
+
+    var eigene = new WeakSet();
+    var markiert = false;
+    function markiereEigene(){
+      document.querySelectorAll('*').forEach(function(el){ eigene.add(el); });
+      markiert = true;
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', markiereEigene); }
+    else{ markiereEigene(); }
+
+    var fertig = false, gefixtGesamt = 0, widgetGesehen = 0, versuche = 0;
+    var timer = setInterval(function(){
+      versuche++;
+      var fremde = 0;
+      for(var i = 0; i < container.children.length; i++){
+        var k = container.children[i];
+        if(k !== laden && k.tagName !== 'SCRIPT') fremde++;
+      }
+      if(fremde > 0 || document.querySelector('[class*="mlb"],[id*="mlb"],[class*="my-widget"],iframe[src*="mylocalbusiness"]')){
+        laden.style.display = 'none';
+        clearInterval(timer);
+        widgetGesehen = Date.now();
+        setTimeout(entscheide, 1600);
+        setTimeout(entscheide, 3600);
+      }else if(versuche >= 20){
+        laden.style.display = 'none';
+        clearInterval(timer);
+      }
+      farbenFixen();
+    }, 500);
+
+    function leuchtdichte(farbe){
+      var m = farbe && farbe.match(/rgba?\(([^)]+)\)/);
+      if(!m) return null;
+      var t = m[1].split(',').map(parseFloat);
+      if(t.length > 3 && t[3] === 0) return null;
+      return (0.2126*t[0] + 0.7152*t[1] + 0.0722*t[2]) / 255;
+    }
+    function hintergrund(el){
+      var n = el;
+      while(n && n !== document.documentElement){
+        var l = leuchtdichte(getComputedStyle(n).backgroundColor);
+        if(l !== null) return l;
+        n = n.parentElement || (n.getRootNode && n.getRootNode().host) || null;
+      }
+      return 0.04;
+    }
+    function sammle(wurzel, liste){
+      var alle = wurzel.querySelectorAll('*');
+      for(var i = 0; i < alle.length; i++){
+        liste.push(alle[i]);
+        if(alle[i].shadowRoot) sammle(alle[i].shadowRoot, liste);
+      }
+    }
+    function neueElemente(){
+      var alle = [];
+      sammle(document.body, alle);
+      return alle.filter(function(el){
+        return !eigene.has(el) && el.tagName !== 'SCRIPT' && el.tagName !== 'STYLE' && !(laden && laden.contains(el));
+      });
+    }
+    function farbenFixen(){
+      if(!markiert || fertig) return {neu:0, text:0};
+      var neu = neueElemente();
+      var textZaehler = 0;
+      for(var i = 0; i < neu.length; i++){
+        var el = neu[i];
+        var hatText = false;
+        for(var j = 0; j < el.childNodes.length; j++){
+          var kn = el.childNodes[j];
+          if(kn.nodeType === 3 && kn.textContent.trim()){ hatText = true; break; }
+        }
+        if(!hatText) continue;
+        textZaehler++;
+        var bg = hintergrund(el);
+        var fl = leuchtdichte(getComputedStyle(el).color);
+        if(bg < 0.35 && fl !== null && fl < 0.5){
+          var titel = /^H[1-6]$/.test(el.tagName) || (el.closest && el.closest('a,h1,h2,h3,h4'));
+          var ziel = titel ? '#F2EFE9' : '#C9C9D2';
+          if(el.style.getPropertyValue('color') !== ziel){
+            el.style.setProperty('color', ziel, 'important');
+            gefixtGesamt++;
+          }
+        }
+      }
+      return {neu: neu.length, text: textZaehler};
+    }
+    function entscheide(){
+      if(fertig || !widgetGesehen) return;
+      var stand = farbenFixen();
+      var frame = document.querySelector('iframe[src*="mylocalbusiness"], #bewertungenEinbettung iframe');
+      var unerreichbar = stand.neu > 3 && stand.text === 0 && gefixtGesamt === 0;
+      if(frame || unerreichbar){
+        var ziel = container;
+        if(frame && !container.contains(frame)) ziel = frame.parentElement || container;
+        ziel.classList.add('hell');
+        fertig = true;
+      }
+    }
+    var fixTimer;
+    new MutationObserver(function(){
+      clearTimeout(fixTimer);
+      fixTimer = setTimeout(farbenFixen, 150);
+    }).observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:['style','class']});
+    document.addEventListener('click', function(){ setTimeout(farbenFixen, 300); setTimeout(farbenFixen, 1200); }, true);
+  })();
 </script>
 </body>
 </html>
