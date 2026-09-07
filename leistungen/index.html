@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
   font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--rot-hell);
-  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  display:flex;flex-wrap:wrap;align-items:center;row-gap:4px;column-gap:12px;margin-bottom:22px;
 }
 .timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
 .timecode .tc-num{color:var(--grau)}
@@ -121,6 +121,8 @@ nav{
 .leistung-text li{color:var(--grau);font-size:15.5px;padding-left:24px;position:relative;line-height:1.45}
 .leistung-text li::before{content:"—";position:absolute;left:0;color:var(--rot)}
 .leistung-text li strong{color:var(--leinwand);font-weight:500}
+.l-ctas{display:flex;flex-wrap:wrap;gap:14px 18px}
+.paket-hinweis+.l-ctas{margin-top:20px}
 
 .paket-hinweis{
   background:var(--karte);
@@ -167,7 +169,8 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .leistung-bild img{height:260px}
 }
 @media(max-width:760px){
-  section{padding:96px 0}
+  section{padding:110px 0}
+  .l-ctas{justify-content:center}
   .kopf{padding:130px 0 54px}
 }
 @media(max-width:520px){
@@ -177,7 +180,7 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
 }
 /* Sektions- und Seitenkoepfe mittig */
 section > .wrap > .timecode{justify-content:center}
-section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:max-content}
+section > .wrap > a.timecode{margin-left:auto;margin-right:auto;width:fit-content;max-width:100%;justify-content:center}
 section > .wrap > h1.display, section > .wrap > h2.display, section > .wrap > .lead{text-align:center;margin-left:auto;margin-right:auto}
 .kopf-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 section > .wrap > .btn, section > .wrap > .btn-ghost{display:block;width:max-content;margin-left:auto;margin-right:auto}
@@ -371,8 +374,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li><strong>Schnitt, Farbkorrektur &amp; Ton</strong> aus einer Hand</li>
           <li>Fertige Formate für Website, Social Media und Präsentationen</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="/imagefilm/" style="margin-left:18px">Mehr zum Imagefilm</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+          <a class="btn-ghost" href="/imagefilm/">Mehr zum Imagefilm</a>
+        </div>
       </div>
     </div>
   </div>
@@ -395,7 +400,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Fertig zum Posten – du musst nichts mehr bearbeiten</li>
         </ul>
         <div class="paket-hinweis"><strong>Tipp:</strong> Wer dauerhaft sichtbar sein will, fährt mit unseren <a href="/#pakete">Monatspaketen</a> am besten – jeden Monat fertiger Content.</div>
-        <a class="btn-ghost" href="/social-media-content/" style="margin-top:20px">Mehr zum Social Media Content</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/social-media-content/">Mehr zum Social Media Content</a>
+        </div>
       </div>
     </div>
   </div>
@@ -417,8 +424,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li><strong>Baustellen-Dokumentation</strong> – Baufortschritt eindrucksvoll festgehalten</li>
           <li>Als eigenständiger Clip oder Teil deines Imagefilms</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="/drohnenaufnahmen/" style="margin-left:18px">Mehr zu Drohnenaufnahmen</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+          <a class="btn-ghost" href="/drohnenaufnahmen/">Mehr zu Drohnenaufnahmen</a>
+        </div>
       </div>
     </div>
   </div>
@@ -440,7 +449,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li><strong>Farbkorrektur &amp; Tonmischung</strong> für den professionellen Look</li>
           <li>Export in allen Formaten, die du brauchst – von Social Media bis Großleinwand</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+        </div>
       </div>
     </div>
   </div>
@@ -462,8 +473,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Unauffällig gedreht, damit dein Event ungestört läuft</li>
           <li>Als langer Rückblick oder kurzer Social-Media-Teaser</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="/eventfilm/" style="margin-left:18px">Mehr zum Eventfilm</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+          <a class="btn-ghost" href="/eventfilm/">Mehr zum Eventfilm</a>
+        </div>
       </div>
     </div>
   </div>
@@ -485,7 +498,9 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li>Passend zu deinen Videos – ein Look über alle Kanäle</li>
           <li>Vom einzelnen Flyer bis zum kompletten Branding</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+        </div>
       </div>
     </div>
   </div>
@@ -507,8 +522,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           <li><strong>Formate für Karriereseite, Stellenanzeigen &amp; Social Media</strong> gleich mit</li>
           <li>Konzept, Dreh und Schnitt aus einer Hand</li>
         </ul>
-        <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
-        <a class="btn-ghost" href="/recruitingvideo/" style="margin-left:18px">Mehr zum Recruitingvideo</a>
+        <div class="l-ctas">
+          <a class="btn-ghost" href="/#kontakt">Projekt anfragen</a>
+          <a class="btn-ghost" href="/recruitingvideo/">Mehr zum Recruitingvideo</a>
+        </div>
       </div>
     </div>
   </div>
