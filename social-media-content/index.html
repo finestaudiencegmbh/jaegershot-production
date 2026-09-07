@@ -517,6 +517,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <button class="modal-zu" type="button" aria-label="Schließen">×</button>
     <p class="m-titel">Erstgespräch vereinbaren</p>
     <form id="mForm" action="#" method="post" novalidate>
+      <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
       <div class="m-schritt aktiv" data-schritt="1">
         <h3 class="m-frage">Wie heißt du?</h3>
         <div class="m-feld"><label for="m-name">Dein Name</label><input type="text" id="m-name" name="name" autocomplete="name"></div>
@@ -607,14 +608,46 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     hg.querySelectorAll('.m-zurueck').forEach(function(b){
       b.addEventListener('click', function(){ zeige(aktuell - 1); });
     });
+    /* Versand über Web3Forms – Key wird einmalig für info@jaeger-shot.de erzeugt */
+    window.FORMULAR_KEY = 'HIER-WEB3FORMS-ACCESS-KEY-EINTRAGEN';
+    window.sendeAnfrage = function(daten){
+      daten.access_key = window.FORMULAR_KEY;
+      daten.from_name = 'Website Jäger Shot Productions';
+      return fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(daten)
+      }).then(function(r){ return r.json(); }).then(function(j){
+        if(!j.success) throw new Error(j.message || 'Senden fehlgeschlagen');
+      });
+    };
     document.getElementById('mForm').addEventListener('submit', function(e){
       e.preventDefault();
       if(aktuell < 2){ if(pruefe(aktuell)) zeige(aktuell + 1); return; }
       if(!pruefe(0)){ zeige(0); return; }
       if(!pruefe(1)){ zeige(1); return; }
       if(!pruefe(2)){ zeige(2); return; }
-      this.style.display = 'none';
-      hg.querySelector('.m-danke').classList.add('aktiv');
+      var form = this;
+      if(form.querySelector('[name="botcheck"]').value){ return; }
+      var knopf = form.querySelector('.m-schritt[data-schritt="3"] [type="submit"]');
+      var alterText = knopf.textContent;
+      knopf.disabled = true;
+      knopf.textContent = 'Wird gesendet…';
+      window.sendeAnfrage({
+        subject: 'Neue Anfrage über die Website (Erstgespräch)',
+        name: form.querySelector('#m-name').value.trim(),
+        firma: form.querySelector('#m-firma').value.trim(),
+        email: form.querySelector('#m-mail').value.trim(),
+        telefon: form.querySelector('#m-tel').value.trim(),
+        nachricht: form.querySelector('#m-msg').value.trim()
+      }).then(function(){
+        form.style.display = 'none';
+        hg.querySelector('.m-danke').classList.add('aktiv');
+      }).catch(function(){
+        knopf.disabled = false;
+        knopf.textContent = alterText;
+        fehler(schritte[2], 'Das hat leider nicht geklappt. Schreib uns direkt an info@jaeger-shot.de oder ruf an: +49 173 5166 848.');
+      });
     });
   })();
 </script>
