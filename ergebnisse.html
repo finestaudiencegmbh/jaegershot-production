@@ -127,6 +127,18 @@ nav{
 .arbeit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
 .arbeit-grid .reel-card{aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:var(--karte);border:1px solid var(--linie)}
 @media(max-width:860px){.arbeit-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.projekte-band{
+  background:linear-gradient(180deg,var(--schwarz) 0%,#15151B 18%,#17171D 82%,var(--schwarz) 100%);
+  border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);
+}
+.projekte-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
+.projekt-video{
+  border-radius:12px;overflow:hidden;
+  background:var(--karte);border:1px solid #2E2E38;border-top-color:#3D3D4A;
+  box-shadow:0 16px 38px rgba(0,0,0,.35);
+}
+.projekt-video wistia-player{display:block;width:100%}
+@media(max-width:860px){.projekte-grid{grid-template-columns:1fr;gap:16px}}
 .cta-band{background:var(--anthrazit);text-align:center}
 .cta-band h2{margin-bottom:14px}
 .cta-band .lead{margin:0 auto 36px}
@@ -379,6 +391,21 @@ section:nth-of-type(2)::before{
       <div class="reel-card"><button class="w-facade" type="button" data-wistia="slhk9clvxj" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/slhk9clvxj/swatch')"><span class="w-play">▶</span></button></div>
       <div class="reel-card"><button class="w-facade" type="button" data-wistia="6h3fhul5i1" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/6h3fhul5i1/swatch')"><span class="w-play">▶</span></button></div>
       <div class="reel-card"><button class="w-facade" type="button" data-wistia="vvvztviceo" aria-label="Video abspielen" style="background-image:url('https://fast.wistia.com/embed/medias/vvvztviceo/swatch')"><span class="w-play">▶</span></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJEKTE IN VOLLER LAENGE (16:9) ============ -->
+<section class="projekte-band">
+  <div class="wrap">
+    <p class="timecode">Das grosse Format</p>
+    <h2 class="display">Ausgewählte Projekte in voller Länge.</h2>
+    <p class="lead">Imagefilme, Eventfilme und Firmenporträts im Breitbild – direkt hier ansehen.</p>
+    <div class="projekte-grid">
+      <div class="projekt-video"><script src="https://fast.wistia.com/embed/ek5p7p5mro.js" async type="module"></script><style>wistia-player[media-id='ek5p7p5mro']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ek5p7p5mro/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="ek5p7p5mro" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      <div class="projekt-video"><script src="https://fast.wistia.com/embed/msae3aut14.js" async type="module"></script><style>wistia-player[media-id='msae3aut14']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/msae3aut14/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="msae3aut14" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      <div class="projekt-video"><script src="https://fast.wistia.com/embed/sqvw1ej4cs.js" async type="module"></script><style>wistia-player[media-id='sqvw1ej4cs']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/sqvw1ej4cs/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="sqvw1ej4cs" seo="false" aspect="1.7777777777777777"></wistia-player></div>
+      <div class="projekt-video"><script src="https://fast.wistia.com/embed/5qvx1ov29a.js" async type="module"></script><style>wistia-player[media-id='5qvx1ov29a']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/5qvx1ov29a/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="5qvx1ov29a" seo="false" aspect="1.7777777777777777"></wistia-player></div>
     </div>
   </div>
 </section>
