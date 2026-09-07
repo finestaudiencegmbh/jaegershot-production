@@ -541,11 +541,6 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn" type="submit">Erstgespräch anfragen</button></div>
       </div>
     </form>
-    <div class="m-danke">
-      <div class="m-check">✓</div>
-      <h3>Danke für deine Anfrage!</h3>
-      <p>Wir melden uns innerhalb von 24 Stunden persönlich bei dir. Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch.</p>
-    </div>
     <p class="m-trust">100 % unverbindlich · Kein Spam · Antwort in 24 Stunden</p>
   </div>
 </div>
@@ -644,8 +639,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         telefon: form.querySelector('#m-tel').value.trim(),
         nachricht: form.querySelector('#m-msg').value.trim()
       }).then(function(){
-        form.style.display = 'none';
-        hg.querySelector('.m-danke').classList.add('aktiv');
+        window.location.href = '/termin-danke/';
       }).catch(function(){
         knopf.disabled = false;
         knopf.textContent = alterText;

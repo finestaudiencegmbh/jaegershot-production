@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow"> <!-- Danke-Seite: DAUERHAFT nicht indexieren – auch nach dem Go-Live NICHT entfernen -->
+<title>Danke für deine Anfrage – Jäger Shot Productions</title>
+<link rel="icon" type="image/png" href="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=256&height=161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+<!-- ==================================================================
+     TRACKING-CODES HIER EINFÜGEN (Facebook Pixel, Google Ads & Co.)
+     Diese Seite wird nur nach erfolgreichem Absenden des Formulars
+     aufgerufen – ein Seitenaufruf = eine Anfrage (Conversion).
+     ================================================================== -->
+
+<!-- ENDE TRACKING-CODES -->
+
+<style>
+@font-face{
+  font-family:'Inter';
+  src:url('/assets/fonts/inter-variable.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --schwarz:#0B0B0D;
+  --anthrazit:#141418;
+  --karte:#1A1A20;
+  --linie:#2A2A32;
+  --leinwand:#F2EFE9;
+  --grau:#9A9AA3;
+  --rot:#C22C26;
+  --rot-hell:#E4564F;
+  --rot-dunkel:#8F1F1B;
+  --gruen:#2E7D51;
+  --gruen-hell:#7FD8A4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--schwarz);
+  color:var(--leinwand);
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:800px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;font-weight:400}
+.timecode{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rot-hell);
+  display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:22px;
+}
+.timecode::before{content:"";width:34px;height:1px;background:var(--rot)}
+.timecode .tc-num{color:var(--grau)}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,11,13,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--linie);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo img{height:40px;width:auto}
+.nav-back{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;
+  color:var(--grau);transition:color .15s;
+}
+.nav-back:hover{color:var(--leinwand)}
+main{padding:170px 0 100px;text-align:center}
+.check{
+  width:72px;height:72px;border-radius:50%;margin:0 auto 28px;
+  background:linear-gradient(180deg,rgba(111,207,151,.16) 0%,rgba(111,207,151,.05) 100%);
+  border:1px solid var(--gruen);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gruen-hell);font-size:32px;
+  box-shadow:0 16px 38px rgba(0,0,0,.32);
+}
+h1.display{font-size:clamp(34px,6vw,54px);margin-bottom:18px}
+.lead{color:var(--grau);max-width:560px;margin:0 auto 44px;font-size:18px}
+.lead strong{color:var(--leinwand);font-weight:500}
+.naechste{
+  background:linear-gradient(180deg,#1B1B22 0%,#121217 100%);border:1px solid #2E2E38;border-top-color:#3D3D4A;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.32);
+  padding:30px 32px;margin:0 auto 44px;max-width:560px;text-align:left;
+}
+.naechste h2{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--rot-hell);margin-bottom:16px;
+}
+.naechste ol{list-style:none;counter-reset:schritt}
+.naechste li{
+  counter-increment:schritt;position:relative;padding-left:44px;
+  color:var(--grau);font-size:15.5px;margin-bottom:14px;
+}
+.naechste li:last-child{margin-bottom:0}
+.naechste li::before{
+  content:counter(schritt);position:absolute;left:0;top:1px;
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(180deg,rgba(194,44,38,.22) 0%,rgba(194,44,38,.08) 100%);
+  border:1px solid var(--rot-dunkel);color:var(--rot-hell);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:500;
+}
+.naechste li strong{color:var(--leinwand);font-weight:500}
+.kalender-slot{margin:0 auto 44px;max-width:680px}
+.platzhalter{
+  border:1px dashed var(--linie);border-radius:12px;
+  padding:44px 24px;color:var(--grau);font-size:15px;
+}
+.platzhalter .ph-tag{
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11px;color:var(--rot-hell);
+  letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:10px;
+}
+.btn{
+  display:inline-block;background:var(--rot);color:#FFFFFF;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;
+  font-size:15px;letter-spacing:.02em;
+  padding:15px 30px;border-radius:6px;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:#D63A33;transform:translateY(-1px)}
+footer{border-top:1px solid var(--linie);padding:50px 0 40px}
+.footer-inner{
+  max-width:1140px;margin:0 auto;padding:0 24px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.footer-inner img{height:44px;width:auto}
+.footer-links{display:flex;gap:18px 24px;font-size:14px;color:var(--grau);flex-wrap:wrap;justify-content:center}
+.footer-links a:hover{color:var(--leinwand)}
+.footer-copy{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:11.5px;color:var(--grau);letter-spacing:.06em}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .nav-logo img{height:44px}
+  main{padding:140px 0 70px}
+  .naechste{padding:24px 20px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Jäger Shot Productions">
+      <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions Logo">
+    </a>
+    <a class="nav-back" href="/">← Zurück zur Startseite</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <p class="timecode">Anfrage erhalten <span class="tc-num">// Danke</span></p>
+    <div class="check">✓</div>
+    <h1 class="display">Danke für deine Anfrage!</h1>
+    <p class="lead"><strong>Wir melden uns innerhalb von 24 Stunden persönlich bei dir.</strong> Und wenn wir nicht die Richtigen für dein Projekt sind, sagen wir dir das auch ehrlich.</p>
+
+    <div class="naechste">
+      <h2>So geht es jetzt weiter</h2>
+      <ol>
+        <li><strong>Wir lesen deine Anfrage</strong> und schauen uns an, was zu deinem Betrieb passt.</li>
+        <li><strong>Du hörst von uns</strong> – per Telefon oder E-Mail, innerhalb von 24 Stunden.</li>
+        <li><strong>Kostenloses Erstgespräch:</strong> Wir sagen dir ehrlich, was Sinn ergibt, was es kostet und wie schnell es geht.</li>
+      </ol>
+    </div>
+
+    <div class="kalender-slot">
+      <!-- ==================================================================
+           CALENDLY-EINBETTUNG HIER
+           Wenn der Calendly-Code da ist: den .platzhalter-Block darunter
+           komplett durch das Calendly-Embed ersetzen.
+           ================================================================== -->
+      <div class="platzhalter">
+        <span class="ph-tag">Bald verfügbar</span>
+        Hier kannst du dir künftig direkt einen Termin für dein Erstgespräch aussuchen.
+      </div>
+    </div>
+
+    <a class="btn" href="/">Zurück zur Startseite</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <img decoding="async" src="https://framerusercontent.com/images/TXcUEjdlMquJmXtFmoTT33PH43I.png?width=200&height=126" alt="Jäger Shot Productions">
+    <div class="footer-links">
+      <a href="https://instagram.com/jaeger.shot.productions">Instagram</a>
+      <a href="/ergebnisse/">Ergebnisse</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Jäger Shot Productions · Aschaffenburg</p>
+  </div>
+</footer>
+
+<!-- ==================================================================
+     TRACKING-NOSCRIPT-CODES HIER (z. B. Facebook Pixel <noscript>-Teil)
+     ================================================================== -->
+
+</body>
+</html>
