@@ -104,17 +104,22 @@ nav{
 .kopf .lead{margin-top:22px}
 
 .leistung-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  display:grid;grid-template-columns:1fr 1fr;column-gap:56px;
+  grid-template-areas:"bild kopf" "bild text";
+  grid-template-rows:auto auto;align-content:center;
 }
-.leistung-row.getauscht .leistung-bild{order:2}
+.leistung-row.getauscht{grid-template-areas:"kopf bild" "text bild"}
+.leistung-kopf{grid-area:kopf}
+.leistung-bild{grid-area:bild;align-self:center}
+.leistung-text{grid-area:text}
 .leistung-bild img{
   border-radius:8px;width:100%;height:380px;object-fit:cover;filter:saturate(.85);
 }
-.leistung-text .lnum{
+.leistung-kopf .lnum{
   font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-weight:500;font-size:13px;color:var(--rot-hell);
   letter-spacing:.14em;display:block;margin-bottom:14px;
 }
-.leistung-text h2{margin-bottom:14px}
+.leistung-kopf h2{margin-bottom:14px}
 .leistung-text p{color:var(--grau);margin-bottom:18px;line-height:1.5}
 .leistung-text p strong{color:var(--leinwand);font-weight:500}
 .leistung-text ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
@@ -164,8 +169,8 @@ footer{border-top:1px solid var(--linie);padding:50px 0 40px}
   .nav-burger{display:block}
 }
 @media(max-width:860px){
-  .leistung-row{grid-template-columns:1fr;gap:28px}
-  .leistung-row.getauscht .leistung-bild{order:0}
+  .leistung-row,.leistung-row.getauscht{grid-template-columns:1fr;grid-template-areas:"kopf" "bild" "text";gap:22px}
+  .leistung-kopf h2{margin-bottom:0}
   .leistung-bild img{height:260px}
 }
 @media(max-width:760px){
@@ -361,12 +366,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="videoproduktion">
   <div class="wrap">
     <div class="leistung-row">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Videoproduktion</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="/assets/shooting-interview-buero.jpg" alt="Videoproduktion: Interview-Dreh vor Ort" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 01</span>
-        <h2 class="display">Videoproduktion</h2>
         <p>Imagefilme, Werbevideos und Firmenvideos, die Vertrauen schaffen. Damit Interessenten dich schon kennen, bevor sie das erste Mal anrufen.</p>
         <ul>
           <li><strong>Konzept &amp; Drehplanung</strong> – wir entwickeln die Idee mit dir im Erstgespräch</li>
@@ -387,12 +394,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="social-media">
   <div class="wrap">
     <div class="leistung-row getauscht">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Social Media Content</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="https://framerusercontent.com/images/HTFcoNoPnlDcOXKQrN81X0pjzA.jpg?width=600&height=600" alt="Social Media Content" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 02</span>
-        <h2 class="display">Social Media Content</h2>
         <p>Reels, kurze Videos und Grafiken, die auffallen und zu deiner Marke passen. Damit du im Feed deiner Kunden auftauchst, nicht nur deine Konkurrenz.</p>
         <ul>
           <li><strong>Reels bis 45 Sekunden</strong> – gedreht und geschnitten für Instagram, Facebook &amp; TikTok</li>
@@ -412,12 +421,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="drohne">
   <div class="wrap">
     <div class="leistung-row">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Drohnenaufnahmen</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="https://framerusercontent.com/images/7QKUCGiGcz4878oHjlVSkmmRFo.jpg?width=600&height=600" alt="Drohnenaufnahmen" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 03</span>
-        <h2 class="display">Drohnenaufnahmen</h2>
         <p>Drohnenaufnahmen für Immobilien, Baustellen und Betriebe in Aschaffenburg und Umgebung. Hochauflösend, aus der Perspektive, die Eindruck macht.</p>
         <ul>
           <li><strong>Immobilien &amp; Grundstücke</strong> – für Exposés, die aus der Masse stechen</li>
@@ -437,12 +448,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="postproduktion">
   <div class="wrap">
     <div class="leistung-row getauscht">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Schnitt &amp; Postproduktion</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="https://framerusercontent.com/images/yuOxi4EmjgzTNgEw0DNeZWShgUU.jpg?width=600&height=600" alt="Videoschnitt und Postproduktion" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 04</span>
-        <h2 class="display">Schnitt &amp; Postproduktion</h2>
         <p>Du hast schon Material? Wir machen was draus. Professioneller Schnitt, Farbkorrektur und Ton, damit dein Rohmaterial nicht auf der Festplatte verstaubt.</p>
         <ul>
           <li><strong>Schnitt &amp; Dramaturgie</strong> – aus Rohmaterial wird eine Geschichte</li>
@@ -461,12 +474,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="eventfilm">
   <div class="wrap">
     <div class="leistung-row">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Eventfilm &amp; Aftermovie</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="/assets/shooting-eventdreh-villa.jpg" alt="Eventfilm: Dreh mit zwei Kameras" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 05</span>
-        <h2 class="display">Eventfilm &amp; Aftermovie</h2>
         <p>Dein Event lebt weiter: als Eventfilm oder Aftermovie, der den Abend festhält und beim nächsten Mal für volle Plätze sorgt.</p>
         <ul>
           <li><strong>Firmenfeiern, Festivals &amp; Veranstaltungen</strong> – wir halten die Stimmung fest</li>
@@ -486,12 +501,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="design">
   <div class="wrap">
     <div class="leistung-row getauscht">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Marketing &amp; Design</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="https://framerusercontent.com/images/IO7AyYdoKQ3p0nKERpOfStisr9A.jpg?width=600&height=600" alt="Marketing und Grafikdesign" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 06</span>
-        <h2 class="display">Marketing &amp; Design</h2>
         <p>Flyer, Visitenkarten, Grafikdesign und Branding. Ein Auftritt aus einem Guss, online wie gedruckt.</p>
         <ul>
           <li><strong>Print &amp; Digital</strong> – Flyer, Visitenkarten, Social-Media-Grafiken</li>
@@ -510,12 +527,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 <section id="recruitingvideo">
   <div class="wrap">
     <div class="leistung-row">
+      <div class="leistung-kopf">
+        <span class="lnum">Leistung</span>
+        <h2 class="display">Recruitingvideo</h2>
+      </div>
       <div class="leistung-bild">
         <img decoding="async" src="/assets/shooting-feuerwehr-aschaffenburg.jpg" alt="Recruitingvideo-Dreh: Team eines Betriebs in Aschaffenburg vor der Kamera" loading="lazy">
       </div>
       <div class="leistung-text">
-        <span class="lnum">Leistung 07</span>
-        <h2 class="display">Recruitingvideo</h2>
         <p>Recruitingvideos für Mittelstand und Handwerk in Aschaffenburg: echte Einblicke in Team und Arbeitsalltag, die passende Bewerber überzeugen – bevor sie die Stellenanzeige zu Ende gelesen haben.</p>
         <ul>
           <li><strong>Team &amp; Arbeitsalltag dokumentarisch gedreht</strong> – ohne gestellte Szenen</li>
