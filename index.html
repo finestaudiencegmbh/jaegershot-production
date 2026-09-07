@@ -1235,22 +1235,26 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
         <div class="form-row">
           <div>
-            <label for="f-name">Dein Name</label>
-            <input type="text" id="f-name" name="name" required>
+            <label for="f-vorname">Vorname</label>
+            <input type="text" id="f-vorname" name="vorname" autocomplete="given-name" required>
           </div>
           <div>
-            <label for="f-firma">Firma</label>
-            <input type="text" id="f-firma" name="firma" required>
+            <label for="f-nachname">Nachname</label>
+            <input type="text" id="f-nachname" name="nachname" autocomplete="family-name" required>
           </div>
+        </div>
+        <div>
+          <label for="f-firma">Firma</label>
+          <input type="text" id="f-firma" name="firma" autocomplete="organization" required>
         </div>
         <div class="form-row">
           <div>
             <label for="f-mail">E-Mail</label>
-            <input type="email" id="f-mail" name="email" required>
+            <input type="email" id="f-mail" name="email" autocomplete="email" required>
           </div>
           <div>
             <label for="f-tel">Telefon</label>
-            <input type="tel" id="f-tel" name="telefon" required>
+            <input type="tel" id="f-tel" name="telefon" autocomplete="tel" required>
           </div>
         </div>
         <div>
@@ -1311,7 +1315,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
       <div class="m-schritt aktiv" data-schritt="1">
         <h3 class="m-frage">Wie heißt du?</h3>
-        <div class="m-feld"><label for="m-name">Dein Name</label><input type="text" id="m-name" name="name" autocomplete="name"></div>
+        <div class="m-feld"><label for="m-vorname">Vorname</label><input type="text" id="m-vorname" name="vorname" autocomplete="given-name"></div>
+        <div class="m-feld"><label for="m-nachname">Nachname</label><input type="text" id="m-nachname" name="nachname" autocomplete="family-name"></div>
         <div class="m-feld"><label for="m-firma">Firma</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="btn m-weiter" type="button">Weiter</button></div>
@@ -1360,7 +1365,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     function pruefe(i){
       var s = schritte[i];
       if(i === 0){
-        if(!s.querySelector('#m-name').value.trim()){ fehler(s, 'Sag uns kurz, wie du heißt.'); return false; }
+        if(!s.querySelector('#m-vorname').value.trim()){ fehler(s, 'Sag uns kurz, wie du heißt.'); return false; }
+        if(!s.querySelector('#m-nachname').value.trim()){ fehler(s, 'Bitte gib auch deinen Nachnamen an.'); return false; }
         if(!s.querySelector('#m-firma').value.trim()){ fehler(s, 'Bitte gib auch deine Firma an.'); return false; }
       }
       if(i === 1){
@@ -1426,7 +1432,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       knopf.textContent = 'Wird gesendet…';
       window.sendeAnfrage({
         subject: 'Neue Anfrage über die Website (Erstgespräch)',
-        name: form.querySelector('#m-name').value.trim(),
+        vorname: form.querySelector('#m-vorname').value.trim(),
+        nachname: form.querySelector('#m-nachname').value.trim(),
         firma: form.querySelector('#m-firma').value.trim(),
         email: form.querySelector('#m-mail').value.trim(),
         telefon: form.querySelector('#m-tel').value.trim(),
@@ -1458,7 +1465,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       knopf.textContent = 'Wird gesendet…';
       window.sendeAnfrage({
         subject: 'Neue Anfrage über die Website (Kontaktformular)',
-        name: form.querySelector('#f-name').value.trim(),
+        vorname: form.querySelector('#f-vorname').value.trim(),
+        nachname: form.querySelector('#f-nachname').value.trim(),
         firma: form.querySelector('#f-firma').value.trim(),
         email: form.querySelector('#f-mail').value.trim(),
         telefon: form.querySelector('#f-tel').value.trim(),
