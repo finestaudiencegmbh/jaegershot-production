@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <title>Recruitingvideo erstellen lassen in Aschaffenburg – Jäger Shot Productions</title>
-<meta name="description" content="Imagefilme und Werbevideos für Betriebe in Aschaffenburg und dem Rhein-Main-Gebiet. Persönlich gedreht, ehrlich beraten, fair kalkuliert. Jetzt Erstgespräch anfragen.">
+<meta name="description" content="Recruitingvideos für Mittelstand und Handwerk: echte Einblicke in Team und Arbeitsalltag, die Fachkräfte und Azubis überzeugen. Aus Aschaffenburg, deutschlandweit im Einsatz.">
 <link rel="canonical" href="https://www.jaeger-shot.de/recruitingvideo/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jäger Shot Productions">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Recruitingvideo erstellen lassen in Aschaffenburg – Jäger Shot Productions">
-<meta property="og:description" content="Imagefilme und Werbevideos für Betriebe in Aschaffenburg und dem Rhein-Main-Gebiet. Persönlich gedreht, ehrlich beraten, fair kalkuliert. Jetzt Erstgespräch anfragen.">
+<meta property="og:description" content="Recruitingvideos für Mittelstand und Handwerk: echte Einblicke in Team und Arbeitsalltag, die Fachkräfte und Azubis überzeugen. Aus Aschaffenburg, deutschlandweit im Einsatz.">
 <meta property="og:url" content="https://www.jaeger-shot.de/recruitingvideo/">
 <meta property="og:image" content="https://www.jaeger-shot.de/assets/og-bild.jpg">
 <meta property="og:image:width" content="1200">
@@ -107,6 +107,15 @@ nav{
 .nav-links a.aktiv{color:var(--leinwand);border-bottom:2px solid var(--rot);padding-bottom:2px}
 .nav-links .btn{padding:10px 20px;font-size:14px;color:#FFFFFF}
 .nav-links .btn:hover{color:#FFFFFF}
+.nav-gruppe{position:relative}
+.nav-gruppe>a::after{content:"\25BE";margin-left:7px;font-size:10px;color:var(--grau)}
+.nav-unter{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;min-width:225px;z-index:60}
+.nav-gruppe:hover .nav-unter,.nav-gruppe:focus-within .nav-unter{display:block}
+.nav-unter-box{background:rgba(15,15,18,.97);border:1px solid var(--linie);border-radius:10px;padding:8px 0;box-shadow:0 22px 45px rgba(0,0,0,.5)}
+.nav-unter-box a{display:block;padding:11px 20px;font-size:14px}
+.nav-unter-box a:hover{background:rgba(194,44,38,.10)}
+.nav-insta{display:inline-flex;align-items:center;gap:8px}
+.nav-insta svg{width:17px;height:17px}
 .nav-burger{display:none;background:none;border:none;color:var(--leinwand);font-size:32px;padding:4px 10px;cursor:pointer}
 .nav-cta-mobil{display:none;padding:11px 16px;font-size:13.5px;white-space:nowrap}
 
@@ -273,6 +282,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   section:nth-of-type(4)::before{background:radial-gradient(circle 220px at -90px 50%,rgba(228,86,79,.10) 0%,rgba(228,86,79,0) 70%)}
   section:nth-of-type(7)::before{background:radial-gradient(circle 220px at calc(100% + 85px) 50%,rgba(194,44,38,.11) 0%,rgba(194,44,38,0) 70%)}
 }
+
+@media(max-width:900px){
+  .nav-gruppe{position:static}
+  .nav-unter{position:static;transform:none;display:block;padding:0;min-width:0}
+  .nav-unter-box{background:none;border:none;box-shadow:none;border-radius:0;padding:0 0 4px 18px}
+  .nav-unter-box a{padding:12px 2px;font-size:15px;font-weight:500;border-bottom:none;color:var(--grau)}
+  .nav-insta svg{width:20px;height:20px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -290,6 +307,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
  "areaServed": [
   "Aschaffenburg",
   "Rhein-Main-Gebiet",
+  "Deutschland",
   "Unterfranken"
  ]
 }
@@ -349,10 +367,20 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <a class="btn nav-cta-mobil" href="/#kontakt">Erstgespräch</a>
     <button class="nav-burger" aria-label="Menü öffnen" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a class="aktiv" href="/leistungen/">Leistungen</a>
+      <div class="nav-gruppe">
+        <a class="aktiv" href="/leistungen/">Leistungen</a>
+        <div class="nav-unter"><div class="nav-unter-box">
+          <a href="/imagefilm/">Imagefilm</a>
+          <a href="/social-media-content/">Social Media Content</a>
+          <a href="/eventfilm/">Eventfilm</a>
+          <a href="/drohnenaufnahmen/">Drohnenaufnahmen</a>
+          <a href="/recruitingvideo/">Recruitingvideo</a>
+        </div></div>
+      </div>
       <a href="/ueber-uns/">Über uns</a>
       <a href="/ergebnisse/">Referenzen</a>
       <a href="/blog/">Blog</a>
+      <a class="nav-insta" href="https://instagram.com/jaeger.shot.productions" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
       <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
     </div>
   </div>
@@ -364,7 +392,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   <div class="wrap">
     <a class="timecode" href="/leistungen/" title="Zurück zur Leistungs-Übersicht">Leistung <span class="tc-num">// Recruitingvideo</span></a>
     <h1 class="display">Bewerber überzeugt man mit <span style="color:var(--rot-hell)">echten Einblicken.</span></h1>
-    <p class="lead">Fachkräfte entscheiden heute in Sekunden, ob ein Arbeitgeber interessant ist. Ein Recruitingvideo zeigt dein Team, deinen Alltag und deine Benefits so, wie sie wirklich sind – und holt genau die Bewerber, die zu deinem Betrieb passen.</p>
+    <p class="lead">Fachkräfte und Azubis entscheiden heute in Sekunden, ob ein Arbeitgeber interessant ist. Ein Recruitingvideo zeigt dein Team, deinen Alltag und deine Benefits so, wie sie wirklich sind – und holt genau die Bewerber, die zu deinem Betrieb passen.</p>
     <div class="kopf-ctas">
       <a class="btn" href="/#kontakt">Kostenloses Erstgespräch</a>
       <a class="btn-ghost" href="/ergebnisse/">Referenzen ansehen</a>
@@ -448,6 +476,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       <details>
         <summary>Wo setze ich das Video am besten ein?</summary>
         <div class="antwort">Auf deiner Karriereseite, in Stellenanzeigen, im Google-Unternehmensprofil und als kurze Schnitte in Social Media. <strong>Wir liefern die passenden Formate gleich mit</strong>, damit du das Video überall einsetzen kannst, wo deine Bewerber unterwegs sind.</div>
+      </details>
+      <details>
+        <summary>Funktioniert das auch für Azubi-Stellen?</summary>
+        <div class="antwort">Gerade da. <strong>Azubi-Videos sind eine unserer wichtigsten Zielgruppen:</strong> Junge Bewerber erreichst du nicht über Stellenportale, sondern über Instagram und TikTok – mit echten Azubis aus deinem Betrieb vor der Kamera statt Hochglanz-Floskeln. Wir drehen das Video so, dass es genau dort funktioniert.</div>
       </details>
       <details>
         <summary>Lohnt sich das auch für kleine Betriebe?</summary>
