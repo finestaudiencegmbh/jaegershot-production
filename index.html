@@ -477,9 +477,10 @@ nav{
 }
 
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:20px}
-.team-fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.team-fotos{display:grid;grid-template-columns:1fr;gap:14px}
 .team-fotos img{border-radius:8px;object-fit:cover;height:100%;filter:saturate(.9)}
-.team-fotos img:first-child{grid-column:1/-1;max-height:340px;width:100%}
+.team-fotos img:first-child{max-height:340px;width:100%}
+.team-fotos .team-duo{max-height:460px;width:100%;object-position:50% 12%}
 .team-text h2{margin-bottom:22px}
 .team-text p{color:var(--grau);margin-bottom:18px}
 .team-text p strong{color:var(--leinwand);font-weight:500}
@@ -1163,8 +1164,7 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     <div class="team-grid">
       <div class="team-fotos">
         <img decoding="async" src="/assets/shooting-feuerwehr-aschaffenburg.jpg" alt="Jäger Shot Productions beim Dreh für die Feuerwehr Aschaffenburg" loading="lazy">
-        <img decoding="async" src="/assets/team-ronny-jaeger.jpg" alt="Ronny Jäger, Kamera" loading="lazy">
-        <img decoding="async" src="/assets/team-maria-kraemer.jpg" alt="Maria Krämer, Regie" loading="lazy">
+        <img decoding="async" class="team-duo" src="/assets/team-foto.jpg" alt="Maria Krämer und Ronny Jäger – das Team von Jäger Shot Productions" loading="lazy">
       </div>
       <div class="team-text">
         <p class="timecode">Wer hinter der Kamera steht</p>
