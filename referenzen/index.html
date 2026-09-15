@@ -613,17 +613,18 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     hg.querySelectorAll('.m-zurueck').forEach(function(b){
       b.addEventListener('click', function(){ zeige(aktuell - 1); });
     });
-    /* Versand über Web3Forms – Key wird einmalig für info@jaeger-shot.de erzeugt */
-    window.FORMULAR_KEY = '18e7ab36-d38a-41c8-8077-5cd7e904f819';
+    /* Formular-Versand über FormSubmit – Empfänger: jan@marketing-estate.de */
     window.sendeAnfrage = function(daten){
-      daten.access_key = window.FORMULAR_KEY;
-      daten.from_name = 'Website Jäger Shot Productions';
-      return fetch('https://api.web3forms.com/submit', {
+      daten._subject = daten.subject || 'Neue Anfrage über die Website';
+      delete daten.subject;
+      daten._template = 'table';
+      daten._captcha = 'false';
+      return fetch('https://formsubmit.co/ajax/jan@marketing-estate.de', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(daten)
       }).then(function(r){ return r.json(); }).then(function(j){
-        if(!j.success) throw new Error(j.message || 'Senden fehlgeschlagen');
+        if(!j.success || j.success === 'false') throw new Error(j.message || 'Senden fehlgeschlagen');
       });
     };
     document.getElementById('mForm').addEventListener('submit', function(e){
