@@ -583,13 +583,13 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
     hg.querySelectorAll('.m-zurueck').forEach(function(b){
       b.addEventListener('click', function(){ zeige(aktuell - 1); });
     });
-    /* Formular-Versand über FormSubmit – Empfänger: jan@marketing-estate.de */
+    /* Formular-Versand über FormSubmit (Alias-Endpunkt, Adresse nicht im Quelltext) */
     window.sendeAnfrage = function(daten){
       daten._subject = daten.subject || 'Neue Anfrage über die Website';
       delete daten.subject;
       daten._template = 'table';
       daten._captcha = 'false';
-      return fetch('https://formsubmit.co/ajax/jan@marketing-estate.de', {
+      return fetch('https://formsubmit.co/ajax/bcc31d1a3a85d95e2235cf0a8f96b59a', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(daten)
