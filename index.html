@@ -19,9 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <script>
   /* Muss vor dem Widget-Script laufen: erzwingt offene Shadow-Roots,
      damit der Kontrast-Fixer die Widget-Texte erreichen kann. */
@@ -41,6 +39,22 @@
   font-weight:100 900;
   font-style:normal;
   font-display:swap;
+}
+@font-face{
+  font-family:'Anton';
+  src:url('/assets/fonts/anton-400.woff2') format('woff2');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Anton';
+  src:url('/assets/fonts/anton-ext-400.woff2') format('woff2');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 :root{
   --schwarz:#0B0B0D;
@@ -1273,8 +1287,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
           </div>
         </div>
         <div>
-          <label for="f-firma">Firma</label>
-          <input type="text" id="f-firma" name="firma" autocomplete="organization" required>
+          <label for="f-firma">Firma <span style="color:var(--grau);font-weight:400">(optional)</span></label>
+          <input type="text" id="f-firma" name="firma" autocomplete="organization">
         </div>
         <div class="form-row">
           <div>
@@ -1282,8 +1296,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
             <input type="email" id="f-mail" name="email" autocomplete="email" required>
           </div>
           <div>
-            <label for="f-tel">Telefon</label>
-            <input type="tel" id="f-tel" name="telefon" autocomplete="tel" required>
+            <label for="f-tel">Telefon <span style="color:var(--grau);font-weight:400">(optional)</span></label>
+            <input type="tel" id="f-tel" name="telefon" autocomplete="tel">
           </div>
         </div>
         <div>
@@ -1346,14 +1360,14 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
         <h3 class="m-frage">Wie heißt du?</h3>
         <div class="m-feld"><label for="m-vorname">Vorname</label><input type="text" id="m-vorname" name="vorname" autocomplete="given-name"></div>
         <div class="m-feld"><label for="m-nachname">Nachname</label><input type="text" id="m-nachname" name="nachname" autocomplete="family-name"></div>
-        <div class="m-feld"><label for="m-firma">Firma</label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
+        <div class="m-feld"><label for="m-firma">Firma <span style="color:var(--grau);font-weight:400">(optional)</span></label><input type="text" id="m-firma" name="firma" autocomplete="organization"></div>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
       <div class="m-schritt" data-schritt="2">
         <h3 class="m-frage">Wie erreichen wir dich?</h3>
         <div class="m-feld"><label for="m-mail">E-Mail</label><input type="email" id="m-mail" name="email" autocomplete="email"></div>
-        <div class="m-feld"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
+        <div class="m-feld"><label for="m-tel">Telefon <span style="color:var(--grau);font-weight:400">(optional)</span></label><input type="tel" id="m-tel" name="telefon" autocomplete="tel"></div>
         <p class="m-fehler"></p>
         <div class="m-nav"><button class="m-zurueck" type="button">← Zurück</button><button class="btn m-weiter" type="button">Weiter</button></div>
       </div>
@@ -1391,12 +1405,10 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
       if(i === 0){
         if(!s.querySelector('#m-vorname').value.trim()){ fehler(s, 'Sag uns kurz, wie du heißt.'); return false; }
         if(!s.querySelector('#m-nachname').value.trim()){ fehler(s, 'Bitte gib auch deinen Nachnamen an.'); return false; }
-        if(!s.querySelector('#m-firma').value.trim()){ fehler(s, 'Bitte gib auch deine Firma an.'); return false; }
       }
       if(i === 1){
         var mail = s.querySelector('#m-mail').value.trim();
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){ fehler(s, 'Bitte gib eine gültige E-Mail-Adresse an.'); return false; }
-        if(s.querySelector('#m-tel').value.trim().length < 6){ fehler(s, 'Bitte gib auch deine Telefonnummer an.'); return false; }
       }
       if(i === 2){
         if(!s.querySelector('#m-msg').value.trim()){ fehler(s, 'Zwei Sätze reichen – worum geht es bei dir?'); return false; }
@@ -1773,8 +1785,8 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
 .consent-knoepfe button{cursor:pointer;border-radius:6px;font-family:inherit;font-weight:500;font-size:14.5px;padding:12px 22px;transition:background .15s,border-color .15s}
 .consent-annehmen{background:var(--rot);border:1px solid var(--rot);color:#FFFFFF}
 .consent-annehmen:hover{background:#D63A33}
-.consent-ablehnen{background:none;border:1px solid #2E2E38;color:var(--leinwand)}
-.consent-ablehnen:hover{border-color:var(--grau)}
+.consent-ablehnen{background:#2E2E38;border:1px solid #3D3D4A;color:var(--leinwand)}
+.consent-ablehnen:hover{background:#3A3A46;border-color:#4A4A58}
 @media(max-width:520px){.consent-banner{left:10px;right:10px;bottom:10px;padding:18px}.consent-knoepfe button{flex:1}}
 </style>
 <script>
@@ -1823,8 +1835,11 @@ section:nth-of-type(7)::before{top:-100px;background:radial-gradient(circle 330p
   }
 
   var w = wahl();
+  /* Auf Impressum und Datenschutz erscheint der Banner nicht von selbst,
+     damit die Rechtstexte jederzeit unverdeckt lesbar sind. */
+  var rechtsSeite = /^\/(impressum|datenschutz)(\/|$)/.test(location.pathname);
   if (w === 'ja') ladeTracking();
-  else if (w !== 'nein') zeigeBanner();
+  else if (w !== 'nein' && !rechtsSeite) zeigeBanner();
 
   /* Footer-Link, um die Wahl jederzeit zu ändern */
   document.querySelectorAll('.footer-links').forEach(function(fl){
